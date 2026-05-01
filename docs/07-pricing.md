@@ -2,6 +2,16 @@
 
 > 정책 1번 잘 만들면 모든 상품이 자동으로 정확한 가격에 등록되고 동기화됩니다.
 
+!!! tip "🎯 이 챕터에서 배우는 것"
+    - 가격이 자동 계산되는 공식 (마진율·수수료·할인 등)
+    - 신규 셀러가 첫 정책 만드는 3가지 핵심 변수
+    - 최소 마진 보장 — 손실 막아주는 안전장치
+    - 카테고리별·상품별 다른 정책 적용 우선순위
+    - 마켓별 가격 단위 (쿠팡 10원 등) 자동 정렬
+
+!!! note "어렵게 느껴진다면"
+    이 챕터의 절반 이상은 **고급 기능**입니다. 신규 셀러는 §1 (공식 한눈에) + §2 (첫 정책 만들기) + §3 (최소 마진) 만 보면 충분합니다.
+
 ---
 
 ## 1. 가격 공식 — 한눈에
@@ -29,27 +39,31 @@ flowchart TB
     style Pass fill:#dcfce7,stroke:#22c55e,stroke-width:2px
 ```
 
-### 1-1. 8가지 정책 변수
+### 1-1. 정책 변수 (전체)
 
 ```
-판매가 = (원가 + baseMargin + extraFee) × (1 + marginRate) ÷ (1 - feeRate)
-                                                         × (1 - discountRate)
-                                                         - discountAmount
-                                                         - marginAmount (있으면 마진 고정)
+판매가 = (원가 + baseMargin + marginAmount + extraFee) × (1 + marginRate) ÷ (1 - feeRate)
+                                                       × (1 - discountRate)
+                                                       - discountAmount
 ```
+
+위 결과는 마지막에 `priceUnit` 단위로 정렬되고 `minMargin` 보장이 적용됩니다.
 
 | 변수 | 의미 | 일반 셀러 추천 값 |
 |------|------|--------------|
-| `baseMargin` | 고정 마진 (원당) | 1,000원 |
+| `baseMargin` | 기본 마진 (원당 추가) | 1,000원 |
+| `marginAmount` | 추가 고정 마진 (베이스 위에 가산) | 0 |
 | `extraFee` | 추가 비용 (포장·배송 등) | 0원 |
 | `marginRate` | 마진율 (%) | 30% |
 | `feeRate` | 마켓 수수료 (%) | 12% (평균) |
 | `discountRate` | 추가 할인율 (%) | 0% |
 | `discountAmount` | 추가 할인 금액 | 0원 |
-| `marginAmount` | 마진 고정 (마진율 무시) | 0 (사용 X) |
 | `minMargin` | 최소 마진 보장 | 5,000원 |
+| `priceUnit` | 마지막 가격 단위 (10·100·1000원) | 100원 |
+| `useRangeMargin` + `rangeMargins` | 가격 구간별 마진율 (고급 기능) | 사용 안 함 |
+| `customFormula` | 사용자 정의 공식 (고급) | 사용 안 함 |
 
-이게 다 어렵게 느껴진다면 **`marginRate`(마진율) + `minMargin`(최소 마진)** 두 개만 신경 쓰면 됩니다. 나머지는 기본값.
+이게 다 어렵게 느껴진다면 **`marginRate`(마진율) + `minMargin`(최소 마진) + `priceUnit`(가격 단위)** 세 개만 신경 쓰면 됩니다. 나머지는 기본값.
 
 ---
 
@@ -243,17 +257,17 @@ flowchart LR
     style Display fill:#dcfce7,stroke:#22c55e
 ```
 
-롯데온의 정가/할인가 분리 등록과 결합되어 노출 효과 ↑.
+현재 롯데온은 판매가(slPrc) 단일 등록이라 정가/할인 분리 효과는 셀러센터 별도 프로모션 등록 시 살아납니다.
 
-### 7-3. marginAmount — 고정 마진
+### 7-3. marginAmount — 추가 고정 마진
 
-마진율 대신 고정 금액 마진을 원할 때:
+`baseMargin` 위에 더해지는 **추가 고정 금액 마진**입니다 (`marginRate`가 비활성된 게 아니라 베이스에 가산).
 
 ```
-판매가 = 원가 + marginAmount + 수수료
+원가 + baseMargin + marginAmount + extraFee → 마진율·수수료 적용
 ```
 
-특수 상품(중저가 가방 등)에 가끔 사용. 일반 셀러는 안 씀.
+특수 상품(고가 가방·전자제품 등)에 마진을 더 챙기고 싶을 때 사용. 일반 셀러는 0으로 두면 됩니다.
 
 ---
 
@@ -286,7 +300,7 @@ flowchart LR
 
 ### 9-1. "정책 바꿨는데 가격 반영 안 됨"
 
-동기화 엔진이 5분 주기로 동작합니다. 5분 안에 자동 반영. 그래도 안 되면:
+정책 수정 시 즉시 push 큐에 들어가 다음 동기화 사이클에 반영됩니다. 큐 상태와 마켓 API 응답 속도에 따라 시간이 걸릴 수 있어요. 빠르게 반영하고 싶다면:
 
 **상품 → 가격 강제 동기화** 클릭.
 

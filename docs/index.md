@@ -158,6 +158,7 @@ flowchart LR
 | [6. 주문 + CS](06-orders-cs.md) | 주문 받기 시작 | 4마켓 주문 통합 + 송장 + 클레임 |
 | [7. 가격 정책](07-pricing.md) | 셀러 전체 | 마진 공식 + 자동 가격 조정 |
 | [8. 트러블슈팅](08-troubleshooting.md) | 문제 발생 시 | 자주 발생하는 에러 해결법 |
+| [9. 용어 사전](09-glossary.md) | 모르는 단어 만났을 때 | 셀러 입장에서 풀어 쓴 용어 정리 |
 
 !!! tip "🎯 가장 먼저 읽어야 할 챕터"
     **신규 가입자**: [1. 시작하기](01-getting-started.md) → [4. 마켓 노출](04-market-strategy/index.md)

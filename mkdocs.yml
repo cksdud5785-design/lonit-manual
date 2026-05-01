@@ -77,6 +77,7 @@ nav:
   - 주문 + CS: 06-orders-cs.md
   - 가격 정책: 07-pricing.md
   - 트러블슈팅: 08-troubleshooting.md
+  - 용어 사전: 09-glossary.md
 
 # 확장 마크다운 문법
 markdown_extensions:
