@@ -15,9 +15,9 @@ gantt
     axisFormat %H:%M
     
     section 월요일
-    소싱 + 수집           :a1, 09:00, 2h
+    소싱 + COLLECT           :a1, 09:00, 2h
     카테고리 매핑 검수     :a2, 11:00, 30m
-    4마켓 업로드          :a3, 11:30, 30m
+    FOUR_MKT 업로드          :a3, 11:30, 30m
     
     section 화-금
     주문 처리             :b1, 09:00, 1h
@@ -25,11 +25,11 @@ gantt
     CS 답변               :b3, 15:00, 30m
     
     section 토요일
-    매출 리뷰             :c1, 10:00, 1h
-    정책 조정             :c2, 11:00, 30m
+    SALES 리뷰             :c1, 10:00, 1h
+    POLICY 조정             :c2, 11:00, 30m
     
     section 일요일
-    시즌 상품 기획         :d1, 14:00, 2h
+    시즌 PRODUCT 기획         :d1, 14:00, 2h
 ```
 
 매일 4~6시간 정도면 충분. **자동화된 부분(가격/재고 동기화, 카테고리 매핑, SEO)이 시간을 가장 많이 절약합니다.**
@@ -166,18 +166,18 @@ flowchart TB
 sequenceDiagram
     autonumber
     Note over Lonit: 매 5분
-    Lonit->>무신사: 가격 확인
-    무신사-->>Lonit: 22,000원
+    Lonit->>MUSINSA: 가격 확인
+    MUSINSA-->>Lonit: 22,000원
     
     alt 변경됨
         Lonit->>Lonit: 정책 적용 → 새 판매가
-        Lonit->>스마트스토어: 가격 업데이트
-        Lonit->>쿠팡: 가격 업데이트
-        Lonit->>롯데온: 정가 + 할인 분리
+        Lonit->>SS: 가격 업데이트
+        Lonit->>CP: 가격 업데이트
+        Lonit->>LOTTE: 정가 + 할인 분리
         Lonit->>11번가: 가격 업데이트
-        스마트스토어-->>Lonit: ✅
-        쿠팡-->>Lonit: ✅
-        롯데온-->>Lonit: ✅
+        SS-->>Lonit: ✅
+        CP-->>Lonit: ✅
+        LOTTE-->>Lonit: ✅
         11번가-->>Lonit: ✅
     end
 ```

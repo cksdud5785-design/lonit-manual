@@ -10,7 +10,7 @@
 
 ```mermaid
 flowchart TB
-    subgraph 입력["📥 입력 (소싱처)"]
+    subgraph INPUT["📥 입력 (소싱처)"]
         direction LR
         I1[👗 무신사]
         I2[🛍️ SSG]
@@ -18,7 +18,7 @@ flowchart TB
         I4[+ 9개 사이트]
     end
 
-    subgraph 핵심["⚙️ Lonit 핵심"]
+    subgraph CORE["⚙️ Lonit 핵심"]
         direction TB
         S1[1️⃣ 수집] --> S2[2️⃣ 정책 적용]
         S2 --> S3[3️⃣ 4마켓 변환]
@@ -27,7 +27,7 @@ flowchart TB
         S5 --> S6[6️⃣ 주문·CS]
     end
 
-    subgraph 출력["📤 출력 (마켓)"]
+    subgraph OUTPUT["📤 출력 (마켓)"]
         direction LR
         O1[🛒 스마트스토어]
         O2[📦 쿠팡]
@@ -35,12 +35,12 @@ flowchart TB
         O4[🎁 11번가]
     end
 
-    입력 ==>|크롬 익스텐션| 핵심
-    핵심 ==>|API| 출력
+    INPUT ==>|크롬 EXT| CORE
+    CORE ==>|API| OUTPUT
     
-    style 핵심 fill:#eef2ff,stroke:#6366f1,stroke-width:2px
-    style 입력 fill:#fef3c7,stroke:#f59e0b
-    style 출력 fill:#dbeafe,stroke:#3b82f6
+    style CORE fill:#eef2ff,stroke:#6366f1,stroke-width:2px
+    style INPUT fill:#fef3c7,stroke:#f59e0b
+    style OUTPUT fill:#dbeafe,stroke:#3b82f6
 ```
 
 **왼쪽**(소싱처)에서 상품을 받아 **가운데**(Lonit)에서 가공한 뒤 **오른쪽**(마켓)에 보냅니다.
@@ -52,12 +52,12 @@ flowchart TB
 ```mermaid
 mindmap
   root((Lonit))
-    수집
-      크롬 익스텐션
+    COLLECT
+      크롬 EXT
       12개 사이트
       자동 파싱
     등록
-      4마켓 동시
+      FOUR_MKT 동시
       카테고리 자동 매핑
       옵션 변환
     동기화
@@ -65,9 +65,9 @@ mindmap
       재고 자동
       품절 자동
     주문·CS
-      통합 주문 화면
+      HUB 주문 화면
       송장 자동 등록
-      클레임 처리
+      CLAIM 처리
 ```
 
 각 기능을 하나씩 봅시다.
@@ -76,7 +76,7 @@ mindmap
 
 ```mermaid
 flowchart LR
-    A[👤 셀러] -->|상품 페이지에서<br>익스텐션 클릭| B[🌐 크롬 익스텐션]
+    A[👤 셀러] -->|PRODUCT 페이지에서<br>EXT 클릭| B[🌐 크롬 익스텐션]
     B -->|자동 추출| C[📝 상품 데이터]
     C --> D{무엇을 추출?}
     D --> D1[상품명]
@@ -99,8 +99,8 @@ flowchart TB
     P[📦 상품 1개] --> M{4마켓 변환}
     
     M -->|네이버 형식| MN[스마트스토어 페이로드]
-    M -->|쿠팡 형식| MC[쿠팡 페이로드]
-    M -->|롯데온 형식| ML[롯데온 페이로드]
+    M -->|CP 형식| MC[쿠팡 페이로드]
+    M -->|LOTTE 형식| ML[롯데온 페이로드]
     M -->|11번가 형식| ME[11번가 페이로드]
     
     MN -->|API 호출| AN[📤 스마트스토어]
@@ -128,23 +128,23 @@ flowchart TB
 
 ```mermaid
 sequenceDiagram
-    participant 무신사 as 무신사
+    participant MUSINSA as MUSINSA
     participant L as Lonit
-    participant 마켓 as 4마켓
+    participant MK as FOUR_MKT
     
     loop 매 5분마다
-        L->>무신사: 가격·재고 확인
-        무신사-->>L: 현재 데이터
+        L->>MUSINSA: 가격·재고 확인
+        MUSINSA-->>L: 현재 데이터
         
         alt 가격이 변했다면
             L->>L: 정책 다시 적용해<br>새 판매가 계산
-            L->>마켓: 4마켓 가격 업데이트
-            마켓-->>L: ✅ 반영됨
+            L->>MK: 4마켓 가격 업데이트
+            MK-->>L: ✅ 반영됨
         end
         
         alt 재고가 0이 됐다면
-            L->>마켓: 4마켓 품절 처리
-            마켓-->>L: ✅ 품절 표시됨
+            L->>MK: 4마켓 품절 처리
+            MK-->>L: ✅ 품절 표시됨
         end
     end
 ```
@@ -155,7 +155,7 @@ sequenceDiagram
 
 ```mermaid
 flowchart TB
-    subgraph 마켓["🛒 4마켓에서 주문 발생"]
+    subgraph MK["🛒 4마켓에서 주문 발생"]
         OM1[스마트스토어 주문]
         OM2[쿠팡 주문]
         OM3[롯데온 주문]
@@ -167,19 +167,19 @@ flowchart TB
     OM3 -->|매분 동기화| Lonit
     OM4 -->|매분 동기화| Lonit
     
-    Lonit --> 통합[📋 통합 주문 화면]
+    Lonit --> HUB[📋 통합 주문 화면]
     
-    통합 --> 발송[송장 등록]
-    통합 --> 클레임[취소·반품·교환]
-    통합 --> CS[CS 답변]
+    HUB --> SHIP[송장 등록]
+    HUB --> CLAIM[취소·반품·교환]
+    HUB --> CS[CS 답변]
     
-    발송 -->|자동 분배| OM1
-    발송 -->|자동 분배| OM2
-    발송 -->|자동 분배| OM3
-    발송 -->|자동 분배| OM4
+    SHIP -->|자동 분배| OM1
+    SHIP -->|자동 분배| OM2
+    SHIP -->|자동 분배| OM3
+    SHIP -->|자동 분배| OM4
     
     style Lonit fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
-    style 통합 fill:#fce7f3,stroke:#ec4899
+    style HUB fill:#fce7f3,stroke:#ec4899
 ```
 
 **4개 마켓 따로 주문 받아 처리**할 필요가 없습니다. 한 화면에서 다 보고, 송장도 한 번 등록하면 4마켓에 자동 분배.
@@ -195,48 +195,47 @@ flowchart TB
 ```mermaid
 sequenceDiagram
     autonumber
-    participant 셀러
-    participant 무신사
-    participant 익스텐션 as 크롬 익스텐션
+    participant USER as USER
+    participant MUSINSA as MUSINSA
+    participant EXT as 크롬 EXT
     participant Lonit
-    participant 정책 as 가격 정책
-    participant 4마켓
-    participant 고객
+    participant POLICY as 가격 POLICY
+    participant FOUR_MKT
+    participant CUSTOMER as CUSTOMER
+    USER->>MUSINSA: 상품 페이지 열기
+    USER->>EXT: 수집 버튼 클릭
+    EXT->>MUSINSA: 자동 파싱
+    MUSINSA-->>EXT: 상품 데이터
+    EXT->>Lonit: 수집 데이터 전송
     
-    셀러->>무신사: 상품 페이지 열기
-    셀러->>익스텐션: 수집 버튼 클릭
-    익스텐션->>무신사: 자동 파싱
-    무신사-->>익스텐션: 상품 데이터
-    익스텐션->>Lonit: 수집 데이터 전송
-    
-    Lonit->>정책: 마진 적용 요청
-    정책-->>Lonit: 판매가 계산됨
+    Lonit->>POLICY: 마진 적용 요청
+    POLICY-->>Lonit: 판매가 계산됨
     
     Lonit->>Lonit: 카테고리 자동 매핑<br>SEO 제목 최적화<br>옵션 변환
     
-    셀러->>Lonit: 업로드 버튼 클릭
-    par 4마켓 동시 업로드
-        Lonit->>4마켓: 스마트스토어 등록
-        Lonit->>4마켓: 쿠팡 등록
-        Lonit->>4마켓: 롯데온 등록
-        Lonit->>4마켓: 11번가 등록
+    USER->>Lonit: 업로드 버튼 클릭
+    par FOUR_MKT 동시 업로드
+        Lonit->>FOUR_MKT: 스마트스토어 등록
+        Lonit->>FOUR_MKT: 쿠팡 등록
+        Lonit->>FOUR_MKT: 롯데온 등록
+        Lonit->>FOUR_MKT: 11번가 등록
     end
-    4마켓-->>Lonit: ✅ 4마켓 등록 완료
+    FOUR_MKT-->>Lonit: ✅ 4마켓 등록 완료
     
     Note over Lonit: 이제 자동 동기화 시작
     
     loop 5분마다
-        Lonit->>무신사: 가격·재고 확인
-        무신사-->>Lonit: 변경 사항
-        Lonit->>4마켓: 가격·재고 업데이트
+        Lonit->>MUSINSA: 가격·재고 확인
+        MUSINSA-->>Lonit: 변경 사항
+        Lonit->>FOUR_MKT: 가격·재고 업데이트
     end
     
-    고객->>4마켓: 주문하기
-    4마켓-->>Lonit: 주문 알림 (1분 안)
-    Lonit-->>셀러: 새 주문 알림
+    CUSTOMER->>FOUR_MKT: 주문하기
+    FOUR_MKT-->>Lonit: 주문 알림 (1분 안)
+    Lonit-->>USER: 새 주문 알림
     
-    셀러->>Lonit: 송장 등록
-    Lonit->>4마켓: 송장 자동 분배
+    USER->>Lonit: 송장 등록
+    Lonit->>FOUR_MKT: 송장 자동 분배
 ```
 
 ---
@@ -249,18 +248,18 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    subgraph 표준["📐 Lonit 표준 형식"]
+    subgraph STD["📐 Lonit 표준 형식"]
         T[상품명: 무신사 스탠다드 후드<br>가격: 25,000원<br>옵션: S/M/L<br>카테고리: 후드티<br>이미지: 5장]
     end
     
-    표준 --> V{마켓별 변환}
+    STD --> V{마켓별 변환}
     
     V -->|네이버 SEO 강화| N[스마트스토어<br>제목: 모델명 추가<br>태그: 자동 생성<br>카테고리: 패션 > 상의 > 후드]
-    V -->|쿠팡 옵션 매칭| C[쿠팡<br>itemName 변환<br>옵션 30자 제한 적용<br>카테고리: 5단계]
-    V -->|롯데온 정책| L[롯데온<br>매장 ID 적용<br>발주 정책 결합<br>카테고리: 4단계]
+    V -->|CP 옵션 매칭| C[쿠팡<br>itemName 변환<br>옵션 30자 제한 적용<br>카테고리: 5단계]
+    V -->|LOTTE POLICY| L[롯데온<br>매장 ID 적용<br>발주 정책 결합<br>카테고리: 4단계]
     V -->|11번가 KC| E[11번가<br>KC 인증 자동 입력<br>brand 병기<br>카테고리: 4단계]
     
-    style 표준 fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    style STD fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
     style V fill:#fce7f3,stroke:#ec4899,stroke-width:2px
 ```
 
@@ -272,7 +271,7 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    subgraph 셀러["👤 셀러가 하는 일"]
+    subgraph USER["👤 셀러가 하는 일"]
         H1[상품 골라 익스텐션 클릭]
         H2[가격 정책 1번 설정]
         H3[업로드 버튼 클릭]
@@ -292,7 +291,7 @@ flowchart TB
         A9[송장 4마켓 분배]
     end
     
-    style 셀러 fill:#fef3c7,stroke:#f59e0b
+    style USER fill:#fef3c7,stroke:#f59e0b
     style Lonit_auto fill:#dcfce7,stroke:#22c55e
 ```
 
@@ -344,13 +343,13 @@ flowchart TB
 
 > **Lonit = 12개 사이트 → 4마켓 → 자동 동기화** 를 한 화면에서 관리하는 컨트롤타워.
 
-다음 챕터에서는 같은 일을 하는 **더망고**와 무엇이 어떻게 다른지 봅니다.
+다음 챕터에서는 같은 일을 하는 **T사**와 무엇이 어떻게 다른지 봅니다.
 
 <div class="lonit-cards">
 
-<a class="lonit-card" href="../03-vs-themango/">
+<a class="lonit-card" href="../03-vs-others/">
 <span class="lonit-card-icon">🆚</span>
-<h3>3. 더망고와 비교</h3>
+<h3>3. T사와 비교</h3>
 <p>차이점·장단점·갈아타기 가이드</p>
 </a>
 

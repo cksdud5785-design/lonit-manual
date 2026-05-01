@@ -48,7 +48,7 @@
 | `bulk-upload-dialog.png` | 일괄 업로드 다이얼로그 | `docs/05-workflow.md` §4 |
 | `recent-failures.png` | 최근 실패 카드 | `docs/08-troubleshooting.md` §4 |
 | `architecture-overview.png` | 시스템 한눈에 (직접 그린 다이어그램 사진 또는 별도 디자인) | `docs/02-architecture.md` §1 |
-| `themango-vs-lonit-side.png` | 더망고 vs Lonit 화면 비교 (선택사항) | `docs/03-vs-themango.md` §1 |
+| `others-vs-lonit-side.png` | T사 vs Lonit 화면 비교 (선택사항) | `docs/03-vs-others.md` §1 |
 | `admin-sales-matrix.png` | 매출 매트릭스 화면 | `docs/05-workflow.md` §8 |
 
 ---

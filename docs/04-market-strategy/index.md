@@ -87,17 +87,17 @@ flowchart TB
     H5[5. 빠른 송장 등록]
     H6[6. CS 답변 24h 안]
     
-    H1 --> 노출[🎯 노출 ↑]
-    H2 --> 노출
-    H3 --> 노출
-    H4 --> 신뢰[⭐ 셀러 신뢰도 ↑]
-    H5 --> 신뢰
-    H6 --> 신뢰
+    H1 --> VISIBILITY[🎯 노출 ↑]
+    H2 --> VISIBILITY
+    H3 --> VISIBILITY
+    H4 --> TRUST[⭐ 셀러 신뢰도 ↑]
+    H5 --> TRUST
+    H6 --> TRUST
     
-    노출 --> 매출[💰 매출 ↑]
-    신뢰 --> 매출
+    VISIBILITY --> SALES[💰 매출 ↑]
+    TRUST --> SALES
     
-    style 매출 fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
+    style SALES fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
 ```
 
 이 6가지를 셀러가 직접 하면 시간이 많이 들지만, **Lonit이 1·2·4·5를 자동화**합니다. 셀러는 3과 6에 집중하면 됩니다.

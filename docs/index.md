@@ -52,7 +52,7 @@ hide:
 
 ```mermaid
 flowchart LR
-    subgraph 소싱처["📥 12개 사이트에서 수집"]
+    subgraph SRC["📥 12개 사이트에서 수집"]
         direction TB
         M1[무신사]
         M2[SSG]
@@ -62,7 +62,7 @@ flowchart LR
 
     L((Lonit))
 
-    subgraph 마켓["🛒 4마켓에 자동 업로드"]
+    subgraph DST["🛒 4마켓에 자동 업로드"]
         direction TB
         N[스마트스토어]
         C[쿠팡]
@@ -70,8 +70,8 @@ flowchart LR
         E[11번가]
     end
 
-    소싱처 --> L
-    L --> 마켓
+    SRC --> L
+    L --> DST
 
     style L fill:#4f46e5,color:#fff,stroke:#4338ca,stroke-width:3px
 ```
@@ -152,7 +152,7 @@ flowchart LR
 |------|-----------|----------------|
 | [1. 시작하기](01-getting-started.md) | 신규 가입자 | 가입 → 첫 상품 등록까지 5분 |
 | [2. 시스템 구조](02-architecture.md) | 강의 수강생 | Lonit이 어떻게 동작하는지 한눈에 |
-| [3. 더망고와 비교](03-vs-themango.md) | 더망고 사용자 | 차이점 + Lonit으로 갈아타는 방법 |
+| [3. T사와 비교](03-vs-others.md) | T사 사용자 | 차이점 + Lonit으로 갈아타는 방법 |
 | [4. 4마켓 노출 전략](04-market-strategy/index.md) | **모두 ⭐** | 마켓별 알고리즘 + 노출 잘 되는 법 |
 | [5. 일상 워크플로우](05-workflow.md) | 운영 중 | 수집 → 등록 → 동기화 매일 흐름 |
 | [6. 주문 + CS](06-orders-cs.md) | 주문 받기 시작 | 4마켓 주문 통합 + 송장 + 클레임 |
@@ -162,7 +162,7 @@ flowchart LR
 !!! tip "🎯 가장 먼저 읽어야 할 챕터"
     **신규 가입자**: [1. 시작하기](01-getting-started.md) → [4. 마켓 노출](04-market-strategy/index.md)
     **강의 수강생**: 1 → 2 → 3 → 4 순서대로
-    **더망고 출신**: [3. 더망고와 비교](03-vs-themango.md) 부터
+    **T사 출신**: [3. T사와 비교](03-vs-others.md) 부터
 
 ---
 

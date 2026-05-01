@@ -13,9 +13,9 @@ flowchart TB
     Q1 -->|업로드 실패| Up[업로드 섹션]
     Q1 -->|동기화 안 됨| Sync[동기화 섹션]
     Q1 -->|주문 안 들어옴| Order[주문 섹션]
-    Q1 -->|마켓 연결 실패| Auth[인증 섹션]
+    Q1 -->|MK 연결 실패| Auth[인증 섹션]
     Q1 -->|가격 이상| Price[가격 섹션]
-    Q1 -->|기타| Etc[기타 + 문의]
+    Q1 -->|MISC| Etc[기타 + 문의]
     
     style Up fill:#fef3c7
     style Sync fill:#dbeafe
@@ -195,11 +195,11 @@ Lonit의 송장 등록은 마켓 API 호출 → 1분 안에 반영. 5분 이상 
 
 ```mermaid
 sequenceDiagram
-    셀러->>Lonit: 카탈로그 reconcile 실행
-    Lonit->>쿠팡: 등록 상품 모두 조회
-    쿠팡-->>Lonit: 1,834개
+    USER->>Lonit: 카탈로그 reconcile 실행
+    Lonit->>CP: 등록 상품 모두 조회
+    CP-->>Lonit: 1,834개
     Lonit->>Lonit: Lonit DB와 매칭
-    Lonit-->>셀러: 1,834개 흡수<br>(이제 자동 동기화 가능)
+    Lonit-->>USER: 1,834개 흡수<br>(이제 자동 동기화 가능)
 ```
 
 **대시보드 → 쿠팡 → 카탈로그 동기화** 클릭. 자세한 단계는 [4-2. 쿠팡](04-market-strategy/coupang.md) 참고.
@@ -320,11 +320,11 @@ mindmap
       자동 동기화
       자동 매핑
     셀러는 결정에 집중
-      어떤 상품 팔지
+      어떤 PRODUCT 팔지
       어떻게 마케팅할지
       어떤 가격에 팔지
     문제 발생 시
-      이 챕터 검색
+      이 챕터 SEARCH
       Lonit이 자동 처리하는 부분 다시 확인
       그래도 안 되면 즉시 문의
 ```

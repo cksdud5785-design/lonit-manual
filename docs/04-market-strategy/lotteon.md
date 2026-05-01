@@ -10,13 +10,13 @@
 
 ```mermaid
 flowchart LR
-    subgraph 일반마켓["스마트스토어·쿠팡·11번가"]
+    subgraph OTHER_MKT["스마트스토어·쿠팡·11번가"]
         N1[상품 정보]
         N1 --> N2[등록]
         N2 --> N3[노출]
     end
     
-    subgraph 롯데온
+    subgraph LOTTE["롯데온"]
         L1[상품 정보]
         L1 --> L2{매장 정책 결합}
         L2 --> L3{발주 정책 결합}
@@ -38,7 +38,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    셀러[롯데온 셀러] --> 등록[Lonit에<br>매장 ID 입력]
+    USER[롯데온 셀러] --> 등록[Lonit에<br>매장 ID 입력]
     등록 --> 자동[Lonit이 모든<br>상품에 자동 적용]
     
     style 등록 fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
@@ -203,11 +203,11 @@ flowchart TB
 
 ```mermaid
 sequenceDiagram
-    셀러->>Lonit: 정책 마진 30% → 35%
+    USER->>Lonit: 정책 마진 30% → 35%
     Lonit->>Lonit: products.updatedAt bump
     Lonit->>Lonit: 자동 동기화 엔진<br>변경 감지
-    Lonit->>롯데온: 4,496건 가격 일괄 업데이트
-    롯데온-->>Lonit: ✅ 정가 + 할인가 분리 적용
+    Lonit->>LOTTE: 4,496건 가격 일괄 업데이트
+    LOTTE-->>Lonit: ✅ 정가 + 할인가 분리 적용
 ```
 
 ---

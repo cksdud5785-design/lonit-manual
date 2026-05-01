@@ -195,12 +195,12 @@ flowchart LR
 
 ```mermaid
 sequenceDiagram
-    무신사->>무신사: 22,000 → 24,000
-    Lonit->>무신사: 가격 확인 (5분마다)
-    무신사-->>Lonit: 24,000원
+    MUSINSA->>MUSINSA: 22,000 → 24,000
+    Lonit->>MUSINSA: 가격 확인 (5분마다)
+    MUSINSA-->>Lonit: 24,000원
     Lonit->>Lonit: 정책 재적용 → 새 판매가 30,500원
-    Lonit->>4마켓: 가격 일괄 업데이트
-    4마켓-->>Lonit: ✅ 반영됨
+    Lonit->>FOUR_MKT: 가격 일괄 업데이트
+    FOUR_MKT-->>Lonit: ✅ 반영됨
 ```
 
 ### 6-2. 정책 변경 시 자동 반영
@@ -238,7 +238,7 @@ sequenceDiagram
 ```mermaid
 flowchart LR
     Real[정상가 30,000] -->|discountRate 20%| Sale[24,000원]
-    Real -.->|롯데온 표시| Display[~30,000~ → 24,000<br>20% OFF]
+    Real -.->|LOTTE 표시| Display[~30,000~ → 24,000<br>20% OFF]
     
     style Display fill:#dcfce7,stroke:#22c55e
 ```
@@ -315,8 +315,8 @@ mindmap
       이름 의미있게
       카테고리 정책은 카테고리명 포함
     실험
-      정책 시뮬레이션 활용
-      조정 후 매출 변화 관찰
+      POLICY 시뮬레이션 활용
+      조정 후 SALES 변화 관찰
 ```
 
 ---

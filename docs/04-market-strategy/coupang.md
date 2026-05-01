@@ -12,11 +12,11 @@
 
 ```mermaid
 flowchart LR
-    subgraph 스마트스토어
+    subgraph SS["스마트스토어"]
         S1[검색어] -->|키워드 매칭| S2[개별 상품 노출]
     end
     
-    subgraph 쿠팡
+    subgraph CP["쿠팡"]
         C1[검색어] -->|카탈로그 매칭| C2[카탈로그 페이지]
         C2 --> C3[같은 상품끼리 묶음<br>가격순 정렬]
     end
@@ -35,15 +35,15 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    수집[수집된 상품] --> Pre{Lonit 사전 검색}
+    COLLECT[수집된 상품] --> Pre{Lonit 사전 검색}
     
-    Pre -->|쿠팡 카탈로그<br>SKU 검색| Found{기존 카탈로그<br>존재?}
+    Pre -->|CP 카탈로그<br>SKU SEARCH| Found{기존 카탈로그<br>존재?}
     
     Found -->|있음| Match[기존 카탈로그에<br>판매자 추가로 등록]
     Found -->|없음| Create[새 카탈로그 생성]
     
-    Match -->|즉시 노출 풀 진입| List[검색 결과에<br>가격순 정렬됨]
-    Create -->|쿠팡 검수 후| List
+    Match -->|즉시 VISIBILITY 풀 진입| List[검색 결과에<br>가격순 정렬됨]
+    Create -->|CP 검수 후| List
     
     style Pre fill:#dcfce7,stroke:#22c55e
     style Match fill:#fce7f3,stroke:#ec4899
@@ -103,7 +103,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    원본[원본 옵션값<br>'멀티/4-5(130~160)'] --> Check{30자 초과?}
+    SOURCE[원본 옵션값<br>'멀티/4-5(130~160)'] --> Check{30자 초과?}
     Check -->|예| Trim[자동 줄임<br>'멀티']
     Check -->|아니오| Pass[그대로 사용]
     
@@ -188,8 +188,8 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    Save[임시저장] -->|셀러 승인 요청| Pend[승인 대기]
-    Pend -->|쿠팡 검수| Live[판매 중]
+    Save[임시저장] -->|USER 승인 요청| Pend[승인 대기]
+    Pend -->|CP 검수| Live[판매 중]
     Pend -->|문제 발견| Reject[반려]
     Reject --> Save
     
@@ -227,12 +227,12 @@ flowchart LR
 
 ```mermaid
 sequenceDiagram
-    셀러->>Lonit: catalog reconcile 실행
-    Lonit->>쿠팡: 모든 등록 상품 조회
-    쿠팡-->>Lonit: 1,834개 상품
+    USER->>Lonit: catalog reconcile 실행
+    Lonit->>CP: 모든 등록 상품 조회
+    CP-->>Lonit: 1,834개 상품
     Lonit->>Lonit: Lonit DB에 없는<br>1,834개 발견
     Lonit->>Lonit: 자동 등록 + 매핑
-    Lonit-->>셀러: ✅ 1,834개 흡수 완료
+    Lonit-->>USER: ✅ 1,834개 흡수 완료
     
     Note over Lonit: 이제 자동 동기화 적용 가능
 ```

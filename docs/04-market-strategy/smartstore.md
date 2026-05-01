@@ -69,15 +69,15 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    원본[무신사 원본 상품명<br>'무신사 스탠다드 코튼 후드'] --> Step1
+    SOURCE[무신사 원본 상품명<br>'무신사 스탠다드 코튼 후드'] --> Step1
     
     Step1[1. 금지어 제거] --> Step2[2. 카테고리에서<br>핵심 키워드 추출]
     Step2 --> Step3[3. 네이버 Top5<br>검색어 결합]
     Step3 --> Step4[4. 모델명 추가]
-    Step4 --> 결과[최종 상품명<br>'남자 빅사이즈 오버핏<br>코튼 후드 티셔츠']
+    Step4 --> RESULT[최종 상품명<br>'남자 빅사이즈 오버핏<br>코튼 후드 티셔츠']
     
-    style 원본 fill:#fee2e2
-    style 결과 fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+    style SOURCE fill:#fee2e2
+    style RESULT fill:#dcfce7,stroke:#22c55e,stroke-width:2px
 ```
 
 셀러가 한 일: **익스텐션 클릭 1번**. 나머지는 Lonit이 자동.
@@ -116,7 +116,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    상품[등록할 상품<br>'후드티'] --> N[네이버 쇼핑 API<br>recommend-tags]
+    PRODUCT[등록할 상품<br>'후드티'] --> N[네이버 쇼핑 API<br>recommend-tags]
     N --> Top5{Top 5 태그}
     Top5 --> T1[남자 빅사이즈]
     Top5 --> T2[데일리]
@@ -189,7 +189,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    상품 -->|브랜드 ID 자동 매핑| Brand{브랜드 검증}
+    PRODUCT -->|브랜드 ID 자동 매핑| Brand{브랜드 검증}
     Brand -->|등록된 브랜드| Verified[✅ 브랜드 검증<br>완료 상태로 노출]
     Brand -->|미등록 브랜드| Direct[브랜드 텍스트만<br>표시]
     
@@ -281,11 +281,11 @@ flowchart LR
     상품B[후드티 - 흰색] --> Group
     상품C[후드티 - 회색] --> Group
     
-    Group --> 그룹상품[하나의 그룹 상품<br>색상 3개 옵션]
-    그룹상품 --> 검색[검색 결과에<br>대표 1개로 노출<br>색상 미리보기 표시]
+    Group --> GROUP_PROD[하나의 그룹 상품<br>색상 3개 옵션]
+    GROUP_PROD --> SEARCH[검색 결과에<br>대표 1개로 노출<br>색상 미리보기 표시]
     
     style Group fill:#fce7f3,stroke:#ec4899
-    style 검색 fill:#dcfce7,stroke:#22c55e
+    style SEARCH fill:#dcfce7,stroke:#22c55e
 ```
 
 Lonit은 상품명에 `[색상]` 패턴이 2개 이상이면 자동으로 그룹 상품으로 등록합니다.

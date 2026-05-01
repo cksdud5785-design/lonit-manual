@@ -41,7 +41,7 @@ manual/
     ├── index.md            # 랜딩
     ├── 01-getting-started.md
     ├── 02-architecture.md
-    ├── 03-vs-themango.md
+    ├── 03-vs-others.md
     ├── 04-market-strategy/
     │   ├── index.md
     │   ├── smartstore.md

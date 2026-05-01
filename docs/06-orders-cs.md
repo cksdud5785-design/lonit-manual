@@ -8,7 +8,7 @@
 
 ```mermaid
 flowchart TB
-    subgraph 마켓들["🛒 4마켓에서 주문 발생"]
+    subgraph MARKETS["🛒 4마켓에서 주문 발생"]
         N[스마트스토어 주문]
         C[쿠팡 주문]
         L[롯데온 주문]
@@ -31,7 +31,7 @@ flowchart TB
     style Lonit fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
 ```
 
-**더망고 시절**: 4마켓 셀러센터를 각각 들어가 주문 확인.
+**T사 시절**: 4마켓 셀러센터를 각각 들어가 주문 확인.
 **Lonit**: 1개 화면에서 모든 마켓 주문.
 
 ### 1-1. 주문 동기화 주기
@@ -132,22 +132,22 @@ flowchart TB
 
 ```mermaid
 stateDiagram-v2
-    [*] --> 주문접수
-    주문접수 --> 발송완료: 송장 등록
+    [*] --> Received
+    Received --> Shipped: 송장 등록
     
-    주문접수 --> 취소요청: 고객 취소
-    취소요청 --> 취소승인: 셀러 승인
-    취소요청 --> 취소거부: 셀러 거부
+    Received --> CancelReq: 고객 취소
+    CancelReq --> CancelApprove: 셀러 승인
+    CancelReq --> CancelReject: 셀러 거부
     
-    발송완료 --> 반품요청: 고객 반품
-    반품요청 --> 회수보류: 회수 보류 검토
-    반품요청 --> 반품승인: 회수 시작
-    반품승인 --> 회수완료
-    회수완료 --> 환불완료
+    Shipped --> ReturnReq: 고객 반품
+    ReturnReq --> ReturnHold: 회수 보류 검토
+    ReturnReq --> ReturnApprove: 회수 시작
+    ReturnApprove --> Returned
+    Returned --> Refunded
     
-    발송완료 --> 교환요청: 고객 교환
-    교환요청 --> 교환승인
-    교환승인 --> 재발송
+    Shipped --> ExchangeReq: 고객 교환
+    ExchangeReq --> ExchangeApprove
+    ExchangeApprove --> Reshipped
 ```
 
 ### 4-1. 클레임 액션 자동화
@@ -167,8 +167,8 @@ stateDiagram-v2
 
 ```mermaid
 flowchart LR
-    Customer[고객 문의] --> 마켓
-    마켓 -->|매분 동기화| Lonit
+    Customer[고객 문의] --> MK
+    MK -->|매분 동기화| Lonit
     Lonit --> View[CS 화면]
     View --> Reply[답변 작성]
     Reply --> Send[해당 마켓에 자동 전송]
