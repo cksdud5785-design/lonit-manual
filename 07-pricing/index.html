@@ -779,7 +779,7 @@
 <small>최소 마진 미달 시 → 최소 마진 금액으로 클램프 (보호)</small>
 </div>
 <div class="mermaid">flowchart TB
-    매입[매입가<br/>예: 18,000] --&gt; Base[+ 베이스 마진<br/>예: 1,000]
+    Cost[매입가<br/>예: 18,000] --&gt; Base[+ 베이스 마진<br/>예: 1,000]
     Base --&gt; Calc1[원가: 19,000]
 
     Calc1 --&gt; Margin{× 1 + 마진율}
@@ -789,7 +789,7 @@
     Fee --&gt;|12% 수수료| Calc3[24,700 ÷ 0.88<br/>= 28,068]
 
     Calc3 --&gt; Min{최소 마진 검증}
-    Min --&gt;|마진이 5,000 이상| Pass[✅ 28,070원<br/>(100원 단위 정렬)]
+    Min --&gt;|마진이 5,000 이상| Pass[✅ 28,070원<br/>100원 단위 정렬]
     Min --&gt;|미달| Clamp[최소 마진<br/>보장가로 변경]
 
     style Pass fill:#dcfce7,stroke:#22c55e,stroke-width:2px
@@ -873,9 +873,9 @@
     A[마진율 30%] --&gt; B[최소 마진 5,000원]
     B --&gt; C[수수료 12%]
     C --&gt; D[가격 단위 100원]
-    D --&gt; 완[✅ 첫 정책 완성]
+    D --&gt; Done[✅ 첫 정책 완성]
 
-    style 완 fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+    style Done fill:#dcfce7,stroke:#22c55e,stroke-width:2px
 </div>
 <table>
 <thead>
@@ -922,7 +922,7 @@
 <hr/>
 <h2 id="3">3. 최소 마진 보장 — 가장 헷갈리는 개념<a class="headerlink" href="#3" title="Permanent link">🔗</a></h2>
 <div class="mermaid">flowchart TB
-    예시[예시 상품] --&gt; Calc[정책 적용 계산]
+    Sample[예시 상품] --&gt; Calc[정책 적용 계산]
     Calc --&gt; Result1{결과}
     Result1 --&gt;|판매가 - 원가 = 4,500원| Below[❌ 최소 마진 5,000원 미달]
     Result1 --&gt;|판매가 - 원가 = 6,500원| Above[✅ 정상]
@@ -957,15 +957,15 @@
 <p>대부분 셀러는 <strong>기본 정책 1개만</strong> 쓰면 충분.</p>
 <h3 id="4-1">4-1. 카테고리별 다른 정책 — 언제 쓰나?<a class="headerlink" href="#4-1" title="Permanent link">🔗</a></h3>
 <div class="mermaid">flowchart LR
-    상의[상의: 마진율 30%]
-    하의[하의: 마진율 35%]
-    신발[신발: 마진율 25% + 최소 마진 8,000]
-    가방[가방: 마진율 40%]
+    Top[상의: 마진율 30%]
+    Bottom[하의: 마진율 35%]
+    Shoes[신발: 마진율 25% + 최소 마진 8,000]
+    Bag[가방: 마진율 40%]
 
-    style 상의 fill:#dbeafe
-    style 하의 fill:#dbeafe
-    style 신발 fill:#fef3c7
-    style 가방 fill:#fce7f3
+    style Top fill:#dbeafe
+    style Bottom fill:#dbeafe
+    style Shoes fill:#fef3c7
+    style Bag fill:#fce7f3
 </div>
 <p>카테고리마다 평균 마진이 달라서, 신발은 마진율 낮게 + 최소 마진 높게, 가방은 마진율 높게 등.</p>
 <hr/>
