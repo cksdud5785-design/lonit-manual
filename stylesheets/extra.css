@@ -1,122 +1,440 @@
-/* Lonit 매뉴얼 커스텀 스타일 */
+/* ─────────────────────────────────────────────────────────
+   Lonit 매뉴얼 디자인 시스템 v2
+   영감: Vercel docs · shadcn/ui · Toss tech · Pretendard
+   ───────────────────────────────────────────────────────── */
 
-/* 한국어 폰트 최적화 */
+/* ═══════════════════════════════════════════════════════════
+   1. 폰트 설정 (Pretendard Variable + JetBrains Mono)
+   ═══════════════════════════════════════════════════════════ */
+
 :root {
-  --md-text-font: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
-  --md-code-font: 'JetBrains Mono', 'Cascadia Code', monospace;
+  --md-text-font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  --md-code-font: "JetBrains Mono", "Cascadia Code", "D2Coding", Menlo, Monaco, Consolas, monospace;
 }
 
-/* 본문 줄간격 한국어 가독성 */
+/* ═══════════════════════════════════════════════════════════
+   2. 색상 토큰 — 단일 진실 (Indigo 기반)
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Brand */
+  --lonit-50:  #eef2ff;
+  --lonit-100: #e0e7ff;
+  --lonit-200: #c7d2fe;
+  --lonit-300: #a5b4fc;
+  --lonit-400: #818cf8;
+  --lonit-500: #6366f1;
+  --lonit-600: #4f46e5;  /* primary */
+  --lonit-700: #4338ca;
+  --lonit-800: #3730a3;
+  --lonit-900: #312e81;
+
+  /* Accent */
+  --lonit-accent:  #ec4899;
+  --lonit-accent2: #f472b6;
+
+  /* Semantic */
+  --lonit-success: #10b981;
+  --lonit-success-bg: #d1fae5;
+  --lonit-warning: #f59e0b;
+  --lonit-warning-bg: #fef3c7;
+  --lonit-danger:  #ef4444;
+  --lonit-danger-bg: #fee2e2;
+  --lonit-info:    #3b82f6;
+  --lonit-info-bg: #dbeafe;
+
+  /* Surface */
+  --lonit-surface:        #ffffff;
+  --lonit-surface-muted:  #fafafa;
+  --lonit-surface-hover:  #f4f4f5;
+  --lonit-border:         rgba(63, 63, 70, 0.08);
+  --lonit-border-strong:  rgba(63, 63, 70, 0.16);
+
+  /* Text */
+  --lonit-text:        #18181b;
+  --lonit-text-muted:  #52525b;
+  --lonit-text-faint:  #a1a1aa;
+
+  /* Gradient mesh */
+  --lonit-gradient: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 50%, #ec4899 100%);
+  --lonit-gradient-soft: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%);
+}
+
+[data-md-color-scheme="slate"] {
+  --lonit-surface:        #18181b;
+  --lonit-surface-muted:  #09090b;
+  --lonit-surface-hover:  #27272a;
+  --lonit-border:         rgba(244, 244, 245, 0.08);
+  --lonit-border-strong:  rgba(244, 244, 245, 0.16);
+
+  --lonit-text:        #fafafa;
+  --lonit-text-muted:  #d4d4d8;
+  --lonit-text-faint:  #71717a;
+
+  --lonit-success-bg:  rgba(16, 185, 129, 0.15);
+  --lonit-warning-bg:  rgba(245, 158, 11, 0.15);
+  --lonit-danger-bg:   rgba(239, 68, 68, 0.15);
+  --lonit-info-bg:     rgba(59, 130, 246, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   3. 타이포그래피 — 한국어 가독성 최적화
+   ═══════════════════════════════════════════════════════════ */
+
 .md-typeset {
+  font-size: 0.78rem;
   line-height: 1.75;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  color: var(--lonit-text);
 }
 
-/* 헤딩 한국어 가독성 */
 .md-typeset h1,
 .md-typeset h2,
-.md-typeset h3 {
-  letter-spacing: -0.03em;
-  font-weight: 700;
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: var(--md-text-font);
+  letter-spacing: -0.025em;
+  color: var(--lonit-text);
 }
 
-/* 히어로 카드 그리드 */
+.md-typeset h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+  background: var(--lonit-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.md-typeset h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 2.5rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--lonit-border);
+}
+
+.md-typeset h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+
+.md-typeset h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.md-typeset p,
+.md-typeset li {
+  font-weight: 400;
+}
+
+.md-typeset strong,
+.md-typeset b {
+  font-weight: 600;
+  color: var(--lonit-text);
+}
+
+/* 본문 링크 — 부드러운 underline 애니메이션 */
+.md-typeset a:not(.md-button):not(.lonit-card) {
+  color: var(--lonit-600);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s ease, color 0.2s ease;
+}
+
+.md-typeset a:not(.md-button):not(.lonit-card):hover {
+  background-size: 100% 1px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-button):not(.lonit-card) {
+  color: var(--lonit-300);
+}
+
+/* 인라인 코드 */
+.md-typeset code {
+  background: var(--lonit-surface-hover);
+  color: var(--lonit-700);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 500;
+  border: 1px solid var(--lonit-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  color: var(--lonit-300);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   4. 헤더 + 네비게이션
+   ═══════════════════════════════════════════════════════════ */
+
+.md-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--lonit-text);
+  box-shadow: 0 1px 0 var(--lonit-border);
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background: rgba(24, 24, 27, 0.85);
+}
+
+.md-header__title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.md-tabs {
+  background: var(--lonit-surface);
+  color: var(--lonit-text-muted);
+  border-bottom: 1px solid var(--lonit-border);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background: var(--lonit-surface);
+}
+
+.md-tabs__link {
+  font-weight: 500;
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  color: var(--lonit-600);
+  opacity: 1;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link:hover,
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: var(--lonit-300);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   5. 히어로 섹션 (홈 전용)
+   ═══════════════════════════════════════════════════════════ */
+
+.lonit-hero {
+  position: relative;
+  padding: 4rem 0 3rem;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.lonit-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+  z-index: -1;
+}
+
+.lonit-hero h1 {
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  margin: 0 0 0.75rem !important;
+  background: var(--lonit-gradient) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block !important;
+  border: none !important;
+  animation: lonit-fade-up 0.6s ease forwards;
+}
+
+.lonit-hero-tagline {
+  font-size: 1.25rem;
+  color: var(--lonit-text-muted);
+  margin: 0 0 2rem;
+  font-weight: 500;
+  animation: lonit-fade-up 0.7s ease forwards;
+}
+
+.lonit-hero-badges {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 2rem;
+  animation: lonit-fade-up 0.8s ease forwards;
+}
+
+@keyframes lonit-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   6. 카드 시스템 (lonit-cards / lonit-card)
+   ═══════════════════════════════════════════════════════════ */
+
 .lonit-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  margin: 24px 0;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
 .lonit-card {
-  padding: 20px;
-  border-radius: 12px;
-  background: var(--md-default-bg-color);
-  border: 1px solid var(--md-default-fg-color--lightest);
-  transition: all 0.2s ease;
-  text-decoration: none !important;
-  color: inherit !important;
   display: block;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--lonit-surface);
+  border: 1px solid var(--lonit-border);
+  text-decoration: none !important;
+  color: var(--lonit-text) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.lonit-card:hover {
+.lonit-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lonit-gradient);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+a.lonit-card:hover {
   transform: translateY(-2px);
-  border-color: var(--md-accent-fg-color);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+  border-color: var(--lonit-300);
+  box-shadow: 0 12px 24px -8px rgba(79, 70, 229, 0.18),
+              0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+a.lonit-card:hover::before {
+  opacity: 1;
+}
+
+[data-md-color-scheme="slate"] a.lonit-card:hover {
+  border-color: var(--lonit-500);
+  box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.3),
+              0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .lonit-card-icon {
-  font-size: 28px;
-  margin-bottom: 8px;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--lonit-50);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+[data-md-color-scheme="slate"] .lonit-card-icon {
+  background: rgba(99, 102, 241, 0.15);
 }
 
 .lonit-card h3 {
-  margin: 0 0 4px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  margin: 0 0 0.4rem !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--lonit-text) !important;
+  background: none !important;
+  -webkit-text-fill-color: var(--lonit-text) !important;
+  letter-spacing: -0.02em !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 .lonit-card p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--md-default-fg-color--light);
+  margin: 0 !important;
+  font-size: 0.85rem !important;
+  color: var(--lonit-text-muted) !important;
+  line-height: 1.6 !important;
 }
 
-/* 마켓별 컬러 배지 */
+/* ═══════════════════════════════════════════════════════════
+   7. 마켓 배지 — 미니멀 + 일관성
+   ═══════════════════════════════════════════════════════════ */
+
 .market-badge {
-  display: inline-block;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
   font-weight: 600;
-  margin-right: 4px;
+  letter-spacing: -0.01em;
+  border: 1px solid;
+  background: var(--lonit-surface);
+  margin-right: 0.25rem;
+  transition: transform 0.15s ease;
 }
 
-.market-badge.smartstore { background: #03c75a; color: white; }
-.market-badge.coupang { background: #ee2c4a; color: white; }
-.market-badge.lotteon { background: #ed1c24; color: white; }
-.market-badge.eleven { background: #ff0038; color: white; }
-.market-badge.musinsa { background: #000; color: white; }
-
-/* 비교표 강조 */
-.md-typeset table:not([class]) th {
-  background: var(--md-primary-fg-color--light);
-  color: var(--md-primary-bg-color);
-  font-weight: 700;
+.market-badge:hover {
+  transform: translateY(-1px);
 }
 
-/* 가격 공식 박스 */
-.price-formula {
-  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.08));
-  padding: 20px;
-  border-radius: 12px;
-  border-left: 4px solid var(--md-accent-fg-color);
-  font-family: var(--md-code-font);
-  font-size: 0.95rem;
-  margin: 16px 0;
+.market-badge.smartstore {
+  color: #03c75a;
+  border-color: rgba(3, 199, 90, 0.3);
+  background: rgba(3, 199, 90, 0.08);
+}
+.market-badge.coupang {
+  color: #ee2c4a;
+  border-color: rgba(238, 44, 74, 0.3);
+  background: rgba(238, 44, 74, 0.08);
+}
+.market-badge.lotteon {
+  color: #ed1c24;
+  border-color: rgba(237, 28, 36, 0.3);
+  background: rgba(237, 28, 36, 0.08);
+}
+.market-badge.eleven {
+  color: #ff0038;
+  border-color: rgba(255, 0, 56, 0.3);
+  background: rgba(255, 0, 56, 0.08);
+}
+.market-badge.musinsa {
+  color: var(--lonit-text);
+  border-color: var(--lonit-border-strong);
+  background: var(--lonit-surface-hover);
 }
 
-/* 수치 강조 */
-.big-number {
-  font-size: 3rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #6366f1, #ec4899);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  line-height: 1;
-}
+/* ═══════════════════════════════════════════════════════════
+   8. 단계별 워크스루 (.step)
+   ═══════════════════════════════════════════════════════════ */
 
-/* 단계별 워크스루 */
 .step {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   align-items: flex-start;
-  padding: 16px;
-  margin: 12px 0;
-  border-radius: 8px;
-  background: var(--md-code-bg-color);
+  padding: 1.25rem;
+  margin: 0.75rem 0;
+  border-radius: 12px;
+  background: var(--lonit-surface);
+  border: 1px solid var(--lonit-border);
+  transition: all 0.2s ease;
+}
+
+.step:hover {
+  border-color: var(--lonit-300);
+  transform: translateX(4px);
 }
 
 .step-number {
@@ -124,31 +442,281 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--md-accent-fg-color);
+  background: var(--lonit-gradient);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
-.step-body {
-  flex: 1;
-}
+.step-body { flex: 1; }
 
 .step-body h4 {
-  margin: 0 0 4px;
+  margin: 0 0 0.25rem !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
 }
 
-/* Mermaid 다이어그램 가운데 정렬 */
-.mermaid {
-  text-align: center;
-  margin: 24px 0;
+.step-body p {
+  margin: 0 !important;
+  color: var(--lonit-text-muted) !important;
+  font-size: 0.85rem !important;
 }
 
-/* 콜아웃 한국어 룩 */
+/* ═══════════════════════════════════════════════════════════
+   9. 가격 공식 박스
+   ═══════════════════════════════════════════════════════════ */
+
+.price-formula {
+  background: var(--lonit-gradient-soft);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--lonit-600);
+  font-family: var(--md-code-font);
+  font-size: 0.95rem;
+  margin: 1.5rem 0;
+  color: var(--lonit-text);
+}
+
+[data-md-color-scheme="slate"] .price-formula {
+  background: rgba(79, 70, 229, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   10. 큰 숫자 강조
+   ═══════════════════════════════════════════════════════════ */
+
+.big-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: var(--lonit-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   11. 표 (Table)
+   ═══════════════════════════════════════════════════════════ */
+
+.md-typeset table:not([class]) {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--lonit-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--lonit-50);
+  color: var(--lonit-700);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: var(--lonit-surface-hover);
+  color: var(--lonit-300);
+}
+
+.md-typeset table:not([class]) td {
+  border-color: var(--lonit-border);
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) tr:hover td {
+  background: var(--lonit-surface-muted);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
+  background: var(--lonit-surface-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   12. Admonition (콜아웃 박스)
+   ═══════════════════════════════════════════════════════════ */
+
 .md-typeset .admonition,
 .md-typeset details {
-  font-size: 0.9rem;
-  border-radius: 8px;
+  font-size: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--lonit-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border-left-width: 4px;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   13. 코드 블록 + 하이라이트
+   ═══════════════════════════════════════════════════════════ */
+
+.md-typeset pre > code {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.md-typeset .highlight {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--lonit-border);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   14. Mermaid 다이어그램
+   ═══════════════════════════════════════════════════════════ */
+
+.mermaid {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--lonit-surface-muted);
+  border-radius: 12px;
+  border: 1px solid var(--lonit-border);
+}
+
+[data-md-color-scheme="slate"] .mermaid {
+  background: var(--lonit-surface-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   15. 푸터
+   ═══════════════════════════════════════════════════════════ */
+
+.md-footer {
+  background: var(--lonit-text);
+}
+
+.md-footer-meta {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.md-footer__inner {
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   16. 검색
+   ═══════════════════════════════════════════════════════════ */
+
+.md-search__input {
+  background: var(--lonit-surface-hover);
+  font-weight: 500;
+  font-family: var(--md-text-font);
+}
+
+.md-search__input::placeholder {
+  color: var(--lonit-text-faint);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   17. Figure (이미지 캡션)
+   ═══════════════════════════════════════════════════════════ */
+
+.md-typeset figure {
+  margin: 2rem auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.md-typeset figure img {
+  border-radius: 12px;
+  border: 1px solid var(--lonit-border);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+.md-typeset figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--lonit-text-muted);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   18. 스크롤바 (Webkit)
+   ═══════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lonit-border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lonit-text-faint);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   19. 모바일 반응형
+   ═══════════════════════════════════════════════════════════ */
+
+@media screen and (max-width: 768px) {
+  .lonit-hero h1 {
+    font-size: 2.25rem !important;
+  }
+  .lonit-hero-tagline {
+    font-size: 1rem;
+  }
+  .md-typeset h1 {
+    font-size: 1.75rem;
+  }
+  .md-typeset h2 {
+    font-size: 1.4rem;
+  }
+  .lonit-cards {
+    grid-template-columns: 1fr;
+  }
+  .big-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   20. 유틸리티
+   ═══════════════════════════════════════════════════════════ */
+
+.center { text-align: center; }
+.muted { color: var(--lonit-text-muted); }
+
+/* 그라데이션 텍스트 (인라인) */
+.gradient-text {
+  background: var(--lonit-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* 키보드 단축키 */
+.md-typeset kbd {
+  background: var(--lonit-surface);
+  border: 1px solid var(--lonit-border-strong);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 var(--lonit-border-strong), inset 0 -1px 0 var(--lonit-border);
+  padding: 0.1em 0.5em;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--lonit-text);
 }
