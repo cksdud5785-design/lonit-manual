@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <!-- SEO -->
 <meta content="셀러를 위한 4마켓 자동화 가이드 — 무신사 → 스마트스토어/쿠팡/롯데온/11번가" name="description"/>
-<meta content="Lonit, 무신사, 스마트스토어, 쿠팡, 롯데온, 11번가, 4마켓, 자동등록, 셀러, 더망고, 대량등록, SEO" name="keywords"/>
+<meta content="Lonit, 무신사, 스마트스토어, 쿠팡, 롯데온, 11번가, 4마켓, 자동등록, 셀러, T사, 대량등록, SEO" name="keywords"/>
 <meta content="Lonit" name="author"/>
 <link href="https://docs.lonit.kr/06-orders-cs/" rel="canonical"/>
 <!-- Open Graph -->
@@ -168,13 +168,13 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../03-vs-themango/">
+<a class="md-tabs__link" href="../03-vs-others/">
         
   
   
     
   
-  더망고와 비교
+  타사와 비교
 
       </a>
 </li>
@@ -314,11 +314,11 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-vs-themango/">
+<a class="md-nav__link" href="../03-vs-others/">
 <span class="md-ellipsis">
     
   
-    더망고와 비교
+    타사와 비교
   
 
     
@@ -667,7 +667,7 @@
 <hr/>
 <h2 id="1">1. 주문 통합 — 셀러 시간을 가장 많이 줄이는 기능<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
 <div class="mermaid">flowchart TB
-    subgraph 마켓들["🛒 4마켓에서 주문 발생"]
+    subgraph MARKETS["🛒 4마켓에서 주문 발생"]
         N[스마트스토어 주문]
         C[쿠팡 주문]
         L[롯데온 주문]
@@ -689,7 +689,7 @@
 
     style Lonit fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
 </div>
-<p><strong>더망고 시절</strong>: 4마켓 셀러센터를 각각 들어가 주문 확인.
+<p><strong>T사 시절</strong>: 4마켓 셀러센터를 각각 들어가 주문 확인.
 <strong>Lonit</strong>: 1개 화면에서 모든 마켓 주문.</p>
 <h3 id="1-1">1-1. 주문 동기화 주기<a class="headerlink" href="#1-1" title="Permanent link">🔗</a></h3>
 <table>
@@ -809,22 +809,22 @@
 <hr/>
 <h2 id="4">4. 클레임 처리 — 취소·반품·교환<a class="headerlink" href="#4" title="Permanent link">🔗</a></h2>
 <div class="mermaid">stateDiagram-v2
-    [*] --&gt; 주문접수
-    주문접수 --&gt; 발송완료: 송장 등록
+    [*] --&gt; Received
+    Received --&gt; Shipped: 송장 등록
 
-    주문접수 --&gt; 취소요청: 고객 취소
-    취소요청 --&gt; 취소승인: 셀러 승인
-    취소요청 --&gt; 취소거부: 셀러 거부
+    Received --&gt; CancelReq: 고객 취소
+    CancelReq --&gt; CancelApprove: 셀러 승인
+    CancelReq --&gt; CancelReject: 셀러 거부
 
-    발송완료 --&gt; 반품요청: 고객 반품
-    반품요청 --&gt; 회수보류: 회수 보류 검토
-    반품요청 --&gt; 반품승인: 회수 시작
-    반품승인 --&gt; 회수완료
-    회수완료 --&gt; 환불완료
+    Shipped --&gt; ReturnReq: 고객 반품
+    ReturnReq --&gt; ReturnHold: 회수 보류 검토
+    ReturnReq --&gt; ReturnApprove: 회수 시작
+    ReturnApprove --&gt; Returned
+    Returned --&gt; Refunded
 
-    발송완료 --&gt; 교환요청: 고객 교환
-    교환요청 --&gt; 교환승인
-    교환승인 --&gt; 재발송
+    Shipped --&gt; ExchangeReq: 고객 교환
+    ExchangeReq --&gt; ExchangeApprove
+    ExchangeApprove --&gt; Reshipped
 </div>
 <h3 id="4-1">4-1. 클레임 액션 자동화<a class="headerlink" href="#4-1" title="Permanent link">🔗</a></h3>
 <p>각 마켓의 클레임 처리 API를 Lonit이 자동으로 호출합니다.</p>
@@ -857,8 +857,8 @@
 <h3 id="4-2-cs">4-2. CS 답변<a class="headerlink" href="#4-2-cs" title="Permanent link">🔗</a></h3>
 <p>각 마켓의 고객 문의도 Lonit 한 화면에서.</p>
 <div class="mermaid">flowchart LR
-    Customer[고객 문의] --&gt; 마켓
-    마켓 --&gt;|매분 동기화| Lonit
+    Customer[고객 문의] --&gt; MK
+    MK --&gt;|매분 동기화| Lonit
     Lonit --&gt; View[CS 화면]
     View --&gt; Reply[답변 작성]
     Reply --&gt; Send[해당 마켓에 자동 전송]

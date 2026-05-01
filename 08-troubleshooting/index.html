@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <!-- SEO -->
 <meta content="셀러를 위한 4마켓 자동화 가이드 — 무신사 → 스마트스토어/쿠팡/롯데온/11번가" name="description"/>
-<meta content="Lonit, 무신사, 스마트스토어, 쿠팡, 롯데온, 11번가, 4마켓, 자동등록, 셀러, 더망고, 대량등록, SEO" name="keywords"/>
+<meta content="Lonit, 무신사, 스마트스토어, 쿠팡, 롯데온, 11번가, 4마켓, 자동등록, 셀러, T사, 대량등록, SEO" name="keywords"/>
 <meta content="Lonit" name="author"/>
 <link href="https://docs.lonit.kr/08-troubleshooting/" rel="canonical"/>
 <!-- Open Graph -->
@@ -167,13 +167,13 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../03-vs-themango/">
+<a class="md-tabs__link" href="../03-vs-others/">
         
   
   
     
   
-  더망고와 비교
+  타사와 비교
 
       </a>
 </li>
@@ -313,11 +313,11 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-vs-themango/">
+<a class="md-nav__link" href="../03-vs-others/">
 <span class="md-ellipsis">
     
   
-    더망고와 비교
+    타사와 비교
   
 
     
@@ -890,9 +890,9 @@
     Q1 --&gt;|업로드 실패| Up[업로드 섹션]
     Q1 --&gt;|동기화 안 됨| Sync[동기화 섹션]
     Q1 --&gt;|주문 안 들어옴| Order[주문 섹션]
-    Q1 --&gt;|마켓 연결 실패| Auth[인증 섹션]
+    Q1 --&gt;|MK 연결 실패| Auth[인증 섹션]
     Q1 --&gt;|가격 이상| Price[가격 섹션]
-    Q1 --&gt;|기타| Etc[기타 + 문의]
+    Q1 --&gt;|MISC| Etc[기타 + 문의]
 
     style Up fill:#fef3c7
     style Sync fill:#dbeafe
@@ -1007,11 +1007,11 @@
 <h2 id="쿠팡-orphan">7. 쿠팡 orphan 문제<a class="headerlink" href="#쿠팡-orphan" title="Permanent link">🔗</a></h2>
 <p>쿠팡 셀러센터에 등록된 상품이 Lonit에는 없는 경우.</p>
 <div class="mermaid">sequenceDiagram
-    셀러-&gt;&gt;Lonit: 카탈로그 reconcile 실행
-    Lonit-&gt;&gt;쿠팡: 등록 상품 모두 조회
-    쿠팡--&gt;&gt;Lonit: 1,834개
+    USER-&gt;&gt;Lonit: 카탈로그 reconcile 실행
+    Lonit-&gt;&gt;CP: 등록 상품 모두 조회
+    CP--&gt;&gt;Lonit: 1,834개
     Lonit-&gt;&gt;Lonit: Lonit DB와 매칭
-    Lonit--&gt;&gt;셀러: 1,834개 흡수<br/>(이제 자동 동기화 가능)
+    Lonit--&gt;&gt;USER: 1,834개 흡수<br/>(이제 자동 동기화 가능)
 </div>
 <p><strong>대시보드 → 쿠팡 → 카탈로그 동기화</strong> 클릭. 자세한 단계는 <a href="../04-market-strategy/coupang/">4-2. 쿠팡</a> 참고.</p>
 <hr/>
@@ -1113,11 +1113,11 @@
       자동 동기화
       자동 매핑
     셀러는 결정에 집중
-      어떤 상품 팔지
+      어떤 PRODUCT 팔지
       어떻게 마케팅할지
       어떤 가격에 팔지
     문제 발생 시
-      이 챕터 검색
+      이 챕터 SEARCH
       Lonit이 자동 처리하는 부분 다시 확인
       그래도 안 되면 즉시 문의
 </div>

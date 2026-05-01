@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <!-- SEO -->
 <meta content="셀러를 위한 4마켓 자동화 가이드 — 무신사 → 스마트스토어/쿠팡/롯데온/11번가" name="description"/>
-<meta content="Lonit, 무신사, 스마트스토어, 쿠팡, 롯데온, 11번가, 4마켓, 자동등록, 셀러, 더망고, 대량등록, SEO" name="keywords"/>
+<meta content="Lonit, 무신사, 스마트스토어, 쿠팡, 롯데온, 11번가, 4마켓, 자동등록, 셀러, T사, 대량등록, SEO" name="keywords"/>
 <meta content="Lonit" name="author"/>
 <link href="https://docs.lonit.kr/01-getting-started/" rel="canonical"/>
 <!-- Open Graph -->
@@ -168,13 +168,13 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../03-vs-themango/">
+<a class="md-tabs__link" href="../03-vs-others/">
         
   
   
     
   
-  더망고와 비교
+  타사와 비교
 
       </a>
 </li>
@@ -525,11 +525,11 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-vs-themango/">
+<a class="md-nav__link" href="../03-vs-others/">
 <span class="md-ellipsis">
     
   
-    더망고와 비교
+    타사와 비교
   
 
     
@@ -754,8 +754,8 @@
 </div>
 <p>서버 IP는 <strong>설정 → 마켓 계정</strong> 페이지 상단 배너에서도 확인 가능합니다.</p>
 <div class="mermaid">sequenceDiagram
-    participant U as 셀러
-    participant M as 마켓 셀러센터
+    participant U as USER
+    participant M as MK 셀러센터
     participant L as Lonit
 
     U-&gt;&gt;M: 1. 서버 IP 158.247.214.201 등록
@@ -785,14 +785,14 @@
 </ol>
 <h3 id="3-2-12">3-2. 지원 사이트 12곳<a class="headerlink" href="#3-2-12" title="Permanent link">🔗</a></h3>
 <div class="mermaid">flowchart TB
-    subgraph 패션["👗 패션"]
+    subgraph FASHION["👗 패션"]
         F1[무신사]
         F2[29CM]
         F3[W컨셉]
         F4[패션플러스]
     end
 
-    subgraph 종합["🛍️ 종합 쇼핑"]
+    subgraph SHOPPING["🛍️ 종합 쇼핑"]
         G1[SSG]
         G2[롯데아이몰]
         G3[GS샵]
@@ -800,14 +800,14 @@
         G5[G마켓]
     end
 
-    subgraph 기타["✨ 기타"]
+    subgraph MISC["✨ 기타"]
         E1[ABC마트]
         E2[올리브영]
     end
 
-    style 패션 fill:#fef3c7,stroke:#f59e0b
-    style 종합 fill:#dbeafe,stroke:#3b82f6
-    style 기타 fill:#fce7f3,stroke:#ec4899
+    style FASHION fill:#fef3c7,stroke:#f59e0b
+    style SHOPPING fill:#dbeafe,stroke:#3b82f6
+    style MISC fill:#fce7f3,stroke:#ec4899
 </div>
 <p>각 사이트의 상품 페이지에서 익스텐션을 누르면 <strong>상품명·가격·옵션·이미지·상세설명</strong>이 한 번에 Lonit으로 들어옵니다.</p>
 <hr/>
@@ -876,7 +876,7 @@
 <p>상품 페이지에서 브라우저 우측 상단 <strong>Lonit 아이콘</strong> 클릭 → "이 상품 수집" 버튼.</p>
 <div class="mermaid">sequenceDiagram
     participant B as 브라우저
-    participant E as 익스텐션
+    participant E as EXT
     participant L as Lonit
 
     B-&gt;&gt;E: 상품 페이지 열림
