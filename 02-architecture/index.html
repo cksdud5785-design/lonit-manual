@@ -588,7 +588,7 @@
 <p>이 챕터는 코드나 어려운 용어 없이, <strong>그림 위주로</strong> Lonit의 동작을 설명합니다. 강의에서는 이 챕터부터 시작합니다.</p>
 <hr/>
 <h2 id="1-lonit">1. 한 장으로 보는 Lonit<a class="headerlink" href="#1-lonit" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph 입력["📥 입력 (소싱처)"]
         direction LR
         I1[👗 무신사]
@@ -620,11 +620,11 @@
     style 핵심 fill:#eef2ff,stroke:#6366f1,stroke-width:2px
     style 입력 fill:#fef3c7,stroke:#f59e0b
     style 출력 fill:#dbeafe,stroke:#3b82f6
-</code></pre>
+</div>
 <p><strong>왼쪽</strong>(소싱처)에서 상품을 받아 <strong>가운데</strong>(Lonit)에서 가공한 뒤 <strong>오른쪽</strong>(마켓)에 보냅니다.</p>
 <hr/>
 <h2 id="2-4">2. 핵심 4기능<a class="headerlink" href="#2-4" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>mindmap
+<div class="mermaid">mindmap
   root((Lonit))
     수집
       크롬 익스텐션
@@ -642,10 +642,10 @@
       통합 주문 화면
       송장 자동 등록
       클레임 처리
-</code></pre>
+</div>
 <p>각 기능을 하나씩 봅시다.</p>
 <h3 id="2-1-collect">2-1. 수집 (Collect)<a class="headerlink" href="#2-1-collect" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     A[👤 셀러] --&gt;|상품 페이지에서<br/>익스텐션 클릭| B[🌐 크롬 익스텐션]
     B --&gt;|자동 추출| C[📝 상품 데이터]
     C --&gt; D{무엇을 추출?}
@@ -657,13 +657,13 @@
     D --&gt; D6[브랜드]
 
     C ==&gt; L[(💾 Lonit 저장)]
-</code></pre>
+</div>
 <div class="admonition note">
 <p class="admonition-title">수집은 곧 '복제'가 아닙니다</p>
 <p>Lonit은 소싱처의 <strong>상품 정보</strong>를 가져옵니다. 가격·이미지·설명을 그대로 마켓에 올리는 게 아니라, <a href="../07-pricing/">가격 정책</a>을 적용해 새로운 판매가를 계산하고, <a href="../04-market-strategy/smartstore/">SEO 최적화</a>로 상품명을 다듬어 올립니다.</p>
 </div>
 <h3 id="2-2-upload">2-2. 등록 (Upload)<a class="headerlink" href="#2-2-upload" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     P[📦 상품 1개] --&gt; M{4마켓 변환}
 
     M --&gt;|네이버 형식| MN[스마트스토어 페이로드]
@@ -686,11 +686,11 @@
 
     style M fill:#fce7f3,stroke:#ec4899
     style R fill:#eef2ff,stroke:#6366f1
-</code></pre>
+</div>
 <p><strong>핵심 포인트</strong>: 4마켓은 <strong>동시에 병렬로</strong> 업로드됩니다. 1개 마켓이 느려도 다른 3개는 영향 없음.</p>
 <h3 id="2-3-sync">2-3. 동기화 (Sync)<a class="headerlink" href="#2-3-sync" title="Permanent link">🔗</a></h3>
 <p>이건 Lonit의 <strong>가장 큰 가치</strong>입니다. 등록 후엔 아무것도 안 해도 자동.</p>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     participant 무신사 as 무신사
     participant L as Lonit
     participant 마켓 as 4마켓
@@ -710,10 +710,10 @@
             마켓--&gt;&gt;L: ✅ 품절 표시됨
         end
     end
-</code></pre>
+</div>
 <p><strong>감지 → 적용까지 평균 5초</strong>. 무신사에서 가격이 바뀐 뒤 5초 후엔 4마켓에도 반영되어 있습니다.</p>
 <h3 id="2-4-cs">2-4. 주문·CS<a class="headerlink" href="#2-4-cs" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph 마켓["🛒 4마켓에서 주문 발생"]
         OM1[스마트스토어 주문]
         OM2[쿠팡 주문]
@@ -739,13 +739,13 @@
 
     style Lonit fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
     style 통합 fill:#fce7f3,stroke:#ec4899
-</code></pre>
+</div>
 <p><strong>4개 마켓 따로 주문 받아 처리</strong>할 필요가 없습니다. 한 화면에서 다 보고, 송장도 한 번 등록하면 4마켓에 자동 분배.</p>
 <p>자세한 흐름은 <a href="../06-orders-cs/">6. 주문 + CS</a> 참고.</p>
 <hr/>
 <h2 id="3">3. 데이터의 일생 — 한 상품이 거치는 길<a class="headerlink" href="#3" title="Permanent link">🔗</a></h2>
 <p>상품 1개가 무신사에서 시작해 마켓에 올라가고 주문 받기까지의 전체 흐름:</p>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     autonumber
     participant 셀러
     participant 무신사
@@ -789,12 +789,12 @@
 
     셀러-&gt;&gt;Lonit: 송장 등록
     Lonit-&gt;&gt;4마켓: 송장 자동 분배
-</code></pre>
+</div>
 <hr/>
 <h2 id="4-4">4. "왜 4마켓 동시"가 가능한가?<a class="headerlink" href="#4-4" title="Permanent link">🔗</a></h2>
 <p>질문: 마켓마다 API 형식·정책·카테고리·옵션 규칙이 다 다른데, 어떻게 한 상품을 동시에 올릴 수 있을까?</p>
 <p><strong>답: Lonit이 마켓별 변환을 자동으로 합니다.</strong></p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph 표준["📐 Lonit 표준 형식"]
         T[상품명: 무신사 스탠다드 후드<br/>가격: 25,000원<br/>옵션: S/M/L<br/>카테고리: 후드티<br/>이미지: 5장]
     end
@@ -808,11 +808,11 @@
 
     style 표준 fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
     style V fill:#fce7f3,stroke:#ec4899,stroke-width:2px
-</code></pre>
+</div>
 <p>각 마켓의 <strong>고유한 규칙은 <a href="../04-market-strategy/">4. 4마켓 노출 전략</a></strong>에서 자세히 설명합니다.</p>
 <hr/>
 <h2 id="5-vs-lonit">5. 자동 vs 수동 — 무엇을 셀러가 하고 무엇을 Lonit이 할까<a class="headerlink" href="#5-vs-lonit" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph 셀러["👤 셀러가 하는 일"]
         H1[상품 골라 익스텐션 클릭]
         H2[가격 정책 1번 설정]
@@ -835,7 +835,7 @@
 
     style 셀러 fill:#fef3c7,stroke:#f59e0b
     style Lonit_auto fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">💡 셀러는 '결정'만 합니다</p>
 <p>"어떤 상품을 올릴지", "얼마에 팔지" 같은 <strong>결정</strong>은 사람이. 그 외 반복 작업(매핑·변환·동기화·분배)은 모두 Lonit이.</p>
@@ -843,7 +843,7 @@
 <hr/>
 <h2 id="6">6. 멀티마켓 동시 운영의 안전장치<a class="headerlink" href="#6" title="Permanent link">🔗</a></h2>
 <p>4마켓을 동시에 운영하면 한 마켓이 느리거나 에러가 나도 다른 마켓에 영향 없어야 합니다. Lonit의 안전장치:</p>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     Action[셀러 액션] --&gt; Q[작업 큐]
 
     Q --&gt; M1{마켓 1<br/>스마트스토어}
@@ -864,7 +864,7 @@
     style M3 fill:#dbeafe
     style M4 fill:#dbeafe
     style F1 fill:#fee2e2,stroke:#dc2626
-</code></pre>
+</div>
 <p><strong>핵심 안전장치</strong>:</p>
 <ul>
 <li><strong>마켓별 독립 실행</strong>: 한 마켓 실패가 다른 마켓 막지 않음</li>
@@ -927,7 +927,7 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
+mermaid.initialize({
     theme: (document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default',
     themeVariables: {
         primaryColor: "#eef2ff",
@@ -938,7 +938,6 @@ window.mermaidConfig = {default: {
         tertiaryColor: "#fafafa",
         edgeLabelBackground: "#f4f4f5",
         fontFamily: "Pretendard Variable, Pretendard, sans-serif"
-    },
-    startOnLoad: false
-}};</script></body>
+    }
+});</script></body>
 </html>

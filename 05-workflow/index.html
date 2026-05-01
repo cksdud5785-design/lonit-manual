@@ -756,7 +756,7 @@
 <p>이 챕터는 <strong>운영 중인 셀러</strong>의 실제 흐름을 정리합니다. 신규 사용자는 <a href="../01-getting-started/">1. 시작하기</a>부터 보세요.</p>
 <hr/>
 <h2 id="1">1. 한 주의 흐름<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>gantt
+<div class="mermaid">gantt
     title 일주일 운영 패턴
     dateFormat HH:mm
     axisFormat %H:%M
@@ -777,18 +777,18 @@
 
     section 일요일
     시즌 상품 기획         :d1, 14:00, 2h
-</code></pre>
+</div>
 <p>매일 4~6시간 정도면 충분. <strong>자동화된 부분(가격/재고 동기화, 카테고리 매핑, SEO)이 시간을 가장 많이 절약합니다.</strong></p>
 <hr/>
 <h2 id="2-30">2. 매일 하는 일 — 30분 운영<a class="headerlink" href="#2-30" title="Permanent link">🔗</a></h2>
 <h3 id="2-1-0900-1">2-1. 아침 (09:00 — 1시간)<a class="headerlink" href="#2-1-0900-1" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     Open[Lonit 대시보드 접속] --&gt; Notify[알림 확인]
     Notify --&gt; Order[주문 확인<br/>4마켓 통합]
     Order --&gt; Issue{이슈 있음?}
     Issue --&gt;|예| Fix[CS 답변·반품 처리]
     Issue --&gt;|아니오| Print[송장 출력 준비]
-</code></pre>
+</div>
 <h3 id="2-2-1400-30">2-2. 점심 (14:00 — 30분)<a class="headerlink" href="#2-2-1400-30" title="Permanent link">🔗</a></h3>
 <ul>
 <li>송장 등록 (4마켓 자동 분배)</li>
@@ -803,7 +803,7 @@
 <hr/>
 <h2 id="3-collect">3. 수집 흐름 (Collect)<a class="headerlink" href="#3-collect" title="Permanent link">🔗</a></h2>
 <p>새 상품을 추가하는 과정.</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     Plan[1. 무엇을 팔지 결정] --&gt; Browse[2. 무신사·SSG 등에서<br/>상품 페이지 열기]
     Browse --&gt; Click[3. Lonit 익스텐션 클릭]
     Click --&gt; Auto[4. 자동 파싱<br/>이름·가격·옵션·이미지]
@@ -813,7 +813,7 @@
 
     style Click fill:#fef3c7,stroke:#f59e0b
     style Auto fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <h3 id="3-1">3-1. 익스텐션 단축키<a class="headerlink" href="#3-1" title="Permanent link">🔗</a></h3>
 <p>브라우저에서 키보드만으로:</p>
 <table>
@@ -836,13 +836,13 @@
 </table>
 <h3 id="3-2-100">3-2. 대량 수집 — 한 번에 100건<a class="headerlink" href="#3-2-100" title="Permanent link">🔗</a></h3>
 <p>특정 브랜드의 모든 상품을 한 번에 수집:</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     BrandPage[브랜드 페이지 열기] --&gt; Ext[Lonit 익스텐션<br/>'전체 수집' 모드]
     Ext --&gt; Auto[자동 페이지 넘기기]
     Auto --&gt; Pool[100건 풀<br/>한 번에 수집]
 
     style Pool fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <p><code>bulk-collect</code> 명령은 분당 ~30건 처리.</p>
 <h3 id="3-3">3-3. 수집 자동 정책 (선택)<a class="headerlink" href="#3-3" title="Permanent link">🔗</a></h3>
 <p>특정 브랜드/카테고리를 <strong>자동으로 매일 수집</strong>할 수도 있습니다:</p>
@@ -853,7 +853,7 @@
 </ul>
 <hr/>
 <h2 id="4-upload">4. 등록 흐름 (Upload)<a class="headerlink" href="#4-upload" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     Pre[사전 검증] --&gt; Pre1[정책 매핑 OK?]
     Pre --&gt; Pre2[가격 &gt; 0?]
     Pre --&gt; Pre3[카테고리 매핑됨?]
@@ -874,7 +874,7 @@
 
     style Q fill:#fce7f3,stroke:#ec4899
     style Lease fill:#fef3c7,stroke:#f59e0b
-</code></pre>
+</div>
 <h3 id="4-1">4-1. 큐 락 — 중복 업로드 방지<a class="headerlink" href="#4-1" title="Permanent link">🔗</a></h3>
 <p>같은 상품을 <strong>한 번에 한 셀러만</strong> 업로드 가능. 다른 동기화 프로세스가 동시에 건드리지 못합니다.</p>
 <p>큐가 30분 이상 처리 안 되면 자동으로 정리(sweep)됩니다.</p>
@@ -886,7 +886,7 @@
 <h2 id="5-sync">5. 동기화 흐름 (Sync)<a class="headerlink" href="#5-sync" title="Permanent link">🔗</a></h2>
 <p>이건 <strong>셀러가 신경 쓸 필요 없는</strong> 자동 흐름이지만, 알아두면 좋습니다.</p>
 <h3 id="5-1-5">5-1. 가격 동기화 (5분 주기)<a class="headerlink" href="#5-1-5" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     autonumber
     Note over Lonit: 매 5분
     Lonit-&gt;&gt;무신사: 가격 확인
@@ -903,7 +903,7 @@
         롯데온--&gt;&gt;Lonit: ✅
         11번가--&gt;&gt;Lonit: ✅
     end
-</code></pre>
+</div>
 <h3 id="5-2">5-2. 재고 동기화<a class="headerlink" href="#5-2" title="Permanent link">🔗</a></h3>
 <table>
 <thead>
@@ -941,7 +941,7 @@
 <p>대부분 셀러는 이 화면을 안 봐도 됩니다 — 자동 동작.</p>
 <hr/>
 <h2 id="6">6. 정책 변경 흐름<a class="headerlink" href="#6" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     Edit[정책 수정<br/>'마진 30→35'] --&gt; Save[저장]
     Save --&gt; Trigger[Lonit 자동 트리거]
     Trigger --&gt; Bump[products.updatedAt bump]
@@ -951,7 +951,7 @@
 
     style Trigger fill:#fce7f3,stroke:#ec4899
     style Push fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <p>정책 1개를 수정하면 <strong>모든 적용 상품의 가격이 자동 재계산</strong>됩니다.</p>
 <h3 id="6-1">6-1. 정책별 적용 우선순위<a class="headerlink" href="#6-1" title="Permanent link">🔗</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>상품별 개별 정책
@@ -1106,7 +1106,7 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
+mermaid.initialize({
     theme: (document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default',
     themeVariables: {
         primaryColor: "#eef2ff",
@@ -1117,7 +1117,6 @@ window.mermaidConfig = {default: {
         tertiaryColor: "#fafafa",
         edgeLabelBackground: "#f4f4f5",
         fontFamily: "Pretendard Variable, Pretendard, sans-serif"
-    },
-    startOnLoad: false
-}};</script></body>
+    }
+});</script></body>
 </html>

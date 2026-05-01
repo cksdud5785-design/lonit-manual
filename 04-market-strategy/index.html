@@ -493,7 +493,7 @@
 <p>각 마켓의 <strong>상세 알고리즘</strong>과 <strong>Lonit이 자동으로 처리하는 부분</strong>은 아래 챕터에서 따로 설명합니다.</p>
 <hr/>
 <h2 id="2">2. 마켓별 알고리즘 비교<a class="headerlink" href="#2" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph SS["🛒 스마트스토어"]
         SS1[상품명 SEO 70%]
         SS2[태그·카테고리 20%]
@@ -522,7 +522,7 @@
     style CP fill:#fee2e2,stroke:#ee2c4a
     style LT fill:#fce7f3,stroke:#ed1c24
     style EL fill:#ffedd5,stroke:#ff0038
-</code></pre>
+</div>
 <p><strong>숫자는 대략적 비중입니다</strong> — 각 마켓이 공식 비공개. 운영 경험과 패턴 분석 기반.</p>
 <hr/>
 <h2 id="3">3. 마켓별 함정 한눈에<a class="headerlink" href="#3" title="Permanent link">🔗</a></h2>
@@ -600,7 +600,7 @@
 </table>
 <hr/>
 <h2 id="4-4">4. 4마켓 노출 잘 되는 셀러의 공통 행동<a class="headerlink" href="#4-4" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     H1[1. 정확한 카테고리 매핑]
     H2[2. 마켓별 SEO 형식 준수]
     H3[3. 가격 정책 일관성]
@@ -619,12 +619,12 @@
     신뢰 --&gt; 매출
 
     style 매출 fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
-</code></pre>
+</div>
 <p>이 6가지를 셀러가 직접 하면 시간이 많이 들지만, <strong>Lonit이 1·2·4·5를 자동화</strong>합니다. 셀러는 3과 6에 집중하면 됩니다.</p>
 <hr/>
 <h2 id="5">5. 우선순위 — 어디부터 노출 잘 되게 할까?<a class="headerlink" href="#5" title="Permanent link">🔗</a></h2>
 <p>신규 셀러의 경우:</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     S[Start] --&gt; L[Step 1<br/>스마트스토어<br/>SEO 최적화]
     L --&gt; C[Step 2<br/>쿠팡 카탈로그<br/>매칭]
     C --&gt; Lo[Step 3<br/>롯데온 정책<br/>설정]
@@ -639,7 +639,7 @@
     style C fill:#fee2e2,stroke:#ee2c4a
     style Lo fill:#fce7f3,stroke:#ed1c24
     style E fill:#ffedd5,stroke:#ff0038
-</code></pre>
+</div>
 <p><strong>스마트스토어</strong>가 검색량·매출이 가장 크므로 SEO 최적화에 가장 신경 써야 합니다. 다른 3개 마켓은 카테고리·정책·KC만 잘 맞추면 노출 자체는 큰 차이 없이 됩니다.</p>
 <hr/>
 <h2 id="_1">마켓별 자세히 보기<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h2>
@@ -701,7 +701,7 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
+mermaid.initialize({
     theme: (document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default',
     themeVariables: {
         primaryColor: "#eef2ff",
@@ -712,7 +712,6 @@ window.mermaidConfig = {default: {
         tertiaryColor: "#fafafa",
         edgeLabelBackground: "#f4f4f5",
         fontFamily: "Pretendard Variable, Pretendard, sans-serif"
-    },
-    startOnLoad: false
-}};</script></body>
+    }
+});</script></body>
 </html>

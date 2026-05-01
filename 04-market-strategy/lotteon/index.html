@@ -681,7 +681,7 @@
 <p><span class="market-badge lotteon">롯데온</span></p>
 <hr/>
 <h2 id="1">1. 롯데온이 다른 마켓과 다른 점<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph 일반마켓["스마트스토어·쿠팡·11번가"]
         N1[상품 정보]
         N1 --&gt; N2[등록]
@@ -698,31 +698,31 @@
 
     style L2 fill:#fce7f3,stroke:#ed1c24
     style L3 fill:#fce7f3,stroke:#ed1c24
-</code></pre>
+</div>
 <p>롯데온은 <strong>상품 + 정책의 조합</strong>으로 등록합니다. 정책 설정이 잘못되면 발주가 거부됩니다.</p>
 <hr/>
 <h2 id="2-id">2. 매장 ID — 가장 먼저 확인<a class="headerlink" href="#2-id" title="Permanent link">🔗</a></h2>
 <p>각 셀러는 <strong>매장 ID</strong>를 받습니다. 이 ID가 없으면 등록 자체가 안 됩니다.</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     셀러[롯데온 셀러] --&gt; 등록[Lonit에<br/>매장 ID 입력]
     등록 --&gt; 자동[Lonit이 모든<br/>상품에 자동 적용]
 
     style 등록 fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
     style 자동 fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <p>매장 ID는 <strong>롯데온 셀러센터 → 매장 관리</strong> 에서 확인 가능합니다.</p>
 <hr/>
 <h2 id="3">3. 가격 — 정가 + 할인가 분리<a class="headerlink" href="#3" title="Permanent link">🔗</a></h2>
 <p>롯데온은 <strong>정가(slPrc)</strong> 와 <strong>할인가(promotion)</strong> 가 분리되어 있습니다. 다른 마켓과 가장 큰 차이.</p>
 <h3 id="3-1">3-1. 잘못된 이해 (과거 버그)<a class="headerlink" href="#3-1" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     Lonit_old[Lonit 과거] --&gt;|slPrc=실제 판매가| Display[화면에<br/>실제 판매가만 표시]
     Display --&gt; Bad[❌ 할인 표시 못 받음<br/>정가 + 할인 효과 ↓]
 
     style Bad fill:#fee2e2
-</code></pre>
+</div>
 <h3 id="3-2">3-2. 올바른 처리 (현재)<a class="headerlink" href="#3-2" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     Lonit_new[Lonit 현재] --&gt; Sep{가격 분리}
     Sep --&gt;|정가| List[slPrc = 정가]
     Sep --&gt;|할인| Promo[promotion API<br/>= 할인가]
@@ -733,7 +733,7 @@
     Display --&gt; Good[✅ 정상 할인 효과<br/>'30% OFF' 노출]
 
     style Good fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <p>이 로직은 자동입니다. 셀러는 정책에 마진과 할인을 설정만 하면 Lonit이 알아서 두 가지로 분리해 등록합니다.</p>
 <h3 id="3-3">3-3. 가격 효과 비교<a class="headerlink" href="#3-3" title="Permanent link">🔗</a></h3>
 <table>
@@ -767,7 +767,7 @@
 <h2 id="5">5. 발주 정책 — 등록 거부의 가장 큰 원인<a class="headerlink" href="#5" title="Permanent link">🔗</a></h2>
 <p>롯데온은 <strong>발주 정책</strong>을 모든 상품에 결합해야 합니다.</p>
 <h3 id="5-1">5-1. 발주 정책에 들어가는 것<a class="headerlink" href="#5-1" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>mindmap
+<div class="mermaid">mindmap
   root((발주 정책))
     배송
       배송비 0원·무료
@@ -781,7 +781,7 @@
     출고
       출고 마감 시각
       배송 소요일
-</code></pre>
+</div>
 <h3 id="5-2-lonit">5-2. Lonit이 자동 적용<a class="headerlink" href="#5-2-lonit" title="Permanent link">🔗</a></h3>
 <p>매장 ID를 등록한 상태에서 정책을 1번 만들면, <strong>모든 상품에 자동 적용</strong>됩니다.</p>
 <table>
@@ -854,7 +854,7 @@
 <li>Lonit이 즉시할인 + 카드 혜택을 분리해 등록</li>
 <li>셀러는 정책에서 할인율만 설정하면 됨</li>
 </ul>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     A[원가 18,000] --&gt; B{Lonit 자동}
     B --&gt; C[정가: 30,000]
     B --&gt; D[즉시할인: -5,000]
@@ -865,12 +865,12 @@
 
     style B fill:#fce7f3,stroke:#ec4899
     style G fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <hr/>
 <h2 id="7-2">7. 옵션 — 2축까지 자동 변환<a class="headerlink" href="#7-2" title="Permanent link">🔗</a></h2>
 <p>롯데온도 <strong>색상 + 사이즈</strong> 2축까지 정상 처리합니다.</p>
 <h3 id="7-1-parentid">7-1. parentId 계층 자동 감지<a class="headerlink" href="#7-1-parentid" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     Source[원본 상품<br/>색상별로 다른 SKU] --&gt; Detect{Lonit 자동 감지}
     Detect --&gt;|parentId<br/>계층 발견| Hier[계층 옵션<br/>색상 + 사이즈 2축]
     Detect --&gt;|단일 SKU| Flat[1축 옵션]
@@ -879,18 +879,18 @@
     Flat --&gt; Upload
 
     style Hier fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <p>같은 상품의 색상 변형들을 자동으로 인식해 2축 옵션으로 등록합니다.</p>
 <hr/>
 <h2 id="8">8. 동기화 — 정책 변경 시 자동 반영<a class="headerlink" href="#8" title="Permanent link">🔗</a></h2>
 <p>가격 정책을 바꾸면 롯데온 등록된 상품 가격도 <strong>5분 안에</strong> 자동 변경됩니다.</p>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     셀러-&gt;&gt;Lonit: 정책 마진 30% → 35%
     Lonit-&gt;&gt;Lonit: products.updatedAt bump
     Lonit-&gt;&gt;Lonit: 자동 동기화 엔진<br/>변경 감지
     Lonit-&gt;&gt;롯데온: 4,496건 가격 일괄 업데이트
     롯데온--&gt;&gt;Lonit: ✅ 정가 + 할인가 분리 적용
-</code></pre>
+</div>
 <hr/>
 <h2 id="troubleshooting">9. 자주 발생하는 문제<a class="headerlink" href="#troubleshooting" title="Permanent link">🔗</a></h2>
 <h3 id="9-1">9-1. "발주 거부"<a class="headerlink" href="#9-1" title="Permanent link">🔗</a></h3>
@@ -959,7 +959,7 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
 <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
+mermaid.initialize({
     theme: (document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default',
     themeVariables: {
         primaryColor: "#eef2ff",
@@ -970,7 +970,6 @@ window.mermaidConfig = {default: {
         tertiaryColor: "#fafafa",
         edgeLabelBackground: "#f4f4f5",
         fontFamily: "Pretendard Variable, Pretendard, sans-serif"
-    },
-    startOnLoad: false
-}};</script></body>
+    }
+});</script></body>
 </html>

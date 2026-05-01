@@ -674,7 +674,7 @@
 <p><strong>목표</strong>: 가입 → 마켓 계정 등록 → 첫 상품 4마켓 업로드까지 한 번에.</p>
 </blockquote>
 <p>이 챕터를 다 따라하면, 무신사에서 본 옷 한 벌이 5분 뒤에 스마트스토어·쿠팡·롯데온·11번가에 동시에 올라가 있습니다.</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     A([👤<br/>회원가입]) --&gt; B([🔑<br/>마켓 계정 등록])
     B --&gt; C([🌐<br/>익스텐션 설치])
     C --&gt; D([💰<br/>가격 정책 1개])
@@ -689,7 +689,7 @@
     style E fill:#dcfce7,stroke:#22c55e
     style F fill:#dcfce7,stroke:#22c55e
     style G fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
-</code></pre>
+</div>
 <hr/>
 <h2 id="1">1. 회원가입<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
 <p><a href="https://lonit.kr">lonit.kr</a> 에서 이메일과 비밀번호로 가입합니다.</p>
@@ -753,7 +753,7 @@
 <p>마켓 API 호출이 모두 실패합니다. 등록 후 마켓에 따라 1~24시간 적용 시간이 필요합니다. <strong>마켓 계정을 등록하기 전 IP부터 마켓 셀러센터에 추가</strong>하는 것을 권장합니다.</p>
 </div>
 <p>서버 IP는 <strong>설정 → 마켓 계정</strong> 페이지 상단 배너에서도 확인 가능합니다.</p>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     participant U as 셀러
     participant M as 마켓 셀러센터
     participant L as Lonit
@@ -763,7 +763,7 @@
     U-&gt;&gt;L: 2. API 키 받아서 입력
     L-&gt;&gt;M: 3. 테스트 호출
     M--&gt;&gt;L: ✅ 인증 성공
-</code></pre>
+</div>
 <h3 id="2-3">2-3. 등록 방법<a class="headerlink" href="#2-3" title="Permanent link">🔗</a></h3>
 <p>각 마켓별로 <strong>+ 계정 추가</strong> 버튼 → 받은 키를 입력 → <strong>연결 테스트</strong> 클릭.
 초록불(✅)이 뜨면 성공. 빨간불(❌)이면 키 또는 IP를 확인합니다.</p>
@@ -784,7 +784,7 @@
 <li>끝. 브라우저 우측 상단에 Lonit 아이콘이 보이면 성공.</li>
 </ol>
 <h3 id="3-2-12">3-2. 지원 사이트 12곳<a class="headerlink" href="#3-2-12" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     subgraph 패션["👗 패션"]
         F1[무신사]
         F2[29CM]
@@ -808,13 +808,13 @@
     style 패션 fill:#fef3c7,stroke:#f59e0b
     style 종합 fill:#dbeafe,stroke:#3b82f6
     style 기타 fill:#fce7f3,stroke:#ec4899
-</code></pre>
+</div>
 <p>각 사이트의 상품 페이지에서 익스텐션을 누르면 <strong>상품명·가격·옵션·이미지·상세설명</strong>이 한 번에 Lonit으로 들어옵니다.</p>
 <hr/>
 <h2 id="4-1">4. 가격 정책 1개 만들기<a class="headerlink" href="#4-1" title="Permanent link">🔗</a></h2>
 <p>상품 등록 전에 "<strong>얼마에 팔지</strong>" 규칙을 한 번 정해두면, 모든 상품에 자동 적용됩니다.</p>
 <h3 id="4-1_1">4-1. 정책이 하는 일<a class="headerlink" href="#4-1_1" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     A[원가<br/>매입가] --&gt; B{가격 정책}
     B --&gt;|마진 공식| C[판매가]
 
@@ -825,7 +825,7 @@
 
     style B fill:#fce7f3,stroke:#ec4899,stroke-width:2px
     style C fill:#dcfce7,stroke:#22c55e,stroke-width:2px
-</code></pre>
+</div>
 <h3 id="4-2">4-2. 첫 정책 만들기<a class="headerlink" href="#4-2" title="Permanent link">🔗</a></h3>
 <p>대시보드 → <strong>정책 → + 새 정책</strong> 으로 이동.</p>
 <table>
@@ -874,7 +874,7 @@
 <p><a href="https://www.musinsa.com">무신사</a> 에서 마음에 드는 상품 페이지를 엽니다.</p>
 <h3 id="5-1">5-1. 익스텐션 누르기<a class="headerlink" href="#5-1" title="Permanent link">🔗</a></h3>
 <p>상품 페이지에서 브라우저 우측 상단 <strong>Lonit 아이콘</strong> 클릭 → "이 상품 수집" 버튼.</p>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     participant B as 브라우저
     participant E as 익스텐션
     participant L as Lonit
@@ -884,7 +884,7 @@
     E-&gt;&gt;L: 수집 데이터 전송
     L--&gt;&gt;B: ✅ "수집됨" 알림
     Note over L: 잠시 후 [상품 목록]에<br/>자동으로 나타남
-</code></pre>
+</div>
 <h3 id="5-2">5-2. 카테고리 자동 매핑<a class="headerlink" href="#5-2" title="Permanent link">🔗</a></h3>
 <p>수집된 상품은 자동으로 <strong>4마켓의 카테고리에 매핑</strong>됩니다.</p>
 <ul>
@@ -920,7 +920,7 @@
 </table>
 <p>처음에는 <strong>시뮬레이션</strong>으로 한 번 돌려서 에러가 없는지 확인 → 그 다음 실제 업로드.</p>
 <h3 id="6-2">6-2. 업로드 결과 확인<a class="headerlink" href="#6-2" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     Click[업로드 버튼 클릭] --&gt; Q[업로드 큐]
     Q --&gt; S{마켓별<br/>업로드 진행}
 
@@ -939,7 +939,7 @@
 
     style OK fill:#dcfce7,stroke:#22c55e
     style W fill:#fef3c7,stroke:#f59e0b
-</code></pre>
+</div>
 <p>각 마켓 업로드는 동시에 진행됩니다. 보통 <strong>10~30초</strong> 안에 모든 마켓에 등록이 완료됩니다.</p>
 <p>업로드 후 [활동 센터] 화면에서 결과를 확인할 수 있습니다.</p>
 <table>
@@ -976,7 +976,7 @@
 <li>무신사 재고가 0이 되면 → 4마켓 품절 처리</li>
 <li>무신사 옵션이 추가되면 → 4마켓 옵션 추가</li>
 </ul>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     M[무신사<br/>가격/재고 변경] -.-&gt;|5분마다 감지| L((Lonit))
     L --&gt;|자동 반영| N[스마트스토어]
     L --&gt;|자동 반영| C[쿠팡]
@@ -984,7 +984,7 @@
     L --&gt;|자동 반영| E[11번가]
 
     style L fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
-</code></pre>
+</div>
 <p>자세한 동기화 규칙은 <a href="../05-workflow/">5. 일상 워크플로우</a> 참고.</p>
 <hr/>
 <h2 id="_1">다음 단계<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h2>
@@ -1046,7 +1046,7 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
+mermaid.initialize({
     theme: (document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default',
     themeVariables: {
         primaryColor: "#eef2ff",
@@ -1057,7 +1057,6 @@ window.mermaidConfig = {default: {
         tertiaryColor: "#fafafa",
         edgeLabelBackground: "#f4f4f5",
         fontFamily: "Pretendard Variable, Pretendard, sans-serif"
-    },
-    startOnLoad: false
-}};</script></body>
+    }
+});</script></body>
 </html>

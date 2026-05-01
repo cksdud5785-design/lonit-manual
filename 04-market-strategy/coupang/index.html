@@ -699,7 +699,7 @@
 <hr/>
 <h2 id="1">1. 쿠팡이 다른 마켓과 결정적으로 다른 점<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
 <p>스마트스토어처럼 검색 키워드 매칭이 핵심이 아닙니다.</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     subgraph 스마트스토어
         S1[검색어] --&gt;|키워드 매칭| S2[개별 상품 노출]
     end
@@ -710,7 +710,7 @@
     end
 
     style C2 fill:#fee2e2,stroke:#ee2c4a,stroke-width:2px
-</code></pre>
+</div>
 <p>쿠팡은 같은 상품을 <strong>하나의 카탈로그 페이지</strong>로 묶고, 그 안에서 <strong>셀러끼리 가격 경쟁</strong>시킵니다. 그래서:</p>
 <ul>
 <li>✅ 카탈로그에 잘 들어가면 → 노출 풀 진입</li>
@@ -718,7 +718,7 @@
 </ul>
 <hr/>
 <h2 id="2">2. 카탈로그 매칭 — 가장 중요한 자동화<a class="headerlink" href="#2" title="Permanent link">🔗</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     수집[수집된 상품] --&gt; Pre{Lonit 사전 검색}
 
     Pre --&gt;|쿠팡 카탈로그<br/>SKU 검색| Found{기존 카탈로그<br/>존재?}
@@ -732,7 +732,7 @@
     style Pre fill:#dcfce7,stroke:#22c55e
     style Match fill:#fce7f3,stroke:#ec4899
     style List fill:#dbeafe,stroke:#3b82f6
-</code></pre>
+</div>
 <h3 id="2-1-sku">2-1. SKU 사전 검색이란?<a class="headerlink" href="#2-1-sku" title="Permanent link">🔗</a></h3>
 <p>Lonit은 등록 전에 <strong>상품의 SKU 코드로 쿠팡 카탈로그를 검색</strong>합니다. 같은 상품이 이미 있으면 그 카탈로그에 합류해서 즉시 노출 풀에 들어갑니다.</p>
 <p>이걸 <strong>preflight SKU 검색</strong>이라 부르며, 기본으로 <strong>켜져 있습니다</strong>.</p>
@@ -746,7 +746,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>패션의류 / 남성의류 / 상의 / 후드티/맨투맨 / 후드티
 </span></code></pre></div>
 <h3 id="3-1-lonit">3-1. Lonit 카테고리 자동 매칭<a class="headerlink" href="#3-1-lonit" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<div class="mermaid">flowchart TB
     Source[원본 카테고리<br/>'후드티'] --&gt; M{매핑 시도}
     M --&gt;|학습된 매핑| L1[5단계 카테고리<br/>한 번에 결정]
     M --&gt;|학습 안 됨| L2[쿠팡 카테고리<br/>API 검색]
@@ -757,7 +757,7 @@
     V --&gt;|불일치| Warn[경고 + 수동 매핑 요청]
 
     style L1 fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <h3 id="3-2">3-2. 카테고리 미매핑 시 결과<a class="headerlink" href="#3-2" title="Permanent link">🔗</a></h3>
 <table>
 <thead>
@@ -785,7 +785,7 @@
 <h2 id="4">4. 옵션 매칭 — 자주 막히는 부분<a class="headerlink" href="#4" title="Permanent link">🔗</a></h2>
 <p>쿠팡은 옵션값에 엄격한 규칙이 있습니다.</p>
 <h3 id="4-1-30">4-1. 옵션값 길이 30자 제한<a class="headerlink" href="#4-1-30" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     원본[원본 옵션값<br/>'멀티/4-5(130~160)'] --&gt; Check{30자 초과?}
     Check --&gt;|예| Trim[자동 줄임<br/>'멀티']
     Check --&gt;|아니오| Pass[그대로 사용]
@@ -796,7 +796,7 @@
     Apply --&gt; Coupang[쿠팡 등록]
 
     style Trim fill:#fef3c7,stroke:#f59e0b
-</code></pre>
+</div>
 <p><strong>옵션값 30자 초과 시 등록 거부</strong>됩니다. Lonit은 자동으로 줄여 보내지만, 의미가 사라질 수 있어 사전에 옵션명 정리를 하는 게 좋습니다.</p>
 <h3 id="4-2-vs">4-2. 옵션 슬롯 — 색상 vs 사이즈<a class="headerlink" href="#4-2-vs" title="Permanent link">🔗</a></h3>
 <p>쿠팡은 옵션을 보통 <strong>색상 + 사이즈</strong> 2축으로 받습니다.</p>
@@ -856,7 +856,7 @@
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>✅ 12,340원 (10원 단위) → 정상 등록
 </span></code></pre></div>
 <h3 id="5-1-lonit">5-1. Lonit 가격 단위 정렬<a class="headerlink" href="#5-1-lonit" title="Permanent link">🔗</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     Calc[정책 계산] --&gt; Raw[원본 가격<br/>12,348원]
     Raw --&gt; Step{10원 단위?}
     Step --&gt;|아님| Round[방향 안전 정렬]
@@ -867,7 +867,7 @@
 
     style Round fill:#fce7f3,stroke:#ec4899
     style Final fill:#dcfce7,stroke:#22c55e
-</code></pre>
+</div>
 <p><strong>방향 안전 정렬</strong>: 마진 손실을 막기 위해 항상 <strong>올림</strong> 또는 <strong>내림</strong> 중 정책에 맞는 방향으로만 정렬.</p>
 <h3 id="5-2">5-2. 정책 가격 단위 설정<a class="headerlink" href="#5-2" title="Permanent link">🔗</a></h3>
 <p><a href="../../07-pricing/">7. 가격 정책</a> 에서 <code>priceUnit</code> 을 <code>10</code> 또는 <code>100</code> 으로 설정해두면 쿠팡 거부가 발생하지 않습니다.</p>
@@ -882,7 +882,7 @@
 <hr/>
 <h2 id="7">7. 임시저장 → 승인요청 → 노출 활성화<a class="headerlink" href="#7" title="Permanent link">🔗</a></h2>
 <p>쿠팡은 등록 후 <strong>3단계 상태</strong>를 거칩니다:</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="mermaid">flowchart LR
     Save[임시저장] --&gt;|셀러 승인 요청| Pend[승인 대기]
     Pend --&gt;|쿠팡 검수| Live[판매 중]
     Pend --&gt;|문제 발견| Reject[반려]
@@ -891,7 +891,7 @@
     style Save fill:#fef3c7,stroke:#f59e0b
     style Live fill:#dcfce7,stroke:#22c55e
     style Reject fill:#fee2e2
-</code></pre>
+</div>
 <h3 id="7-1-lonit">7-1. Lonit의 일괄 승인요청 기능<a class="headerlink" href="#7-1-lonit" title="Permanent link">🔗</a></h3>
 <p>임시저장된 상품이 쌓이면 한 번에 승인 요청할 수 있습니다.</p>
 <p><strong>대시보드 → 쿠팡 임시저장 목록 → 일괄 승인요청 버튼</strong></p>
@@ -928,7 +928,7 @@
 <h3 id="8-1-lonit-orphan">8-1. 마켓에는 있는데 Lonit에 없는 상품 (orphan)<a class="headerlink" href="#8-1-lonit-orphan" title="Permanent link">🔗</a></h3>
 <p>쿠팡 셀러센터에 직접 등록한 상품이 <strong>Lonit에 없으면</strong> 가격·재고 동기화에서 누락됩니다.</p>
 <p>해결: <strong>catalog reconcile</strong> 기능으로 자동 흡수.</p>
-<pre class="mermaid"><code>sequenceDiagram
+<div class="mermaid">sequenceDiagram
     셀러-&gt;&gt;Lonit: catalog reconcile 실행
     Lonit-&gt;&gt;쿠팡: 모든 등록 상품 조회
     쿠팡--&gt;&gt;Lonit: 1,834개 상품
@@ -937,7 +937,7 @@
     Lonit--&gt;&gt;셀러: ✅ 1,834개 흡수 완료
 
     Note over Lonit: 이제 자동 동기화 적용 가능
-</code></pre>
+</div>
 <p>자세한 가이드는 <a href="../../08-troubleshooting/#쿠팡-orphan">트러블슈팅</a> 참고.</p>
 <h3 id="8-2-pending">8-2. PENDING (승인 대기) 동기화 차단<a class="headerlink" href="#8-2-pending" title="Permanent link">🔗</a></h3>
 <p>승인 대기 중인 상품에 가격 동기화를 시도하면 쿠팡이 거부합니다. Lonit은 PENDING 상태는 자동으로 동기화에서 제외하므로 셀러가 신경 쓸 필요 없음.</p>
@@ -1002,7 +1002,7 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
 <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
+mermaid.initialize({
     theme: (document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default',
     themeVariables: {
         primaryColor: "#eef2ff",
@@ -1013,7 +1013,6 @@ window.mermaidConfig = {default: {
         tertiaryColor: "#fafafa",
         edgeLabelBackground: "#f4f4f5",
         fontFamily: "Pretendard Variable, Pretendard, sans-serif"
-    },
-    startOnLoad: false
-}};</script></body>
+    }
+});</script></body>
 </html>
