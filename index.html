@@ -556,7 +556,7 @@
 <hr/>
 <h2 class="center" id="lonit_1">Lonit이 하는 일<a class="headerlink" href="#lonit_1" title="Permanent link">🔗</a></h2>
 <div class="mermaid">flowchart LR
-    subgraph 소싱처["📥 12개 사이트에서 수집"]
+    subgraph SRC["📥 12개 사이트에서 수집"]
         direction TB
         M1[무신사]
         M2[SSG]
@@ -566,7 +566,7 @@
 
     L((Lonit))
 
-    subgraph 마켓["🛒 4마켓에 자동 업로드"]
+    subgraph DST["🛒 4마켓에 자동 업로드"]
         direction TB
         N[스마트스토어]
         C[쿠팡]
@@ -574,8 +574,8 @@
         E[11번가]
     end
 
-    소싱처 --&gt; L
-    L --&gt; 마켓
+    SRC --&gt; L
+    L --&gt; DST
 
     style L fill:#4f46e5,color:#fff,stroke:#4338ca,stroke-width:3px
 </div>
