@@ -1,0 +1,153 @@
+site_name: Lonit 매뉴얼
+site_description: 셀러를 위한 4마켓 자동화 가이드 — 무신사 → 스마트스토어/쿠팡/롯데온/11번가
+site_author: Lonit
+site_url: https://docs.lonit.kr/
+
+# 폴더 구조
+docs_dir: docs
+site_dir: site
+
+# 테마
+theme:
+  name: material
+  language: ko
+  logo: assets/logo.svg
+
+  font:
+    text: Pretendard
+    code: JetBrains Mono
+
+  palette:
+    # 라이트 모드
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: 다크 모드로 전환
+    # 다크 모드
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: 라이트 모드로 전환
+
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.instant
+    - toc.integrate
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - announce.dismiss
+
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+# 네비게이션 구조
+nav:
+  - 홈: index.md
+  - 시작하기:
+      - 5분 빠른 시작: 01-getting-started.md
+  - 시스템 구조: 02-architecture.md
+  - 더망고와 비교: 03-vs-themango.md
+  - 4마켓 노출 전략:
+      - 한눈에 비교: 04-market-strategy/index.md
+      - 스마트스토어: 04-market-strategy/smartstore.md
+      - 쿠팡: 04-market-strategy/coupang.md
+      - 롯데온: 04-market-strategy/lotteon.md
+      - 11번가: 04-market-strategy/11st.md
+  - 일상 워크플로우: 05-workflow.md
+  - 주문 + CS: 06-orders-cs.md
+  - 가격 정책: 07-pricing.md
+  - 트러블슈팅: 08-troubleshooting.md
+
+# 확장 마크다운 문법
+markdown_extensions:
+  # 콜아웃 박스 (note/tip/warning/danger)
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  # 탭 콘텐츠
+  - pymdownx.tabbed:
+      alternate_style: true
+  # 키보드 단축키 표시
+  - pymdownx.keys
+  # 상세 표
+  - tables
+  # 이모지 (Material 아이콘)
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # 코드 하이라이트
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  # 마크다운 속성 (이미지 정렬 등)
+  - attr_list
+  - md_in_html
+  # 자동 링크
+  - pymdownx.magiclink
+  # 체크박스 목록
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # 정의 목록
+  - def_list
+  # 각주
+  - footnotes
+  # 목차
+  - toc:
+      permalink: 🔗
+      toc_depth: 3
+
+# 플러그인
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+      # 한국어/영문 혼합 텍스트 토큰화 — 공백, 하이픈, 구두점, 괄호, 한국어 따옴표 「」『』
+      separator: '[\s\-·‧、。,;:!?=\[\]()"`/「」『』【】〈〉《》]+|\.(?!\d)|&[lg]t;'
+  - mermaid2:
+      version: 10.6.1
+      arguments:
+        theme: |
+          ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'default'
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lonit
+      name: Lonit GitHub
+  generator: false  # "Made with Material for MkDocs" 푸터 제거
+  status:
+    new: 신기능
+    deprecated: 더 이상 사용하지 않음
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2026 Lonit · 셀러를 위한 자동화

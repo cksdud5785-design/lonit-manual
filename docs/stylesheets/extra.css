@@ -1,0 +1,154 @@
+/* Lonit 매뉴얼 커스텀 스타일 */
+
+/* 한국어 폰트 최적화 */
+:root {
+  --md-text-font: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+  --md-code-font: 'JetBrains Mono', 'Cascadia Code', monospace;
+}
+
+/* 본문 줄간격 한국어 가독성 */
+.md-typeset {
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+/* 헤딩 한국어 가독성 */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+/* 히어로 카드 그리드 */
+.lonit-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.lonit-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+}
+
+.lonit-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+}
+
+.lonit-card-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.lonit-card h3 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.lonit-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* 마켓별 컬러 배지 */
+.market-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.market-badge.smartstore { background: #03c75a; color: white; }
+.market-badge.coupang { background: #ee2c4a; color: white; }
+.market-badge.lotteon { background: #ed1c24; color: white; }
+.market-badge.eleven { background: #ff0038; color: white; }
+.market-badge.musinsa { background: #000; color: white; }
+
+/* 비교표 강조 */
+.md-typeset table:not([class]) th {
+  background: var(--md-primary-fg-color--light);
+  color: var(--md-primary-bg-color);
+  font-weight: 700;
+}
+
+/* 가격 공식 박스 */
+.price-formula {
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.08));
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--md-accent-fg-color);
+  font-family: var(--md-code-font);
+  font-size: 0.95rem;
+  margin: 16px 0;
+}
+
+/* 수치 강조 */
+.big-number {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+/* 단계별 워크스루 */
+.step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  background: var(--md-code-bg-color);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--md-accent-fg-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.step-body {
+  flex: 1;
+}
+
+.step-body h4 {
+  margin: 0 0 4px;
+}
+
+/* Mermaid 다이어그램 가운데 정렬 */
+.mermaid {
+  text-align: center;
+  margin: 24px 0;
+}
+
+/* 콜아웃 한국어 룩 */
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
