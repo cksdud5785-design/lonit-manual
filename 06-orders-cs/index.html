@@ -1000,7 +1000,7 @@
 <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
 window.mermaidConfig = {default: {
-    theme: (JSON.parse(__md_get("__palette")).index == 1) ? 'dark' : 'default',
+    theme: (document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default',
     themeVariables: {
         primaryColor: "#eef2ff",
         primaryTextColor: "#18181b",
