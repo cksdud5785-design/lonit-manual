@@ -337,6 +337,11 @@ mindmap
 
 ---
 
+!!! success "📌 한 줄 요약"
+    문제 발생 시 **검색(/)** 우선 → 관련 챕터 troubleshooting 섹션 확인 → 그래도 막히면 `support@lonit.kr`. 가장 흔한 원인은 **IP 등록 미적용 / API 키 만료 / 카테고리 매핑 실패**.
+
+---
+
 <div class="lonit-cards">
 
 <a class="lonit-card" href="../">
