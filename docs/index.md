@@ -4,25 +4,23 @@ hide:
   - toc
 ---
 
-# Lonit 매뉴얼 { .center }
+<div class="lonit-hero" markdown>
 
-<p style="text-align:center;font-size:1.3rem;color:var(--md-default-fg-color--light);margin-top:-10px">
-셀러를 위한 4마켓 자동화 가이드
+# Lonit 매뉴얼
+
+<p class="lonit-hero-tagline">
+무신사·SSG·롯데아이몰에서 모은 상품을<br>
+<b class="gradient-text">스마트스토어·쿠팡·롯데온·11번가</b>에 한 번에 올리기.
 </p>
 
-<p style="text-align:center;margin:24px 0">
+<div class="lonit-hero-badges">
 <span class="market-badge smartstore">스마트스토어</span>
 <span class="market-badge coupang">쿠팡</span>
 <span class="market-badge lotteon">롯데온</span>
 <span class="market-badge eleven">11번가</span>
-</p>
+</div>
 
----
-
-!!! abstract "📸 스크린샷 추가 위치 (편집자 메모)"
-    여기에 대시보드 메인 화면 스크린샷을 추가하면 임팩트가 가장 큽니다.
-    캡처 후 `docs/assets/screenshots/dashboard-main.png` 으로 저장하고 이 admonition 을 `![대시보드](assets/screenshots/dashboard-main.png)` 로 바꿔주세요.
-    전체 가이드는 `manual/SCREENSHOTS.md` 참고.
+</div>
 
 ## 어떤 분이세요? { .center }
 
@@ -50,14 +48,7 @@ hide:
 
 ---
 
-## Lonit이 하는 일 한 줄 { .center }
-
-<div style="text-align:center;margin:32px 0">
-<p style="font-size:1.1rem;line-height:1.8">
-<b>무신사·SSG·롯데아이몰</b>처럼 12개 사이트에서 상품을 모아<br>
-<b>스마트스토어·쿠팡·롯데온·11번가</b>에 한 번에 올리고 자동으로 가격·재고를 맞춥니다.
-</p>
-</div>
+## Lonit이 하는 일 { .center }
 
 ```mermaid
 flowchart LR
@@ -82,9 +73,7 @@ flowchart LR
     소싱처 --> L
     L --> 마켓
 
-    style L fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
-    style 소싱처 fill:#fef3c7,stroke:#f59e0b
-    style 마켓 fill:#dbeafe,stroke:#3b82f6
+    style L fill:#4f46e5,color:#fff,stroke:#4338ca,stroke-width:3px
 ```
 
 ---
@@ -127,7 +116,7 @@ flowchart LR
 <div class="step-number">1</div>
 <div class="step-body">
 <h4>회원가입 + 마켓 계정 등록</h4>
-<p>Lonit에 가입한 뒤 운영하는 4마켓 계정의 API 키를 등록합니다. <a href="01-getting-started/#1-회원가입">자세히 보기</a></p>
+<p>Lonit에 가입한 뒤 운영하는 4마켓 계정의 API 키를 등록합니다. <a href="01-getting-started/#1-회원가입">자세히 보기 →</a></p>
 </div>
 </div>
 
@@ -135,7 +124,7 @@ flowchart LR
 <div class="step-number">2</div>
 <div class="step-body">
 <h4>크롬 익스텐션 설치</h4>
-<p>무신사·SSG 등에서 상품을 수집하는 도구. Chrome에 설치만 하면 끝. <a href="01-getting-started/#2-크롬-익스텐션-설치">자세히 보기</a></p>
+<p>무신사·SSG 등에서 상품을 수집하는 도구. Chrome에 설치만 하면 끝. <a href="01-getting-started/#3-크롬-익스텐션-설치">자세히 보기 →</a></p>
 </div>
 </div>
 
@@ -143,7 +132,7 @@ flowchart LR
 <div class="step-number">3</div>
 <div class="step-body">
 <h4>가격 정책 1개 만들기</h4>
-<p>마진과 할인 규칙을 한 번 정해두면 모든 상품에 자동 적용. <a href="07-pricing/">정책 자세히</a></p>
+<p>마진과 할인 규칙을 한 번 정해두면 모든 상품에 자동 적용. <a href="07-pricing/">정책 자세히 →</a></p>
 </div>
 </div>
 
@@ -151,7 +140,7 @@ flowchart LR
 <div class="step-number">4</div>
 <div class="step-body">
 <h4>첫 상품 등록 + 4마켓 업로드</h4>
-<p>익스텐션으로 무신사 상품 1개 수집 → "4마켓 업로드" 클릭. 끝. <a href="05-workflow/">전체 워크플로우</a></p>
+<p>익스텐션으로 무신사 상품 1개 수집 → "4마켓 업로드" 클릭. 끝. <a href="05-workflow/">전체 워크플로우 →</a></p>
 </div>
 </div>
 
@@ -177,7 +166,7 @@ flowchart LR
 
 ---
 
-<p style="text-align:center;margin-top:48px;color:var(--md-default-fg-color--light);font-size:0.85rem">
+<p style="text-align:center;margin-top:48px;color:var(--lonit-text-muted);font-size:0.85rem">
 ✨ Lonit은 1인 셀러도 4마켓을 동시에 운영할 수 있게 만드는 자동화 도구입니다.<br>
 질문이나 제안은 <code>support@lonit.kr</code> 로 보내주세요.
 </p>

@@ -76,9 +76,6 @@ flowchart LR
 
 저장하면 끝. 모든 신규 등록 상품에 자동 적용됩니다.
 
-!!! abstract "📸 스크린샷 위치 — 가격 정책 편집 화면"
-    `docs/assets/screenshots/policy-editor.png` 으로 저장 후 교체.
-
 ---
 
 ## 3. 최소 마진 보장 — 가장 헷갈리는 개념

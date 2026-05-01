@@ -34,9 +34,6 @@ flowchart TB
 **더망고 시절**: 4마켓 셀러센터를 각각 들어가 주문 확인.
 **Lonit**: 1개 화면에서 모든 마켓 주문.
 
-!!! abstract "📸 스크린샷 위치 — 통합 주문 화면 (4마켓 색상 구분)"
-    `docs/assets/screenshots/orders-unified.png` 으로 저장 후 교체.
-
 ### 1-1. 주문 동기화 주기
 
 | 마켓 | 동기화 주기 |
