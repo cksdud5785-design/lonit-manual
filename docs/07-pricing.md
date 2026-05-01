@@ -23,7 +23,7 @@
 
 ```mermaid
 flowchart TB
-    매입[매입가<br>예: 18,000] --> Base[+ 베이스 마진<br>예: 1,000]
+    Cost[매입가<br>예: 18,000] --> Base[+ 베이스 마진<br>예: 1,000]
     Base --> Calc1[원가: 19,000]
     
     Calc1 --> Margin{× 1 + 마진율}
@@ -33,7 +33,7 @@ flowchart TB
     Fee -->|12% 수수료| Calc3[24,700 ÷ 0.88<br>= 28,068]
     
     Calc3 --> Min{최소 마진 검증}
-    Min -->|마진이 5,000 이상| Pass[✅ 28,070원<br>(100원 단위 정렬)]
+    Min -->|마진이 5,000 이상| Pass[✅ 28,070원<br>100원 단위 정렬]
     Min -->|미달| Clamp[최소 마진<br>보장가로 변경]
     
     style Pass fill:#dcfce7,stroke:#22c55e,stroke-width:2px
@@ -74,9 +74,9 @@ flowchart LR
     A[마진율 30%] --> B[최소 마진 5,000원]
     B --> C[수수료 12%]
     C --> D[가격 단위 100원]
-    D --> 완[✅ 첫 정책 완성]
+    D --> Done[✅ 첫 정책 완성]
     
-    style 완 fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+    style Done fill:#dcfce7,stroke:#22c55e,stroke-width:2px
 ```
 
 | 항목 | 값 | 의미 |
@@ -96,7 +96,7 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    예시[예시 상품] --> Calc[정책 적용 계산]
+    Sample[예시 상품] --> Calc[정책 적용 계산]
     Calc --> Result1{결과}
     Result1 -->|판매가 - 원가 = 4,500원| Below[❌ 최소 마진 5,000원 미달]
     Result1 -->|판매가 - 원가 = 6,500원| Above[✅ 정상]
@@ -145,15 +145,15 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    상의[상의: 마진율 30%]
-    하의[하의: 마진율 35%]
-    신발[신발: 마진율 25% + 최소 마진 8,000]
-    가방[가방: 마진율 40%]
+    Top[상의: 마진율 30%]
+    Bottom[하의: 마진율 35%]
+    Shoes[신발: 마진율 25% + 최소 마진 8,000]
+    Bag[가방: 마진율 40%]
     
-    style 상의 fill:#dbeafe
-    style 하의 fill:#dbeafe
-    style 신발 fill:#fef3c7
-    style 가방 fill:#fce7f3
+    style Top fill:#dbeafe
+    style Bottom fill:#dbeafe
+    style Shoes fill:#fef3c7
+    style Bag fill:#fce7f3
 ```
 
 카테고리마다 평균 마진이 달라서, 신발은 마진율 낮게 + 최소 마진 높게, 가방은 마진율 높게 등.

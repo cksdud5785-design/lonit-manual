@@ -38,11 +38,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    USER[롯데온 셀러] --> 등록[Lonit에<br>매장 ID 입력]
-    등록 --> 자동[Lonit이 모든<br>상품에 자동 적용]
+    USER[롯데온 셀러] --> Reg[Lonit에<br>매장 ID 입력]
+    Reg --> Auto[Lonit이 모든<br>상품에 자동 적용]
     
-    style 등록 fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
-    style 자동 fill:#dcfce7,stroke:#22c55e
+    style Reg fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    style Auto fill:#dcfce7,stroke:#22c55e
 ```
 
 매장 ID는 **롯데온 셀러센터 → 매장 관리** 에서 확인 가능합니다.

@@ -16,7 +16,7 @@
 
 ```mermaid
 flowchart TB
-    검색어[고객이 검색<br>'남자 후드티'] --> N{네이버 알고리즘}
+    Query[고객이 검색<br>'남자 후드티'] --> N{네이버 알고리즘}
     
     N -->|점수 1| Match[상품명·태그 매칭도]
     N -->|점수 2| Cat[카테고리 정확도]
@@ -132,11 +132,11 @@ flowchart LR
     Pool --> T5[봄가을]
     Pool --> T6[+ 추가 후보]
     
-    Pool --> 적용[중복·금지어 제거 후<br>최대 10개 태그]
-    적용 --> 등록[상품 등록]
+    Pool --> Apply[중복·금지어 제거 후<br>최대 10개 태그]
+    Apply --> Register[상품 등록]
     
     style N fill:#dcfce7,stroke:#22c55e
-    style 적용 fill:#fce7f3,stroke:#ec4899
+    style Apply fill:#fce7f3,stroke:#ec4899
 ```
 
 태그도 셀러가 직접 입력할 필요 없이 **네이버 쇼핑 검색 상위 상품**을 분석해서 추천 태그를 자동으로 가져옵니다 (최대 10개까지).
