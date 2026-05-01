@@ -778,3 +778,226 @@ a.lonit-card:hover::before {
   font-weight: 600;
   color: var(--lonit-text);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   21. 초보자 친화 Story Flow (mermaid 대체)
+   ═══════════════════════════════════════════════════════════ */
+
+.lonit-flow {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flow-stage {
+  background: var(--lonit-surface);
+  border: 1px solid var(--lonit-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.flow-stage:hover {
+  border-color: var(--lonit-300);
+  box-shadow: 0 4px 12px -4px rgba(79, 70, 229, 0.15);
+}
+
+.flow-stage.primary {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.04), rgba(236, 72, 153, 0.04));
+  border-color: var(--lonit-300);
+}
+
+[data-md-color-scheme="slate"] .flow-stage.primary {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(236, 72, 153, 0.1));
+}
+
+.flow-stage-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--lonit-text);
+  margin: 0 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.flow-stage-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.flow-stage-items > span,
+.flow-stage-items > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  background: var(--lonit-surface-muted);
+  border: 1px solid var(--lonit-border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--lonit-text);
+}
+
+[data-md-color-scheme="slate"] .flow-stage-items > span,
+[data-md-color-scheme="slate"] .flow-stage-items > div {
+  background: var(--lonit-surface-hover);
+}
+
+.flow-stage-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step-counter;
+}
+
+.flow-stage-steps li {
+  counter-increment: step-counter;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed var(--lonit-border);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--lonit-text);
+}
+
+.flow-stage-steps li:last-child {
+  border-bottom: none;
+}
+
+.flow-stage-steps li::before {
+  content: counter(step-counter);
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--lonit-gradient);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* 화살표 (단계 사이) */
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--lonit-600);
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+.flow-arrow::before,
+.flow-arrow::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--lonit-300), transparent);
+  max-width: 60px;
+}
+
+.flow-arrow .arrow-icon {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--lonit-100);
+  color: var(--lonit-600);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .flow-arrow .arrow-icon {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+/* 가로 형태 (좌→우 흐름) */
+.lonit-flow.horizontal {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lonit-flow.horizontal .flow-stage {
+  flex: 1;
+  min-width: 220px;
+}
+
+.lonit-flow.horizontal .flow-arrow {
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.lonit-flow.horizontal .flow-arrow::before,
+.lonit-flow.horizontal .flow-arrow::after {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--lonit-300), transparent);
+  max-height: 60px;
+  max-width: none;
+}
+
+@media screen and (max-width: 768px) {
+  .lonit-flow.horizontal {
+    flex-direction: column;
+  }
+  .lonit-flow.horizontal .flow-arrow {
+    flex-direction: row;
+  }
+  .lonit-flow.horizontal .flow-arrow::before,
+  .lonit-flow.horizontal .flow-arrow::after {
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--lonit-300), transparent);
+    max-width: 60px;
+  }
+}
+
+/* 데이터 추출 카드 (어떤 정보 모으나) */
+.lonit-extract {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.lonit-extract-item {
+  background: var(--lonit-surface);
+  border: 1px solid var(--lonit-border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--lonit-text);
+  transition: all 0.2s ease;
+}
+
+.lonit-extract-item:hover {
+  border-color: var(--lonit-300);
+  background: var(--lonit-surface-muted);
+  transform: translateY(-1px);
+}
+
+.lonit-extract-item .extract-icon {
+  font-size: 1.1rem;
+}
+

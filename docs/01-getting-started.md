@@ -10,23 +10,19 @@
 
 이 챕터를 다 따라하면, 무신사에서 본 옷 한 벌이 스마트스토어·쿠팡·롯데온·11번가에 동시에 올라가 있습니다. 마켓 검수 정책에 따라 즉시 노출되는 마켓도 있고, 임시저장 → 승인요청 단계가 필요한 마켓도 있어요.
 
-```mermaid
-flowchart LR
-    A([👤<br>회원가입]) --> B([🔑<br>마켓 계정 등록])
-    B --> C([🌐<br>익스텐션 설치])
-    C --> D([💰<br>가격 정책 1개])
-    D --> E([📦<br>첫 상품 수집])
-    E --> F([🚀<br>4마켓 업로드])
-    F --> G((✅<br>끝))
-
-    style A fill:#dbeafe,stroke:#3b82f6
-    style B fill:#dbeafe,stroke:#3b82f6
-    style C fill:#fef3c7,stroke:#f59e0b
-    style D fill:#fce7f3,stroke:#ec4899
-    style E fill:#dcfce7,stroke:#22c55e
-    style F fill:#dcfce7,stroke:#22c55e
-    style G fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
-```
+<div class="lonit-flow primary" markdown>
+<div class="flow-stage primary" markdown>
+<div class="flow-stage-title">🚀 5분 안에 끝내는 6단계</div>
+<ol class="flow-stage-steps">
+<li>👤 회원가입 + 작업 공간 확인</li>
+<li>🔑 4마켓 API 키 + 서버 IP 등록</li>
+<li>🌐 크롬 익스텐션 설치</li>
+<li>💰 가격 정책 1개 만들기 (마진/최소마진/단위)</li>
+<li>📦 첫 상품 수집 (무신사에서 익스텐션 클릭)</li>
+<li>🚀 4마켓 동시 업로드</li>
+</ol>
+</div>
+</div>
 
 ---
 

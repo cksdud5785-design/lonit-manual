@@ -50,31 +50,47 @@ hide:
 
 ## Lonit이 하는 일 { .center }
 
-```mermaid
-flowchart LR
-    subgraph SRC["📥 12개 사이트에서 수집"]
-        direction TB
-        M1[무신사]
-        M2[SSG]
-        M3[롯데아이몰]
-        M4[기타 9개]
-    end
+<div class="lonit-flow horizontal" markdown>
 
-    L((Lonit))
+<div class="flow-stage" markdown>
+<div class="flow-stage-title">📥 모음</div>
+<div class="flow-stage-items">
+<span>무신사</span>
+<span>SSG</span>
+<span>롯데아이몰</span>
+<span>+ 9개 사이트</span>
+</div>
+</div>
 
-    subgraph DST["🛒 4마켓에 자동 업로드"]
-        direction TB
-        N[스마트스토어]
-        C[쿠팡]
-        Lo[롯데온]
-        E[11번가]
-    end
+<div class="flow-arrow">
+<span class="arrow-icon">→</span>
+</div>
 
-    SRC --> L
-    L --> DST
+<div class="flow-stage primary" markdown>
+<div class="flow-stage-title">⚙️ Lonit</div>
+<div class="flow-stage-items">
+<span>가격 자동 계산</span>
+<span>4마켓 형식 변환</span>
+<span>동시 업로드</span>
+<span>자동 동기화</span>
+</div>
+</div>
 
-    style L fill:#4f46e5,color:#fff,stroke:#4338ca,stroke-width:3px
-```
+<div class="flow-arrow">
+<span class="arrow-icon">→</span>
+</div>
+
+<div class="flow-stage" markdown>
+<div class="flow-stage-title">🛒 올림</div>
+<div class="flow-stage-items">
+<span>스마트스토어</span>
+<span>쿠팡</span>
+<span>롯데온</span>
+<span>11번가</span>
+</div>
+</div>
+
+</div>
 
 ---
 
