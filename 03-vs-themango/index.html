@@ -1,0 +1,1103 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="셀러를 위한 4마켓 자동화 가이드 — 무신사 → 스마트스토어/쿠팡/롯데온/11번가" name="description"/>
+<meta content="Lonit" name="author"/>
+<link href="https://docs.lonit.kr/03-vs-themango/" rel="canonical"/>
+<link href="../02-architecture/" rel="prev"/>
+<link href="../04-market-strategy/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>더망고와 비교 - Lonit 매뉴얼</title>
+<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Pretendard:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Pretendard";--md-code-font:"JetBrains Mono"}</style>
+<link href="../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          콘텐츠로 이동
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="상단/헤더" class="md-header__inner md-grid">
+<a aria-label="Lonit 매뉴얼" class="md-header__button md-logo" data-md-component="logo" href=".." title="Lonit 매뉴얼">
+<img alt="logo" src="../assets/logo.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Lonit 매뉴얼
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              더망고와 비교
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="다크 모드로 전환" class="md-option" data-md-color-accent="pink" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="다크 모드로 전환">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="라이트 모드로 전환" class="md-option" data-md-color-accent="pink" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="라이트 모드로 전환">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="검색" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="검색" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="검색" class="md-search__options">
+<a aria-label="공유" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="공유">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="지우기" class="md-search__icon md-icon" tabindex="-1" title="지우기" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            검색 초기화
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="탭" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../01-getting-started/">
+          
+  
+  
+    
+  
+  시작하기
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../02-architecture/">
+        
+  
+  
+    
+  
+  시스템 구조
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
+        
+  
+  
+    
+  
+  더망고와 비교
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../04-market-strategy/">
+          
+  
+  
+    
+  
+  4마켓 노출 전략
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../05-workflow/">
+        
+  
+  
+    
+  
+  일상 워크플로우
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../06-orders-cs/">
+        
+  
+  
+    
+  
+  주문 + CS
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../07-pricing/">
+        
+  
+  
+    
+  
+  가격 정책
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../08-troubleshooting/">
+        
+  
+  
+    
+  
+  트러블슈팅
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="네비게이션" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Lonit 매뉴얼" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Lonit 매뉴얼">
+<img alt="logo" src="../assets/logo.svg"/>
+</a>
+    Lonit 매뉴얼
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    시작하기
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    시작하기
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-getting-started/">
+<span class="md-ellipsis">
+    
+  
+    5분 빠른 시작
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-architecture/">
+<span class="md-ellipsis">
+    
+  
+    시스템 구조
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    더망고와 비교
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    더망고와 비교
+  
+
+    
+  </span>
+</a>
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1">
+<span class="md-ellipsis">
+      
+        1. 한눈에 비교
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-lonit">
+<span class="md-ellipsis">
+      
+        2. Lonit이 잘하는 것
+      
+    </span>
+</a>
+<nav aria-label="2. Lonit이 잘하는 것" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-1-4">
+<span class="md-ellipsis">
+      
+        2-1. 4마켓 동시 운영
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-2-seo">
+<span class="md-ellipsis">
+      
+        2-2. 자동 SEO 최적화 (스마트스토어 핵심)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-3">
+<span class="md-ellipsis">
+      
+        2-3. 실시간 자동 동기화
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-4">
+<span class="md-ellipsis">
+      
+        2-4. 빠른 수집
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-5">
+<span class="md-ellipsis">
+      
+        2-5. 확장성 (멀티테넌트)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+<span class="md-ellipsis">
+      
+        3. 더망고가 잘하는 것 (솔직히)
+      
+    </span>
+</a>
+<nav aria-label="3. 더망고가 잘하는 것 (솔직히)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-1">
+<span class="md-ellipsis">
+      
+        3-1. 오랜 운영 안정성
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-2-ui">
+<span class="md-ellipsis">
+      
+        3-2. 익숙한 UI
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-3">
+<span class="md-ellipsis">
+      
+        3-3. 다중 무신사 계정 운영
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-4-php">
+<span class="md-ellipsis">
+      
+        3-4. PHP 기반의 단순함
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4">
+<span class="md-ellipsis">
+      
+        4. 더망고 → Lonit 마이그레이션 가이드
+      
+    </span>
+</a>
+<nav aria-label="4. 더망고 → Lonit 마이그레이션 가이드" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-1">
+<span class="md-ellipsis">
+      
+        4-1. 갈아타기 전 점검
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-2">
+<span class="md-ellipsis">
+      
+        4-2. 마이그레이션 단계
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-3-lonit">
+<span class="md-ellipsis">
+      
+        4-3. 메뉴 매핑표 (더망고 → Lonit)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-4">
+<span class="md-ellipsis">
+      
+        4-4. 데이터 가져오기
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-5">
+<span class="md-ellipsis">
+      
+        4-5. 마이그레이션 체크리스트
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5">
+<span class="md-ellipsis">
+      
+        5. 솔직한 권고
+      
+    </span>
+</a>
+<nav aria-label="5. 솔직한 권고" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lonit">
+<span class="md-ellipsis">
+      
+        Lonit이 더 나은 경우
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        더망고를 그대로 두는 게 나은 경우
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        둘 다 쓰는 경우 (병행 운영)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        다음 단계
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../04-market-strategy/">
+<span class="md-ellipsis">
+    
+  
+    4마켓 노출 전략
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4마켓 노출 전략
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/smartstore/">
+<span class="md-ellipsis">
+    
+  
+    스마트스토어
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/coupang/">
+<span class="md-ellipsis">
+    
+  
+    쿠팡
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/lotteon/">
+<span class="md-ellipsis">
+    
+  
+    롯데온
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/11st/">
+<span class="md-ellipsis">
+    
+  
+    11번가
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-workflow/">
+<span class="md-ellipsis">
+    
+  
+    일상 워크플로우
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-orders-cs/">
+<span class="md-ellipsis">
+    
+  
+    주문 + CS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-pricing/">
+<span class="md-ellipsis">
+    
+  
+    가격 정책
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-troubleshooting/">
+<span class="md-ellipsis">
+    
+  
+    트러블슈팅
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">더망고와 무엇이 다른가<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h1>
+<blockquote>
+<p><strong>공정한 비교 + 갈아타기 가이드</strong></p>
+<p>더망고와 Lonit은 비슷한 일을 하지만 <strong>방식</strong>이 다릅니다. 어느 쪽이 무조건 좋다기보다, 셀러의 상황에 따라 결정이 달라질 수 있습니다.</p>
+</blockquote>
+<hr/>
+<h2 id="1">1. 한눈에 비교<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    subgraph TM["🥭 더망고"]
+        TM1[Cafe24 PHP 기반]
+        TM2[크롬 확장프로그램<br/>으로 송장 동기화]
+        TM3[수년간 운영 안정성]
+        TM4[익숙한 사용자 풀]
+    end
+
+    subgraph LO["⚡ Lonit"]
+        LO1[웹 SaaS 기반]
+        LO2[웹 + 익스텐션<br/>풀 기능]
+        LO3[4마켓 동시 운영]
+        LO4[실시간 자동 동기화]
+        LO5[SEO 자동 최적화]
+    end
+
+    style TM fill:#fef3c7,stroke:#f59e0b
+    style LO fill:#eef2ff,stroke:#6366f1
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>🥭 더망고</th>
+<th>⚡ Lonit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>첫 출시</strong></td>
+<td>2018년</td>
+<td>2026년</td>
+</tr>
+<tr>
+<td><strong>기반</strong></td>
+<td>Cafe24 PHP 플랫폼 경유</td>
+<td>자체 클라우드 SaaS</td>
+</tr>
+<tr>
+<td><strong>상품 등록 방식</strong></td>
+<td>확장프로그램 → PHP 서버 → 마켓</td>
+<td>웹 → API → 마켓 (직접)</td>
+</tr>
+<tr>
+<td><strong>수집 속도</strong></td>
+<td>1,000건 ≈ 10분</td>
+<td>1,000건 ≈ 15초</td>
+</tr>
+<tr>
+<td><strong>지원 마켓</strong></td>
+<td>스마트스토어 (주력), 일부 마켓</td>
+<td>스마트스토어·쿠팡·롯데온·11번가 (4개 동시)</td>
+</tr>
+<tr>
+<td><strong>SEO 최적화</strong></td>
+<td>수동 입력</td>
+<td>자동 (네이버 Top5 태그 + 카테고리 학습)</td>
+</tr>
+<tr>
+<td><strong>카테고리 매핑</strong></td>
+<td>단순 문자열 매칭</td>
+<td>7단계 자동 (DB 학습 + AI 추론)</td>
+</tr>
+<tr>
+<td><strong>가격 자동 동기화</strong></td>
+<td>수동 트리거</td>
+<td>5분마다 자동</td>
+</tr>
+<tr>
+<td><strong>멀티 계정</strong></td>
+<td>무신사 다중 계정 ✅</td>
+<td>마켓별 다중 계정 ✅</td>
+</tr>
+<tr>
+<td><strong>주문·CS 통합</strong></td>
+<td>10개 섹션 풀 매뉴얼</td>
+<td>4마켓 통합 대시보드</td>
+</tr>
+<tr>
+<td><strong>결제</strong></td>
+<td>Toss Payments 빌링</td>
+<td>Toss Payments 빌링</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="2-lonit">2. Lonit이 잘하는 것<a class="headerlink" href="#2-lonit" title="Permanent link">🔗</a></h2>
+<h3 id="2-1-4">2-1. 4마켓 동시 운영<a class="headerlink" href="#2-1-4" title="Permanent link">🔗</a></h3>
+<p>가장 큰 차이입니다.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph 더망고["🥭 더망고 방식"]
+        TM_P[상품 1개]
+        TM_P -.-&gt;|마켓별 따로| TM_N[스마트스토어<br/>등록 작업]
+        TM_P -.-&gt;|반복| TM_C[쿠팡<br/>별도 작업]
+    end
+
+    subgraph Lonit["⚡ Lonit 방식"]
+        LO_P[상품 1개]
+        LO_P --&gt; LO_All{한 번 클릭}
+        LO_All --&gt; LO_N[스마트스토어]
+        LO_All --&gt; LO_C[쿠팡]
+        LO_All --&gt; LO_L[롯데온]
+        LO_All --&gt; LO_E[11번가]
+    end
+
+    style LO_All fill:#6366f1,color:#fff
+</code></pre>
+<p>상품 1개 → 4마켓 등록 시간:
+- <strong>더망고</strong>: 마켓별 폼을 따로 채워야 → 마켓당 ~5분 × 4 = 20분
+- <strong>Lonit</strong>: 한 번 등록 → 4마켓 동시 ~30초</p>
+<h3 id="2-2-seo">2-2. 자동 SEO 최적화 (스마트스토어 핵심)<a class="headerlink" href="#2-2-seo" title="Permanent link">🔗</a></h3>
+<p>스마트스토어는 노출이 곧 매출입니다. Lonit은 자동으로:</p>
+<table>
+<thead>
+<tr>
+<th>자동 최적화</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>상품명 SEO</strong></td>
+<td>네이버 Top5 검색어 자동 결합 (예: 후드티 + 무신사 → "남자 빅사이즈 오버핏 후드 티셔츠")</td>
+</tr>
+<tr>
+<td><strong>태그 자동 생성</strong></td>
+<td>네이버 쇼핑 인기 태그 Top5 복사</td>
+</tr>
+<tr>
+<td><strong>카테고리 정확도</strong></td>
+<td>7단계 매핑 (DB 학습 → AI → 키워드 → 상품명)</td>
+</tr>
+<tr>
+<td><strong>모델명 자동 추출</strong></td>
+<td>같은 상품 시리즈끼리 묶어 검색 노출 ↑</td>
+</tr>
+<tr>
+<td><strong>금지어 자동 제거</strong></td>
+<td>"무신사", "스탠다드" 등 마켓 금지어 자동 필터</td>
+</tr>
+</tbody>
+</table>
+<p>자세한 SEO 전략은 <a href="../04-market-strategy/smartstore/">4-2. 스마트스토어</a> 참고.</p>
+<h3 id="2-3">2-3. 실시간 자동 동기화<a class="headerlink" href="#2-3" title="Permanent link">🔗</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant 무신사
+    participant Lonit
+    participant 마켓
+
+    Note over Lonit: 5분마다 자동 체크
+
+    무신사-&gt;&gt;무신사: 가격 24,000 → 22,000
+    Lonit-&gt;&gt;무신사: 가격 확인
+    무신사--&gt;&gt;Lonit: 22,000원
+    Lonit-&gt;&gt;Lonit: 정책 적용 → 새 판매가 계산
+    Lonit-&gt;&gt;마켓: 4마켓 가격 일괄 변경
+    마켓--&gt;&gt;Lonit: ✅ 반영됨 (≈ 5초)
+
+    Note over 마켓: 셀러는 아무것도 안 함
+</code></pre>
+<p>더망고는 <strong>수동</strong>으로 가격 동기화를 트리거해야 합니다. Lonit은 5분마다 자동.</p>
+<h3 id="2-4">2-4. 빠른 수집<a class="headerlink" href="#2-4" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>작업</th>
+<th>더망고</th>
+<th>Lonit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상품 1개 수집</td>
+<td>~30초 (DOM 파싱)</td>
+<td>~1초 (API)</td>
+</tr>
+<tr>
+<td>1,000건 수집</td>
+<td>~10분</td>
+<td>~15초</td>
+</tr>
+</tbody>
+</table>
+<p>대량 수집할 때 차이가 극명합니다.</p>
+<h3 id="2-5">2-5. 확장성 (멀티테넌트)<a class="headerlink" href="#2-5" title="Permanent link">🔗</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph 더망고["🥭 더망고"]
+        TM[셀러마다<br/>별도 인스턴스 필요]
+    end
+
+    subgraph Lonit["⚡ Lonit"]
+        LO[하나의 SaaS<br/>모든 셀러 격리 운영]
+        LO --- S1[셀러 A의 작업 공간]
+        LO --- S2[셀러 B의 작업 공간]
+        LO --- S3[셀러 C의 작업 공간]
+    end
+</code></pre>
+<p>Lonit은 SaaS이므로 별도 설치가 없습니다. 가입 즉시 시작.</p>
+<hr/>
+<h2 id="3">3. 더망고가 잘하는 것 (솔직히)<a class="headerlink" href="#3" title="Permanent link">🔗</a></h2>
+<p>균형 있는 비교를 위해 더망고의 강점도 인정해야 합니다.</p>
+<h3 id="3-1">3-1. 오랜 운영 안정성<a class="headerlink" href="#3-1" title="Permanent link">🔗</a></h3>
+<p>더망고는 <strong>2018년부터</strong> 운영. 수많은 셀러가 사용해 왔고, 엣지 케이스가 다 발견·수정된 상태. 신규 도구는 아무리 잘 만들어도 운영 시간만큼은 따라잡을 수 없습니다.</p>
+<h3 id="3-2-ui">3-2. 익숙한 UI<a class="headerlink" href="#3-2-ui" title="Permanent link">🔗</a></h3>
+<p>더망고를 쓰던 셀러는 <strong>메뉴 위치·용어·흐름</strong>에 익숙합니다. Lonit으로 갈아타면 처음엔 헷갈릴 수 있습니다 — 이 챕터의 <a href="#4">4. 마이그레이션 가이드</a>가 도움이 될 것입니다.</p>
+<h3 id="3-3">3-3. 다중 무신사 계정 운영<a class="headerlink" href="#3-3" title="Permanent link">🔗</a></h3>
+<p>더망고는 한 셀러가 <strong>여러 무신사 계정</strong>을 한 화면에서 운영하는 기능이 매끄럽게 정리되어 있습니다. Lonit도 가능하지만, 더망고만큼 UI가 다듬어지진 않았습니다 (Phase 2 로드맵).</p>
+<h3 id="3-4-php">3-4. PHP 기반의 단순함<a class="headerlink" href="#3-4-php" title="Permanent link">🔗</a></h3>
+<p>더망고는 PHP 기반이라 <strong>단순한 구조</strong>입니다. 디버깅이나 수정이 직관적인 면이 있습니다. (반대로 Lonit은 더 정교한 기능을 위해 더 복잡한 스택을 씁니다 — TypeScript + 멀티테넌트 PostgreSQL 등)</p>
+<hr/>
+<h2 id="4">4. 더망고 → Lonit 마이그레이션 가이드<a class="headerlink" href="#4" title="Permanent link">🔗</a></h2>
+<p>더망고를 쓰고 계셨다면, 이 섹션이 갈아타기에 도움이 됩니다.</p>
+<h3 id="4-1">4-1. 갈아타기 전 점검<a class="headerlink" href="#4-1" title="Permanent link">🔗</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    Q1{현재 운영 중<br/>마켓 수는?}
+    Q1 --&gt;|1개 마켓 (스마트스토어 only)| A1[Lonit 효과 보통]
+    Q1 --&gt;|2~4개 마켓| A2[⭐ Lonit 효과 큼<br/>4마켓 동시 운영 + 송장 자동 분배]
+
+    Q2{매일 등록하는<br/>상품 수는?}
+    Q2 --&gt;|10건 미만| B1[Lonit 효과 보통]
+    Q2 --&gt;|50건 이상| B2[⭐ Lonit 효과 큼<br/>수집·등록·동기화 자동화 효과 ↑]
+
+    Q3{SEO 노출에<br/>신경 쓰나요?}
+    Q3 --&gt;|수동으로 만족| C1[Lonit 효과 보통]
+    Q3 --&gt;|자동 SEO 원함| C2[⭐ Lonit 효과 큼<br/>제목·태그·카테고리 자동 최적화]
+
+    style A2 fill:#dcfce7,stroke:#22c55e
+    style B2 fill:#dcfce7,stroke:#22c55e
+    style C2 fill:#dcfce7,stroke:#22c55e
+</code></pre>
+<p>⭐ 가 2개 이상이면 마이그레이션 효과가 큽니다.</p>
+<h3 id="4-2">4-2. 마이그레이션 단계<a class="headerlink" href="#4-2" title="Permanent link">🔗</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A[1. Lonit 가입] --&gt; B[2. 마켓 계정 등록]
+    B --&gt; C[3. 정책 설정]
+    C --&gt; D[4. 기존 상품 1개 테스트]
+    D --&gt; E[5. 결과 확인]
+    E --&gt;|만족| F[6. 점진적 이전]
+    E --&gt;|문제 있음| D
+    F --&gt; G[7. 더망고 병행 운영]
+    G --&gt; H[8. 완전 이전]
+
+    style A fill:#dbeafe
+    style D fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    style F fill:#fce7f3
+    style H fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+</code></pre>
+<p><strong>병행 운영 기간</strong>(7번)을 두는 것을 강력 추천합니다. 1~2주 정도 두 도구를 동시에 쓰면서 Lonit이 자기 스타일에 맞는지 확인.</p>
+<h3 id="4-3-lonit">4-3. 메뉴 매핑표 (더망고 → Lonit)<a class="headerlink" href="#4-3-lonit" title="Permanent link">🔗</a></h3>
+<p>더망고에서 자주 쓰던 메뉴가 Lonit에서 어디 있는지:</p>
+<table>
+<thead>
+<tr>
+<th>더망고 메뉴</th>
+<th>Lonit 위치</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상품 등록</td>
+<td><strong>상품 → + 새 상품</strong> 또는 <strong>익스텐션 수집</strong></td>
+<td>익스텐션이 더 빠름</td>
+</tr>
+<tr>
+<td>상품 목록</td>
+<td><strong>상품 → 목록</strong></td>
+<td>검색·필터 강화</td>
+</tr>
+<tr>
+<td>가격 일괄 변경</td>
+<td><strong>상품 목록 → 정책 적용</strong></td>
+<td>정책 바꾸면 자동 재계산</td>
+</tr>
+<tr>
+<td>재고 동기화</td>
+<td><strong>자동</strong> (5분마다)</td>
+<td>수동 버튼도 있음</td>
+</tr>
+<tr>
+<td>송장 등록</td>
+<td><strong>주문 → 발송</strong></td>
+<td>4마켓 자동 분배</td>
+</tr>
+<tr>
+<td>주문 목록</td>
+<td><strong>주문</strong></td>
+<td>4마켓 통합</td>
+</tr>
+<tr>
+<td>CS 답변</td>
+<td><strong>CS</strong></td>
+<td>4마켓 통합</td>
+</tr>
+<tr>
+<td>매출 통계</td>
+<td><strong>대시보드</strong> + <strong>매출</strong></td>
+<td>마켓별 비교 가능</td>
+</tr>
+<tr>
+<td>마켓 계정 추가</td>
+<td><strong>설정 → 마켓 계정</strong></td>
+<td>4마켓 모두 지원</td>
+</tr>
+<tr>
+<td>무신사 계정 추가</td>
+<td><strong>설정 → 소싱 계정</strong></td>
+<td>다중 계정</td>
+</tr>
+<tr>
+<td>정책 설정</td>
+<td><strong>정책</strong></td>
+<td>가격/배송/카테고리 정책</td>
+</tr>
+<tr>
+<td>카테고리 매핑</td>
+<td><strong>자동</strong> (7단계 매핑)</td>
+<td>수동 오버라이드도 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-4">4-4. 데이터 가져오기<a class="headerlink" href="#4-4" title="Permanent link">🔗</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">직접 import 기능은 현재 없습니다</p>
+<p>더망고에서 등록한 상품 정보를 Lonit으로 일괄 import하는 기능은 아직 제공하지 않습니다. 두 가지 방법:</p>
+<ol>
+<li><strong>새로 등록 (권장)</strong>: 익스텐션으로 무신사 등에서 다시 수집. 카테고리·SEO·가격이 Lonit 방식으로 새로 최적화됨. <strong>상품 수가 많으면 며칠 걸리지만 결과 품질이 더 좋습니다.</strong></li>
+<li><strong>마켓에 이미 등록된 상품 흡수</strong>: Lonit은 마켓에 이미 있는 상품을 자기 작업 공간으로 가져올 수 있습니다 (catalog reconcile). 단, 이 기능은 <strong>스마트스토어·쿠팡</strong>만 지원하며 사용자 가이드는 <a href="../08-troubleshooting/#기존-마켓-상품-가져오기">트러블슈팅</a> 참고.</li>
+</ol>
+</div>
+<h3 id="4-5">4-5. 마이그레이션 체크리스트<a class="headerlink" href="#4-5" title="Permanent link">🔗</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> Lonit 가입 + 작업 공간 확인</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4마켓 셀러센터에 서버 IP 등록 (158.247.214.201)</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4마켓 API 키 발급 + Lonit에 등록 + 연결 테스트 ✅</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 무신사 계정 연결</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 가격 정책 1개 설정 (마진 30%, 최소 5,000원 권장)</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 익스텐션 설치 + 동작 확인</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 테스트 상품 1개 4마켓 업로드 → 결과 확인</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 자동 동기화 동작 확인 (가격 임의 조정 후 5분 대기)</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 첫 주문 발생 시 송장 자동 분배 확인</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1~2주 병행 운영 후 만족 시 더망고 단계 축소</li>
+</ul>
+<hr/>
+<h2 id="5">5. 솔직한 권고<a class="headerlink" href="#5" title="Permanent link">🔗</a></h2>
+<blockquote>
+<p><strong>무조건 Lonit으로 갈아타라</strong>고 말하지는 않습니다. 다음의 경우엔 Lonit이 명확히 효과적입니다.</p>
+</blockquote>
+<h3 id="lonit">Lonit이 더 나은 경우<a class="headerlink" href="#lonit" title="Permanent link">🔗</a></h3>
+<ul>
+<li>✅ 2~4개 마켓을 동시에 운영</li>
+<li>✅ 매일 50건 이상 등록</li>
+<li>✅ SEO 노출에 시간을 못 쓰고 있음</li>
+<li>✅ 가격 동기화를 수동으로 매일 돌리고 있음</li>
+<li>✅ 4마켓 주문을 따로 받아 송장을 따로 입력 중</li>
+<li>✅ 신규 시작이라 어차피 도구를 처음 고름</li>
+</ul>
+<h3 id="_2">더망고를 그대로 두는 게 나은 경우<a class="headerlink" href="#_2" title="Permanent link">🔗</a></h3>
+<ul>
+<li>⏸️ 스마트스토어 1개만 운영</li>
+<li>⏸️ 매일 5건 미만 등록</li>
+<li>⏸️ 더망고에 이미 수년간 쌓인 데이터·노하우가 있고 마이그레이션 시간이 부담</li>
+<li>⏸️ 새 도구 학습 시간이 곧 매출 손실</li>
+</ul>
+<h3 id="_3">둘 다 쓰는 경우 (병행 운영)<a class="headerlink" href="#_3" title="Permanent link">🔗</a></h3>
+<ul>
+<li>🔁 더망고: 메인 1개 마켓 + 익숙한 무신사 계정</li>
+<li>🔁 Lonit: 신규 추가 마켓 (쿠팡·롯데온·11번가) + 신규 무신사 계정</li>
+</ul>
+<p>이 패턴이 가장 안전하고 효과적입니다. 점진적으로 비중을 옮기면 됩니다.</p>
+<hr/>
+<h2 id="_4">다음 단계<a class="headerlink" href="#_4" title="Permanent link">🔗</a></h2>
+<div class="lonit-cards">
+<a class="lonit-card" href="../04-market-strategy/">
+<span class="lonit-card-icon">🎯</span>
+<h3>4. 4마켓 노출 전략</h3>
+<p>각 마켓에서 잘 노출되는 법 — Lonit의 가장 큰 차별점</p>
+</a>
+<a class="lonit-card" href="../01-getting-started/">
+<span class="lonit-card-icon">🚀</span>
+<h3>1. 5분 빠른 시작</h3>
+<p>지금 바로 가입 → 첫 상품 등록</p>
+</a>
+</div>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  맨위로
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2026 Lonit · 셀러를 위한 자동화
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/lonit" rel="noopener" target="_blank" title="Lonit GitHub">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.6.1/dist/mermaid.esm.min.mjs";
+window.mermaidConfig = {default: {
+    theme: (JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'default',
+    startOnLoad: false
+}};</script></body>
+</html>

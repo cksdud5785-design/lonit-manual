@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="셀러를 위한 4마켓 자동화 가이드 — 무신사 → 스마트스토어/쿠팡/롯데온/11번가" name="description"/>
+<meta content="Lonit" name="author"/>
+<link href="https://docs.lonit.kr/01-getting-started/" rel="canonical"/>
+<link href=".." rel="prev"/>
+<link href="../02-architecture/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>5분 빠른 시작 - Lonit 매뉴얼</title>
+<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Pretendard:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Pretendard";--md-code-font:"JetBrains Mono"}</style>
+<link href="../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#5">
+          콘텐츠로 이동
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="상단/헤더" class="md-header__inner md-grid">
+<a aria-label="Lonit 매뉴얼" class="md-header__button md-logo" data-md-component="logo" href=".." title="Lonit 매뉴얼">
+<img alt="logo" src="../assets/logo.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Lonit 매뉴얼
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              5분 빠른 시작
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="다크 모드로 전환" class="md-option" data-md-color-accent="pink" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="다크 모드로 전환">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="라이트 모드로 전환" class="md-option" data-md-color-accent="pink" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="라이트 모드로 전환">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="검색" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="검색" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="검색" class="md-search__options">
+<a aria-label="공유" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="공유">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="지우기" class="md-search__icon md-icon" tabindex="-1" title="지우기" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            검색 초기화
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="탭" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
+          
+  
+  
+    
+  
+  시작하기
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../02-architecture/">
+        
+  
+  
+    
+  
+  시스템 구조
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../03-vs-themango/">
+        
+  
+  
+    
+  
+  더망고와 비교
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../04-market-strategy/">
+          
+  
+  
+    
+  
+  4마켓 노출 전략
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../05-workflow/">
+        
+  
+  
+    
+  
+  일상 워크플로우
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../06-orders-cs/">
+        
+  
+  
+    
+  
+  주문 + CS
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../07-pricing/">
+        
+  
+  
+    
+  
+  가격 정책
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../08-troubleshooting/">
+        
+  
+  
+    
+  
+  트러블슈팅
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="네비게이션" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Lonit 매뉴얼" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Lonit 매뉴얼">
+<img alt="logo" src="../assets/logo.svg"/>
+</a>
+    Lonit 매뉴얼
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    시작하기
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    시작하기
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    5분 빠른 시작
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    5분 빠른 시작
+  
+
+    
+  </span>
+</a>
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1">
+<span class="md-ellipsis">
+      
+        1. 회원가입
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2">
+<span class="md-ellipsis">
+      
+        2. 마켓 계정 등록 (가장 중요)
+      
+    </span>
+</a>
+<nav aria-label="2. 마켓 계정 등록 (가장 중요)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-1-4">
+<span class="md-ellipsis">
+      
+        2-1. 등록할 마켓 4가지
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-2-ip">
+<span class="md-ellipsis">
+      
+        2-2. ⚠️ 서버 IP 등록 (필수)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-3">
+<span class="md-ellipsis">
+      
+        2-3. 등록 방법
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+<span class="md-ellipsis">
+      
+        3. 크롬 익스텐션 설치
+      
+    </span>
+</a>
+<nav aria-label="3. 크롬 익스텐션 설치" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-1">
+<span class="md-ellipsis">
+      
+        3-1. 설치
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-2-12">
+<span class="md-ellipsis">
+      
+        3-2. 지원 사이트 12곳
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-1">
+<span class="md-ellipsis">
+      
+        4. 가격 정책 1개 만들기
+      
+    </span>
+</a>
+<nav aria-label="4. 가격 정책 1개 만들기" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-1_1">
+<span class="md-ellipsis">
+      
+        4-1. 정책이 하는 일
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-2">
+<span class="md-ellipsis">
+      
+        4-2. 첫 정책 만들기
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5_1">
+<span class="md-ellipsis">
+      
+        5. 첫 상품 수집
+      
+    </span>
+</a>
+<nav aria-label="5. 첫 상품 수집" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-1">
+<span class="md-ellipsis">
+      
+        5-1. 익스텐션 누르기
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-2">
+<span class="md-ellipsis">
+      
+        5-2. 카테고리 자동 매핑
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-4">
+<span class="md-ellipsis">
+      
+        6. 4마켓 업로드
+      
+    </span>
+</a>
+<nav aria-label="6. 4마켓 업로드" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-1">
+<span class="md-ellipsis">
+      
+        6-1. 업로드 옵션
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-2">
+<span class="md-ellipsis">
+      
+        6-2. 업로드 결과 확인
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7">
+<span class="md-ellipsis">
+      
+        7. 동기화 자동 실행
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        다음 단계
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-architecture/">
+<span class="md-ellipsis">
+    
+  
+    시스템 구조
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03-vs-themango/">
+<span class="md-ellipsis">
+    
+  
+    더망고와 비교
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../04-market-strategy/">
+<span class="md-ellipsis">
+    
+  
+    4마켓 노출 전략
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4마켓 노출 전략
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/smartstore/">
+<span class="md-ellipsis">
+    
+  
+    스마트스토어
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/coupang/">
+<span class="md-ellipsis">
+    
+  
+    쿠팡
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/lotteon/">
+<span class="md-ellipsis">
+    
+  
+    롯데온
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-market-strategy/11st/">
+<span class="md-ellipsis">
+    
+  
+    11번가
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-workflow/">
+<span class="md-ellipsis">
+    
+  
+    일상 워크플로우
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-orders-cs/">
+<span class="md-ellipsis">
+    
+  
+    주문 + CS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-pricing/">
+<span class="md-ellipsis">
+    
+  
+    가격 정책
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-troubleshooting/">
+<span class="md-ellipsis">
+    
+  
+    트러블슈팅
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="5">5분 빠른 시작<a class="headerlink" href="#5" title="Permanent link">🔗</a></h1>
+<blockquote>
+<p><strong>목표</strong>: 가입 → 마켓 계정 등록 → 첫 상품 4마켓 업로드까지 한 번에.</p>
+</blockquote>
+<p>이 챕터를 다 따라하면, 무신사에서 본 옷 한 벌이 5분 뒤에 스마트스토어·쿠팡·롯데온·11번가에 동시에 올라가 있습니다.</p>
+<pre class="mermaid"><code>flowchart LR
+    A([👤<br/>회원가입]) --&gt; B([🔑<br/>마켓 계정 등록])
+    B --&gt; C([🌐<br/>익스텐션 설치])
+    C --&gt; D([💰<br/>가격 정책 1개])
+    D --&gt; E([📦<br/>첫 상품 수집])
+    E --&gt; F([🚀<br/>4마켓 업로드])
+    F --&gt; G((✅<br/>끝))
+
+    style A fill:#dbeafe,stroke:#3b82f6
+    style B fill:#dbeafe,stroke:#3b82f6
+    style C fill:#fef3c7,stroke:#f59e0b
+    style D fill:#fce7f3,stroke:#ec4899
+    style E fill:#dcfce7,stroke:#22c55e
+    style F fill:#dcfce7,stroke:#22c55e
+    style G fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
+</code></pre>
+<hr/>
+<h2 id="1">1. 회원가입<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
+<p><a href="https://lonit.kr">lonit.kr</a> 에서 이메일과 비밀번호로 가입합니다.</p>
+<div class="admonition tip">
+<p class="admonition-title">💡 가입 직후 자동으로 생기는 것</p>
+<p>가입하면 Lonit이 자동으로 <strong>나만의 작업 공간</strong>을 만들어 줍니다. 이 공간 안에서 등록한 상품·계정·주문은 다른 셀러에게 절대 보이지 않습니다.</p>
+</div>
+<p>가입 후 처음 보이는 화면은 <strong>대시보드</strong>입니다. 여기서 모든 작업이 시작됩니다.</p>
+<hr/>
+<h2 id="2">2. 마켓 계정 등록 (가장 중요)<a class="headerlink" href="#2" title="Permanent link">🔗</a></h2>
+<p>대시보드 왼쪽 메뉴에서 <strong>설정 → 마켓 계정</strong> 으로 이동합니다.</p>
+<h3 id="2-1-4">2-1. 등록할 마켓 4가지<a class="headerlink" href="#2-1-4" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>마켓</th>
+<th>필요한 것</th>
+<th>어디서 받나?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>스마트스토어</strong></td>
+<td>API 키 + 시크릿</td>
+<td>네이버 커머스 솔루션 → API 관리</td>
+</tr>
+<tr>
+<td><strong>쿠팡</strong></td>
+<td>Access Key + Secret Key</td>
+<td>쿠팡 Wing → 개발자 센터 → Open API</td>
+</tr>
+<tr>
+<td><strong>롯데온</strong></td>
+<td>API Key + 매장 ID</td>
+<td>롯데온 셀러센터 → API 인증</td>
+</tr>
+<tr>
+<td><strong>11번가</strong></td>
+<td>API Key</td>
+<td>11번가 셀러오피스 → 시스템 → 인증키</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-ip">2-2. ⚠️ 서버 IP 등록 (필수)<a class="headerlink" href="#2-2-ip" title="Permanent link">🔗</a></h3>
+<p>Lonit이 마켓 API를 호출할 때, 마켓 쪽에서 "허용된 IP만" 받아주는 곳이 있습니다. 다음 IP를 마켓 셀러센터에 미리 등록해 두세요.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>158.247.214.201
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">IP 등록 안 하면?</p>
+<p>마켓 API 호출이 모두 실패합니다. 등록 후 마켓에 따라 1~24시간 적용 시간이 필요합니다. <strong>마켓 계정을 등록하기 전 IP부터 마켓 셀러센터에 추가</strong>하는 것을 권장합니다.</p>
+</div>
+<p>서버 IP는 <strong>설정 → 마켓 계정</strong> 페이지 상단 배너에서도 확인 가능합니다.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as 셀러
+    participant M as 마켓 셀러센터
+    participant L as Lonit
+
+    U-&gt;&gt;M: 1. 서버 IP 158.247.214.201 등록
+    M--&gt;&gt;U: ✅ 등록 완료 (1~24시간 적용)
+    U-&gt;&gt;L: 2. API 키 받아서 입력
+    L-&gt;&gt;M: 3. 테스트 호출
+    M--&gt;&gt;L: ✅ 인증 성공
+</code></pre>
+<h3 id="2-3">2-3. 등록 방법<a class="headerlink" href="#2-3" title="Permanent link">🔗</a></h3>
+<p>각 마켓별로 <strong>+ 계정 추가</strong> 버튼 → 받은 키를 입력 → <strong>연결 테스트</strong> 클릭.
+초록불(✅)이 뜨면 성공. 빨간불(❌)이면 키 또는 IP를 확인합니다.</p>
+<div class="admonition abstract">
+<p class="admonition-title">📸 스크린샷 위치 — IP 배너 + 4마켓 계정 카드</p>
+<p><code>docs/assets/screenshots/accounts-with-ip-banner.png</code> 으로 저장 후 이 admonition 을 <code>![]()</code> 으로 교체.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">📌 한 마켓에 여러 계정</p>
+<p>한 마켓에 여러 셀러 계정이 있어도 됩니다. 등록 시 <strong>계정 별명</strong>(예: "메인 스토어", "보조 스토어")만 다르게 주면 됩니다.</p>
+</div>
+<hr/>
+<h2 id="3">3. 크롬 익스텐션 설치<a class="headerlink" href="#3" title="Permanent link">🔗</a></h2>
+<p>Lonit의 익스텐션은 <strong>상품을 수집하는 도구</strong>입니다. 무신사 같은 사이트의 상품 페이지를 열어 두고 익스텐션 버튼을 누르면 자동으로 정보를 가져옵니다.</p>
+<h3 id="3-1">3-1. 설치<a class="headerlink" href="#3-1" title="Permanent link">🔗</a></h3>
+<ol>
+<li>Lonit 대시보드 → <strong>익스텐션 다운로드</strong> 클릭</li>
+<li>ZIP 파일 압축 해제</li>
+<li>Chrome → <code>chrome://extensions/</code> 접속</li>
+<li>우측 상단 <strong>개발자 모드</strong> 켜기</li>
+<li><strong>압축해제된 확장 프로그램을 로드합니다</strong> → 압축 푼 폴더 선택</li>
+<li>끝. 브라우저 우측 상단에 Lonit 아이콘이 보이면 성공.</li>
+</ol>
+<h3 id="3-2-12">3-2. 지원 사이트 12곳<a class="headerlink" href="#3-2-12" title="Permanent link">🔗</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph 패션["👗 패션"]
+        F1[무신사]
+        F2[29CM]
+        F3[W컨셉]
+        F4[패션플러스]
+    end
+
+    subgraph 종합["🛍️ 종합 쇼핑"]
+        G1[SSG]
+        G2[롯데아이몰]
+        G3[GS샵]
+        G4[현대H몰]
+        G5[G마켓]
+    end
+
+    subgraph 기타["✨ 기타"]
+        E1[ABC마트]
+        E2[올리브영]
+    end
+
+    style 패션 fill:#fef3c7,stroke:#f59e0b
+    style 종합 fill:#dbeafe,stroke:#3b82f6
+    style 기타 fill:#fce7f3,stroke:#ec4899
+</code></pre>
+<p>각 사이트의 상품 페이지에서 익스텐션을 누르면 <strong>상품명·가격·옵션·이미지·상세설명</strong>이 한 번에 Lonit으로 들어옵니다.</p>
+<hr/>
+<h2 id="4-1">4. 가격 정책 1개 만들기<a class="headerlink" href="#4-1" title="Permanent link">🔗</a></h2>
+<p>상품 등록 전에 "<strong>얼마에 팔지</strong>" 규칙을 한 번 정해두면, 모든 상품에 자동 적용됩니다.</p>
+<h3 id="4-1_1">4-1. 정책이 하는 일<a class="headerlink" href="#4-1_1" title="Permanent link">🔗</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A[원가<br/>매입가] --&gt; B{가격 정책}
+    B --&gt;|마진 공식| C[판매가]
+
+    B -.- D[마진율]
+    B -.- E[최소 마진]
+    B -.- F[수수료]
+    B -.- G[배송비]
+
+    style B fill:#fce7f3,stroke:#ec4899,stroke-width:2px
+    style C fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+</code></pre>
+<h3 id="4-2">4-2. 첫 정책 만들기<a class="headerlink" href="#4-2" title="Permanent link">🔗</a></h3>
+<p>대시보드 → <strong>정책 → + 새 정책</strong> 으로 이동.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>추천 첫 값</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정책 이름</td>
+<td><code>기본 정책</code></td>
+<td>식별용</td>
+</tr>
+<tr>
+<td>마진율</td>
+<td><code>30%</code></td>
+<td>원가의 30% 추가</td>
+</tr>
+<tr>
+<td>최소 마진 금액</td>
+<td><code>5,000원</code></td>
+<td>마진율 적용해도 최소 5천원은 남겨야</td>
+</tr>
+<tr>
+<td>수수료</td>
+<td><code>12%</code></td>
+<td>마켓 평균 수수료</td>
+</tr>
+<tr>
+<td>가격 단위</td>
+<td><code>100원</code></td>
+<td>마지막 자리 100원 단위 정렬 (1234 → 1300)</td>
+</tr>
+</tbody>
+</table>
+<p>저장하면 됩니다. 자세한 규칙은 <a href="../07-pricing/">7. 가격 정책</a> 참고.</p>
+<div class="admonition note">
+<p class="admonition-title">📌 정책은 여러 개 가능</p>
+<p>카테고리별·마켓별로 다른 정책을 적용할 수도 있습니다. 일단은 <strong>기본 정책 1개</strong> 로 시작하세요.</p>
+</div>
+<hr/>
+<h2 id="5_1">5. 첫 상품 수집<a class="headerlink" href="#5_1" title="Permanent link">🔗</a></h2>
+<p><a href="https://www.musinsa.com">무신사</a> 에서 마음에 드는 상품 페이지를 엽니다.</p>
+<h3 id="5-1">5-1. 익스텐션 누르기<a class="headerlink" href="#5-1" title="Permanent link">🔗</a></h3>
+<p>상품 페이지에서 브라우저 우측 상단 <strong>Lonit 아이콘</strong> 클릭 → "이 상품 수집" 버튼.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant B as 브라우저
+    participant E as 익스텐션
+    participant L as Lonit
+
+    B-&gt;&gt;E: 상품 페이지 열림
+    E-&gt;&gt;E: 자동 파싱<br/>(이름·가격·옵션·이미지)
+    E-&gt;&gt;L: 수집 데이터 전송
+    L--&gt;&gt;B: ✅ "수집됨" 알림
+    Note over L: 잠시 후 [상품 목록]에<br/>자동으로 나타남
+</code></pre>
+<h3 id="5-2">5-2. 카테고리 자동 매핑<a class="headerlink" href="#5-2" title="Permanent link">🔗</a></h3>
+<p>수집된 상품은 자동으로 <strong>4마켓의 카테고리에 매핑</strong>됩니다.</p>
+<ul>
+<li>무신사 카테고리(예: "스니커즈") → 스마트스토어 카테고리(예: "패션잡화 → 신발 → 운동화/스니커즈")</li>
+<li>쿠팡·롯데온·11번가도 동일</li>
+</ul>
+<p>매핑이 잘못된 경우 [상품 상세] 화면에서 수동으로 바꿀 수 있습니다.</p>
+<hr/>
+<h2 id="6-4">6. 4마켓 업로드<a class="headerlink" href="#6-4" title="Permanent link">🔗</a></h2>
+<p>대시보드 → <strong>상품 목록</strong> → 방금 수집한 상품 → <strong>업로드</strong> 버튼.</p>
+<h3 id="6-1">6-1. 업로드 옵션<a class="headerlink" href="#6-1" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>옵션</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전체 마켓</td>
+<td>4개 마켓 동시 업로드</td>
+</tr>
+<tr>
+<td>선택한 마켓</td>
+<td>체크한 마켓만</td>
+</tr>
+<tr>
+<td>시뮬레이션</td>
+<td>실제 업로드 안 하고 검증만</td>
+</tr>
+</tbody>
+</table>
+<p>처음에는 <strong>시뮬레이션</strong>으로 한 번 돌려서 에러가 없는지 확인 → 그 다음 실제 업로드.</p>
+<h3 id="6-2">6-2. 업로드 결과 확인<a class="headerlink" href="#6-2" title="Permanent link">🔗</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    Click[업로드 버튼 클릭] --&gt; Q[업로드 큐]
+    Q --&gt; S{마켓별<br/>업로드 진행}
+
+    S --&gt;|병렬| N[스마트스토어]
+    S --&gt;|병렬| C[쿠팡]
+    S --&gt;|병렬| L[롯데온]
+    S --&gt;|병렬| E[11번가]
+
+    N --&gt; R{결과 집계}
+    C --&gt; R
+    L --&gt; R
+    E --&gt; R
+
+    R --&gt;|모두 ✅| OK[완료 알림]
+    R --&gt;|일부 ❌| W[경고 + 에러 메시지]
+
+    style OK fill:#dcfce7,stroke:#22c55e
+    style W fill:#fef3c7,stroke:#f59e0b
+</code></pre>
+<p>각 마켓 업로드는 동시에 진행됩니다. 보통 <strong>10~30초</strong> 안에 모든 마켓에 등록이 완료됩니다.</p>
+<div class="admonition abstract">
+<p class="admonition-title">📸 스크린샷 위치 — 업로드 진행 화면</p>
+<p><code>docs/assets/screenshots/upload-progress.png</code> 으로 저장 후 교체.</p>
+</div>
+<p>업로드 후 [활동 센터] 화면에서 결과를 확인할 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>상태</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 완료</td>
+<td>마켓에 등록 성공</td>
+</tr>
+<tr>
+<td>⏳ 진행 중</td>
+<td>마켓 응답 대기</td>
+</tr>
+<tr>
+<td>⚠️ 스킵</td>
+<td>카테고리 미매핑 등으로 건너뜀</td>
+</tr>
+<tr>
+<td>❌ 실패</td>
+<td>에러 발생, 메시지 확인</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="7">7. 동기화 자동 실행<a class="headerlink" href="#7" title="Permanent link">🔗</a></h2>
+<p>상품 등록 후엔 <strong>아무것도 안 해도 됩니다</strong>. Lonit이 알아서:</p>
+<ul>
+<li>무신사 가격이 바뀌면 → 4마켓 가격 자동 변경</li>
+<li>무신사 재고가 0이 되면 → 4마켓 품절 처리</li>
+<li>무신사 옵션이 추가되면 → 4마켓 옵션 추가</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    M[무신사<br/>가격/재고 변경] -.-&gt;|5분마다 감지| L((Lonit))
+    L --&gt;|자동 반영| N[스마트스토어]
+    L --&gt;|자동 반영| C[쿠팡]
+    L --&gt;|자동 반영| Lo[롯데온]
+    L --&gt;|자동 반영| E[11번가]
+
+    style L fill:#6366f1,color:#fff,stroke:#4f46e5,stroke-width:3px
+</code></pre>
+<p>자세한 동기화 규칙은 <a href="../05-workflow/">5. 일상 워크플로우</a> 참고.</p>
+<hr/>
+<h2 id="_1">다음 단계<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h2>
+<p>이제 첫 상품을 4마켓에 올렸습니다. 다음으로 읽으면 좋은 챕터:</p>
+<div class="lonit-cards">
+<a class="lonit-card" href="../04-market-strategy/">
+<span class="lonit-card-icon">🎯</span>
+<h3>4마켓 노출 전략</h3>
+<p>마켓별로 잘 노출되는 법. 가장 중요한 챕터.</p>
+</a>
+<a class="lonit-card" href="../05-workflow/">
+<span class="lonit-card-icon">🔄</span>
+<h3>일상 워크플로우</h3>
+<p>매일 어떻게 운영하는지 — 수집·등록·동기화의 흐름.</p>
+</a>
+<a class="lonit-card" href="../07-pricing/">
+<span class="lonit-card-icon">💰</span>
+<h3>가격 정책 깊이 알기</h3>
+<p>마진 공식·정책 우선순위·카테고리별 다른 정책.</p>
+</a>
+</div>
+<div class="admonition question">
+<p class="admonition-title">막혔어요</p>
+<p><a href="../08-troubleshooting/">트러블슈팅</a>에서 자주 발생하는 에러를 확인하거나, <code>support@lonit.kr</code> 로 문의 주세요.</p>
+</div>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  맨위로
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2026 Lonit · 셀러를 위한 자동화
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/lonit" rel="noopener" target="_blank" title="Lonit GitHub">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "toc.integrate", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.6.1/dist/mermaid.esm.min.mjs";
+window.mermaidConfig = {default: {
+    theme: (JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'default',
+    startOnLoad: false
+}};</script></body>
+</html>
