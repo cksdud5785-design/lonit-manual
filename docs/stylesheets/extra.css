@@ -58,6 +58,28 @@
   /* Gradient mesh */
   --lonit-gradient: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 50%, #ec4899 100%);
   --lonit-gradient-soft: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%);
+
+  /* MkDocs Material primary/accent override (palette: custom) */
+  --md-primary-fg-color:        #4f46e5;
+  --md-primary-fg-color--light:  #818cf8;
+  --md-primary-fg-color--dark:   #3730a3;
+  --md-primary-bg-color:         #ffffff;
+  --md-primary-bg-color--light:  rgba(255, 255, 255, 0.7);
+
+  --md-accent-fg-color:          #4f46e5;
+  --md-accent-fg-color--transparent: rgba(79, 70, 229, 0.1);
+  --md-accent-bg-color:          #ffffff;
+  --md-accent-bg-color--light:   rgba(255, 255, 255, 0.7);
+
+  /* body 줄간격 (한국어 친화) */
+  line-height: 1.6;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #6366f1;
+  --md-primary-fg-color--light: #a5b4fc;
+  --md-primary-fg-color--dark:  #4338ca;
+  --md-accent-fg-color:         #818cf8;
 }
 
 [data-md-color-scheme="slate"] {
@@ -114,7 +136,13 @@
   font-weight: 700;
   margin: 2.5rem 0 1rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--lonit-border);
+  border-top: 1px solid var(--lonit-border-strong);
+}
+
+/* H1 hero에 자동 생성되는 🔗 anchor 아이콘 숨김 */
+.lonit-hero h1 .headerlink,
+.lonit-hero h1 a.headerlink {
+  display: none !important;
 }
 
 .md-typeset h3 {
@@ -390,31 +418,37 @@ a.lonit-card:hover::before {
   transform: translateY(-1px);
 }
 
+/* WCAG AA (4.5:1) 충족하는 진한 shade 텍스트 + brand 색 border */
 .market-badge.smartstore {
-  color: #03c75a;
-  border-color: rgba(3, 199, 90, 0.3);
-  background: rgba(3, 199, 90, 0.08);
+  color: #007a37;          /* 진한 초록, 대비율 4.7:1 */
+  border-color: rgba(3, 199, 90, 0.4);
+  background: rgba(3, 199, 90, 0.12);
 }
 .market-badge.coupang {
-  color: #ee2c4a;
-  border-color: rgba(238, 44, 74, 0.3);
-  background: rgba(238, 44, 74, 0.08);
+  color: #b81b34;          /* 진한 코랄, 대비율 5.1:1 */
+  border-color: rgba(238, 44, 74, 0.4);
+  background: rgba(238, 44, 74, 0.12);
 }
 .market-badge.lotteon {
-  color: #ed1c24;
-  border-color: rgba(237, 28, 36, 0.3);
-  background: rgba(237, 28, 36, 0.08);
+  color: #b8161c;          /* 진한 빨강, 대비율 5.5:1 */
+  border-color: rgba(237, 28, 36, 0.4);
+  background: rgba(237, 28, 36, 0.12);
 }
 .market-badge.eleven {
-  color: #ff0038;
-  border-color: rgba(255, 0, 56, 0.3);
-  background: rgba(255, 0, 56, 0.08);
+  color: #c2002a;          /* 진한 진홍, 대비율 5.7:1 */
+  border-color: rgba(255, 0, 56, 0.4);
+  background: rgba(255, 0, 56, 0.12);
 }
 .market-badge.musinsa {
   color: var(--lonit-text);
   border-color: var(--lonit-border-strong);
   background: var(--lonit-surface-hover);
 }
+
+[data-md-color-scheme="slate"] .market-badge.smartstore { color: #4ade80; }
+[data-md-color-scheme="slate"] .market-badge.coupang { color: #fb7185; }
+[data-md-color-scheme="slate"] .market-badge.lotteon { color: #f87171; }
+[data-md-color-scheme="slate"] .market-badge.eleven { color: #fb7185; }
 
 /* ═══════════════════════════════════════════════════════════
    8. 단계별 워크스루 (.step)
@@ -597,15 +631,39 @@ a.lonit-card:hover::before {
    ═══════════════════════════════════════════════════════════ */
 
 .md-footer {
-  background: var(--lonit-text);
+  background: #18181b;
+  color: #d4d4d8;
 }
 
 .md-footer-meta {
-  background: rgba(0, 0, 0, 0.3);
+  background: #09090b;
+  color: #a1a1aa;
 }
 
 .md-footer__inner {
   font-weight: 500;
+  color: #d4d4d8;
+}
+
+.md-footer__title,
+.md-footer__direction {
+  color: #f4f4f5 !important;
+}
+
+.md-footer__link,
+.md-footer-meta__inner,
+.md-footer-copyright,
+.md-footer-meta a {
+  color: #a1a1aa !important;
+}
+
+.md-footer__link:hover,
+.md-footer-meta a:hover {
+  color: #f4f4f5 !important;
+}
+
+.md-footer-social__link {
+  color: #d4d4d8 !important;
 }
 
 /* ═══════════════════════════════════════════════════════════

@@ -19,19 +19,19 @@ theme:
     code: JetBrains Mono
 
   palette:
-    # 라이트 모드
+    # 라이트 모드 — custom 으로 두고 extra.css 에서 --md-primary-fg-color override
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: pink
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: 다크 모드로 전환
     # 다크 모드
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: pink
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: 라이트 모드로 전환
@@ -132,10 +132,21 @@ plugins:
       # 한국어/영문 혼합 텍스트 토큰화 — 공백, 하이픈, 구두점, 괄호, 한국어 따옴표 「」『』
       separator: '[\s\-·‧、。,;:!?=\[\]()"`/「」『』【】〈〉《》]+|\.(?!\d)|&[lg]t;'
   - mermaid2:
-      version: 10.6.1
+      version: 11.4.1
       arguments:
+        # 다크모드 자동 감지 — JSON.parse로 palette 객체 얻은 뒤 .index 비교
         theme: |
-          ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'default'
+          ^(JSON.parse(__md_get("__palette")).index == 1) ? 'dark' : 'default'
+        # 사이트 인디고 톤과 어울리는 테마 변수
+        themeVariables:
+          primaryColor: '#eef2ff'
+          primaryTextColor: '#18181b'
+          primaryBorderColor: '#4f46e5'
+          lineColor: '#6366f1'
+          secondaryColor: '#fce7f3'
+          tertiaryColor: '#fafafa'
+          edgeLabelBackground: '#f4f4f5'
+          fontFamily: 'Pretendard Variable, Pretendard, sans-serif'
 
 # Extra
 extra:
