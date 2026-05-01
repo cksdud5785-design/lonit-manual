@@ -28,6 +28,18 @@ flowchart LR
 
 [lonit.kr](https://lonit.kr) 에서 이메일과 비밀번호로 가입합니다.
 
+<figure markdown>
+  ![Lonit 회원가입 화면](assets/screenshots/signup-form.png){ width="65%" }
+  <figcaption>회원가입 화면 — 이름·이메일·비밀번호 + Google 계정 연동</figcaption>
+</figure>
+
+이미 계정이 있다면 로그인:
+
+<figure markdown>
+  ![Lonit 로그인 화면](assets/screenshots/login-page.png){ width="65%" }
+  <figcaption>로그인 화면 — Google 또는 이메일</figcaption>
+</figure>
+
 !!! tip "💡 가입 직후 자동으로 생기는 것"
     가입하면 Lonit이 자동으로 **나만의 작업 공간**을 만들어 줍니다. 이 공간 안에서 등록한 상품·계정·주문은 다른 셀러에게 절대 보이지 않습니다.
 

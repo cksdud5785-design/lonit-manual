@@ -12,6 +12,7 @@ theme:
   name: material
   language: ko
   logo: assets/logo.svg
+  custom_dir: overrides
 
   font:
     text: Pretendard
@@ -140,9 +141,13 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/lonit
-      name: Lonit GitHub
+      link: https://github.com/cksdud5785-design/lonit-manual
+      name: 매뉴얼 GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:support@lonit.kr
+      name: 문의하기
   generator: false  # "Made with Material for MkDocs" 푸터 제거
+  og_image: https://cksdud5785-design.github.io/lonit-manual/assets/logo.svg
   status:
     new: 신기능
     deprecated: 더 이상 사용하지 않음

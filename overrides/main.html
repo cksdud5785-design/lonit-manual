@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {% set title = page.title if page and page.title else config.site_name %}
+  {% set description = page.meta.description if page and page.meta and page.meta.description else config.site_description %}
+  {% set og_image = config.extra.og_image if config.extra and config.extra.og_image else (config.site_url ~ 'assets/logo.svg') %}
+
+  <!-- SEO -->
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="Lonit, 무신사, 스마트스토어, 쿠팡, 롯데온, 11번가, 4마켓, 자동등록, 셀러, 더망고, 대량등록, SEO">
+  <meta name="author" content="Lonit">
+  <link rel="canonical" href="{{ page.canonical_url if page else config.site_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ page.canonical_url if page else config.site_url }}">
+  <meta property="og:image" content="{{ og_image }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lonit 매뉴얼">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ og_image }}">
+
+  <!-- Theme color (브라우저 주소바 색) -->
+  <meta name="theme-color" content="#6366f1">
+  <meta name="msapplication-TileColor" content="#6366f1">
+
+  <!-- Naver/Kakao 공유 최적화 -->
+  <meta property="article:author" content="Lonit">
+{% endblock %}

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# 사이트맵
+Sitemap: https://docs.lonit.kr/sitemap.xml
+Sitemap: https://cksdud5785-design.github.io/lonit-manual/sitemap.xml
+
+# Naver/Daum 봇 명시 허용
+User-agent: Yeti
+Allow: /
+
+User-agent: Daum
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
