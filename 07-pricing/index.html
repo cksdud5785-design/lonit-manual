@@ -233,6 +233,17 @@
 
       </a>
 </li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../09-glossary/">
+        
+  
+  
+    
+  
+  용어 사전
+
+      </a>
+</li>
 </ul>
 </div>
 </nav>
@@ -467,10 +478,10 @@
 <nav aria-label="1. 가격 공식 — 한눈에" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-1-8">
+<a class="md-nav__link" href="#1-1">
 <span class="md-ellipsis">
       
-        1-1. 8가지 정책 변수
+        1-1. 정책 변수 (전체)
       
     </span>
 </a>
@@ -634,7 +645,7 @@
 <a class="md-nav__link" href="#7-3-marginamount">
 <span class="md-ellipsis">
       
-        7-3. marginAmount — 고정 마진
+        7-3. marginAmount — 추가 고정 마진
       
     </span>
 </a>
@@ -724,6 +735,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09-glossary/">
+<span class="md-ellipsis">
+    
+  
+    용어 사전
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -735,6 +758,20 @@
 <blockquote>
 <p>정책 1번 잘 만들면 모든 상품이 자동으로 정확한 가격에 등록되고 동기화됩니다.</p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">🎯 이 챕터에서 배우는 것</p>
+<ul>
+<li>가격이 자동 계산되는 공식 (마진율·수수료·할인 등)</li>
+<li>신규 셀러가 첫 정책 만드는 3가지 핵심 변수</li>
+<li>최소 마진 보장 — 손실 막아주는 안전장치</li>
+<li>카테고리별·상품별 다른 정책 적용 우선순위</li>
+<li>마켓별 가격 단위 (쿠팡 10원 등) 자동 정렬</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">어렵게 느껴진다면</p>
+<p>이 챕터의 절반 이상은 <strong>고급 기능</strong>입니다. 신규 셀러는 §1 (공식 한눈에) + §2 (첫 정책 만들기) + §3 (최소 마진) 만 보면 충분합니다.</p>
+</div>
 <hr/>
 <h2 id="1">1. 가격 공식 — 한눈에<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
 <div class="price-formula">
@@ -757,12 +794,12 @@
 
     style Pass fill:#dcfce7,stroke:#22c55e,stroke-width:2px
 </div>
-<h3 id="1-1-8">1-1. 8가지 정책 변수<a class="headerlink" href="#1-1-8" title="Permanent link">🔗</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>판매가 = (원가 + baseMargin + extraFee) × (1 + marginRate) ÷ (1 - feeRate)
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>                                                         × (1 - discountRate)
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>                                                         - discountAmount
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>                                                         - marginAmount (있으면 마진 고정)
+<h3 id="1-1">1-1. 정책 변수 (전체)<a class="headerlink" href="#1-1" title="Permanent link">🔗</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>판매가 = (원가 + baseMargin + marginAmount + extraFee) × (1 + marginRate) ÷ (1 - feeRate)
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>                                                       × (1 - discountRate)
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>                                                       - discountAmount
 </span></code></pre></div>
+<p>위 결과는 마지막에 <code>priceUnit</code> 단위로 정렬되고 <code>minMargin</code> 보장이 적용됩니다.</p>
 <table>
 <thead>
 <tr>
@@ -774,8 +811,13 @@
 <tbody>
 <tr>
 <td><code>baseMargin</code></td>
-<td>고정 마진 (원당)</td>
+<td>기본 마진 (원당 추가)</td>
 <td>1,000원</td>
+</tr>
+<tr>
+<td><code>marginAmount</code></td>
+<td>추가 고정 마진 (베이스 위에 가산)</td>
+<td>0</td>
 </tr>
 <tr>
 <td><code>extraFee</code></td>
@@ -803,18 +845,28 @@
 <td>0원</td>
 </tr>
 <tr>
-<td><code>marginAmount</code></td>
-<td>마진 고정 (마진율 무시)</td>
-<td>0 (사용 X)</td>
-</tr>
-<tr>
 <td><code>minMargin</code></td>
 <td>최소 마진 보장</td>
 <td>5,000원</td>
 </tr>
+<tr>
+<td><code>priceUnit</code></td>
+<td>마지막 가격 단위 (10·100·1000원)</td>
+<td>100원</td>
+</tr>
+<tr>
+<td><code>useRangeMargin</code> + <code>rangeMargins</code></td>
+<td>가격 구간별 마진율 (고급 기능)</td>
+<td>사용 안 함</td>
+</tr>
+<tr>
+<td><code>customFormula</code></td>
+<td>사용자 정의 공식 (고급)</td>
+<td>사용 안 함</td>
+</tr>
 </tbody>
 </table>
-<p>이게 다 어렵게 느껴진다면 <strong><code>marginRate</code>(마진율) + <code>minMargin</code>(최소 마진)</strong> 두 개만 신경 쓰면 됩니다. 나머지는 기본값.</p>
+<p>이게 다 어렵게 느껴진다면 <strong><code>marginRate</code>(마진율) + <code>minMargin</code>(최소 마진) + <code>priceUnit</code>(가격 단위)</strong> 세 개만 신경 쓰면 됩니다. 나머지는 기본값.</p>
 <hr/>
 <h2 id="2">2. 첫 정책 만들기 — 셀러 추천<a class="headerlink" href="#2" title="Permanent link">🔗</a></h2>
 <div class="mermaid">flowchart LR
@@ -1021,12 +1073,12 @@
 
     style Display fill:#dcfce7,stroke:#22c55e
 </div>
-<p>롯데온의 정가/할인가 분리 등록과 결합되어 노출 효과 ↑.</p>
-<h3 id="7-3-marginamount">7-3. marginAmount — 고정 마진<a class="headerlink" href="#7-3-marginamount" title="Permanent link">🔗</a></h3>
-<p>마진율 대신 고정 금액 마진을 원할 때:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>판매가 = 원가 + marginAmount + 수수료
+<p>현재 롯데온은 판매가(slPrc) 단일 등록이라 정가/할인 분리 효과는 셀러센터 별도 프로모션 등록 시 살아납니다.</p>
+<h3 id="7-3-marginamount">7-3. marginAmount — 추가 고정 마진<a class="headerlink" href="#7-3-marginamount" title="Permanent link">🔗</a></h3>
+<p><code>baseMargin</code> 위에 더해지는 <strong>추가 고정 금액 마진</strong>입니다 (<code>marginRate</code>가 비활성된 게 아니라 베이스에 가산).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>원가 + baseMargin + marginAmount + extraFee → 마진율·수수료 적용
 </span></code></pre></div>
-<p>특수 상품(중저가 가방 등)에 가끔 사용. 일반 셀러는 안 씀.</p>
+<p>특수 상품(고가 가방·전자제품 등)에 마진을 더 챙기고 싶을 때 사용. 일반 셀러는 0으로 두면 됩니다.</p>
 <hr/>
 <h2 id="8">8. 정책 시뮬레이션<a class="headerlink" href="#8" title="Permanent link">🔗</a></h2>
 <p>정책을 만든 뒤 <strong>저장하기 전</strong>에:</p>
@@ -1048,7 +1100,7 @@
 <hr/>
 <h2 id="9">9. 자주 발생하는 문제<a class="headerlink" href="#9" title="Permanent link">🔗</a></h2>
 <h3 id="9-1">9-1. "정책 바꿨는데 가격 반영 안 됨"<a class="headerlink" href="#9-1" title="Permanent link">🔗</a></h3>
-<p>동기화 엔진이 5분 주기로 동작합니다. 5분 안에 자동 반영. 그래도 안 되면:</p>
+<p>정책 수정 시 즉시 push 큐에 들어가 다음 동기화 사이클에 반영됩니다. 큐 상태와 마켓 API 응답 속도에 따라 시간이 걸릴 수 있어요. 빠르게 반영하고 싶다면:</p>
 <p><strong>상품 → 가격 강제 동기화</strong> 클릭.</p>
 <h3 id="9-2-5000-4000">9-2. "최소 마진 5,000인데 판매가 4,000?"<a class="headerlink" href="#9-2-5000-4000" title="Permanent link">🔗</a></h3>
 <p>화면 표시와 실제 등록가가 다르게 보이는 경우 — 새로고침 후 재확인. 그래도 동일하면 <a href="../08-troubleshooting/">트러블슈팅</a>에서 문의.</p>

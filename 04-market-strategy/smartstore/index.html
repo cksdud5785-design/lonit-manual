@@ -233,6 +233,17 @@
 
       </a>
 </li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../09-glossary/">
+        
+  
+  
+    
+  
+  용어 사전
+
+      </a>
+</li>
 </ul>
 </div>
 </nav>
@@ -450,10 +461,10 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-2-lonit-5">
+<a class="md-nav__link" href="#3-2-lonit">
 <span class="md-ellipsis">
       
-        3-2. Lonit이 자동 입력하는 태그 5개
+        3-2. Lonit이 자동 입력하는 태그
       
     </span>
 </a>
@@ -471,14 +482,14 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-7">
+<a class="md-nav__link" href="#4">
 <span class="md-ellipsis">
       
-        4. 카테고리 매핑 — 7단계 자동화
+        4. 카테고리 매핑 — 다단계 자동화
       
     </span>
 </a>
-<nav aria-label="4. 카테고리 매핑 — 7단계 자동화" class="md-nav">
+<nav aria-label="4. 카테고리 매핑 — 다단계 자동화" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#4-1">
@@ -724,6 +735,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-glossary/">
+<span class="md-ellipsis">
+    
+  
+    용어 사전
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -736,6 +759,15 @@
 <p><strong>검색이 곧 매출</strong>. 네이버 검색에 잘 잡히는 게 가장 중요한 마켓.</p>
 </blockquote>
 <p><span class="market-badge smartstore">스마트스토어</span></p>
+<div class="admonition tip">
+<p class="admonition-title">🎯 이 챕터에서 배우는 것</p>
+<ul>
+<li>네이버가 노출 순위를 정할 때 보는 5가지 점수</li>
+<li>좋은 상품명 vs 나쁜 상품명 (실제 예시)</li>
+<li>태그·카테고리·브랜드 자동화 — Lonit이 무엇을 처리하는가</li>
+<li>등록 후 첫 7일을 놓치면 안 되는 이유</li>
+</ul>
+</div>
 <hr/>
 <h2 id="1">1. 스마트스토어가 노출 순위를 정하는 방식<a class="headerlink" href="#1" title="Permanent link">🔗</a></h2>
 <div class="mermaid">flowchart TB
@@ -843,28 +875,25 @@
     style Fail1 fill:#fee2e2
     style Show fill:#dcfce7
 </div>
-<h3 id="3-2-lonit-5">3-2. Lonit이 자동 입력하는 태그 5개<a class="headerlink" href="#3-2-lonit-5" title="Permanent link">🔗</a></h3>
+<h3 id="3-2-lonit">3-2. Lonit이 자동 입력하는 태그<a class="headerlink" href="#3-2-lonit" title="Permanent link">🔗</a></h3>
 <div class="mermaid">flowchart LR
-    PRODUCT[등록할 상품<br/>'후드티'] --&gt; N[네이버 쇼핑 API<br/>recommend-tags]
-    N --&gt; Top5{Top 5 태그}
-    Top5 --&gt; T1[남자 빅사이즈]
-    Top5 --&gt; T2[데일리]
-    Top5 --&gt; T3[오버핏]
-    Top5 --&gt; T4[캐주얼]
-    Top5 --&gt; T5[봄가을]
+    PRODUCT[등록할 상품<br/>'후드티'] --&gt; N[네이버 쇼핑 검색]
+    N --&gt; Seed[상위 5개 상품 분석]
+    Seed --&gt; Pool{태그 풀}
+    Pool --&gt; T1[남자 빅사이즈]
+    Pool --&gt; T2[데일리]
+    Pool --&gt; T3[오버핏]
+    Pool --&gt; T4[캐주얼]
+    Pool --&gt; T5[봄가을]
+    Pool --&gt; T6[+ 추가 후보]
 
-    T1 --&gt; 적용
-    T2 --&gt; 적용
-    T3 --&gt; 적용
-    T4 --&gt; 적용
-    T5 --&gt; 적용
-
-    적용[자동 입력] --&gt; 등록[상품 등록]
+    Pool --&gt; 적용[중복·금지어 제거 후<br/>최대 10개 태그]
+    적용 --&gt; 등록[상품 등록]
 
     style N fill:#dcfce7,stroke:#22c55e
     style 적용 fill:#fce7f3,stroke:#ec4899
 </div>
-<p>태그도 셀러가 직접 입력할 필요 없이 네이버 쇼핑 인기 태그를 자동으로 가져옵니다.</p>
+<p>태그도 셀러가 직접 입력할 필요 없이 <strong>네이버 쇼핑 검색 상위 상품</strong>을 분석해서 추천 태그를 자동으로 가져옵니다 (최대 10개까지).</p>
 <h3 id="3-3-lonit">3-3. 태그 함정 (Lonit이 자동 회피)<a class="headerlink" href="#3-3-lonit" title="Permanent link">🔗</a></h3>
 <ul>
 <li>❌ 금지어 태그 ("무신사", "스탠다드", "무탠다드", "남자옷", "스니커즈", "청바지" 등)</li>
@@ -873,28 +902,24 @@
 <li>❌ 의미 없는 단어 ("좋아요", "추천")</li>
 </ul>
 <hr/>
-<h2 id="4-7">4. 카테고리 매핑 — 7단계 자동화<a class="headerlink" href="#4-7" title="Permanent link">🔗</a></h2>
+<h2 id="4">4. 카테고리 매핑 — 다단계 자동화<a class="headerlink" href="#4" title="Permanent link">🔗</a></h2>
 <div class="mermaid">flowchart TB
-    Start[수집된 상품] --&gt; S1{1단계<br/>BC코드 매칭}
+    Start[수집된 상품] --&gt; S1{DB 학습 매칭<br/>같은 셀러 과거 등록}
     S1 --&gt;|일치| Found[✅ 카테고리 결정]
-    S1 --&gt;|없음| S2{2단계<br/>DB 학습 매칭}
+    S1 --&gt;|없음| S2{하드코딩 룰<br/>주요 카테고리 직접 매핑}
     S2 --&gt;|일치| Found
-    S2 --&gt;|없음| S3{3단계<br/>하드코딩 룰}
+    S2 --&gt;|없음| S3{키워드 매칭<br/>상품명 워드 분석}
     S3 --&gt;|일치| Found
-    S3 --&gt;|없음| S4{4단계<br/>키워드 매칭}
+    S3 --&gt;|없음| S4{네이버 검색 추천<br/>네이버 쇼핑 검색 활용}
     S4 --&gt;|일치| Found
-    S4 --&gt;|없음| S5{5단계<br/>상품명 분석}
-    S5 --&gt;|일치| Found
-    S5 --&gt;|없음| S6{6단계<br/>네이버 API 검색}
-    S6 --&gt;|일치| Found
-    S6 --&gt;|없음| S7[7단계<br/>fallback 카테고리]
-    S7 --&gt; Found
+    S4 --&gt;|없음| Manual[⚠️ 수동 검토 보류<br/>셀러에게 알림]
 
     Found --&gt; Apply[상품에 적용]
 
     style Found fill:#dcfce7,stroke:#22c55e
+    style Manual fill:#fef3c7,stroke:#f59e0b
 </div>
-<p><strong>7단계가 다 동작해야</strong> 카테고리 매핑이 정확합니다. 하나라도 빠지면 잘못된 카테고리로 등록됨.</p>
+<p><strong>여러 단계로 자동 매핑</strong>됩니다. 모든 단계가 실패한 상품은 수동 검토 보류로 남고 셀러가 직접 카테고리를 지정할 수 있습니다.</p>
 <h3 id="4-1">4-1. 자주 발생하는 카테고리 함정 (수정됨)<a class="headerlink" href="#4-1" title="Permanent link">🔗</a></h3>
 <table>
 <thead>

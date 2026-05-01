@@ -233,6 +233,17 @@
 
       </a>
 </li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../09-glossary/">
+        
+  
+  
+    
+  
+  용어 사전
+
+      </a>
+</li>
 </ul>
 </div>
 </nav>
@@ -574,6 +585,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09-glossary/">
+<span class="md-ellipsis">
+    
+  
+    용어 사전
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -585,7 +608,16 @@
 <blockquote>
 <p>Lonit이 <strong>어떻게</strong> 동작하는지 그림으로 이해하기.</p>
 </blockquote>
-<p>이 챕터는 코드나 어려운 용어 없이, <strong>그림 위주로</strong> Lonit의 동작을 설명합니다. 강의에서는 이 챕터부터 시작합니다.</p>
+<div class="admonition tip">
+<p class="admonition-title">🎯 이 챕터에서 배우는 것</p>
+<ul>
+<li>Lonit의 4가지 핵심 기능 (수집·등록·동기화·주문)</li>
+<li>상품 1개가 무신사에서 마켓에 올라가기까지의 전체 흐름</li>
+<li>"왜 4마켓 동시 등록이 가능한가" — 마켓별 변환 원리</li>
+<li>셀러가 직접 하는 일 vs Lonit이 자동으로 하는 일</li>
+</ul>
+</div>
+<p>이 챕터는 코드나 어려운 용어 없이, <strong>그림 위주로</strong> Lonit의 동작을 설명합니다. 처음 가입한 분이라면 <a href="../01-getting-started/">1. 시작하기</a>부터 보시고, 강의 수강생은 이 챕터부터 시작하세요.</p>
 <hr/>
 <h2 id="1-lonit">1. 한 장으로 보는 Lonit<a class="headerlink" href="#1-lonit" title="Permanent link">🔗</a></h2>
 <div class="mermaid">flowchart TB
@@ -695,7 +727,7 @@
     participant L as Lonit
     participant MK as 4마켓
 
-    loop 매 5분마다
+    loop 정기 동기화 사이클
         L-&gt;&gt;MUSINSA: 가격·재고 확인
         MUSINSA--&gt;&gt;L: 현재 데이터
 
@@ -711,7 +743,10 @@
         end
     end
 </div>
-<p><strong>감지 → 적용까지 평균 5초</strong>. 무신사에서 가격이 바뀐 뒤 5초 후엔 4마켓에도 반영되어 있습니다.</p>
+<div class="admonition info">
+<p class="admonition-title">동기화 주기에 대한 사실</p>
+<p>Lonit은 정기 스케줄러(약 30분 주기)로 변경 사항을 점검하며, 즉시 push가 필요한 변경(정책 수정 등)은 별도 경로로 처리합니다. 마켓 API 응답 속도와 큐 상태에 따라 실제 반영 시간은 달라집니다.</p>
+</div>
 <h3 id="2-4-cs">2-4. 주문·CS<a class="headerlink" href="#2-4-cs" title="Permanent link">🔗</a></h3>
 <div class="mermaid">flowchart TB
     subgraph MK["🛒 4마켓에서 주문 발생"]
@@ -721,10 +756,10 @@
         OM4[11번가 주문]
     end
 
-    OM1 --&gt;|매분 동기화| Lonit
-    OM2 --&gt;|매분 동기화| Lonit
-    OM3 --&gt;|매분 동기화| Lonit
-    OM4 --&gt;|매분 동기화| Lonit
+    OM1 --&gt;|정기 동기화| Lonit
+    OM2 --&gt;|정기 동기화| Lonit
+    OM3 --&gt;|정기 동기화| Lonit
+    OM4 --&gt;|정기 동기화| Lonit
 
     Lonit --&gt; HUB[📋 통합 주문 화면]
 
@@ -801,9 +836,9 @@
     STD --&gt; V{마켓별 변환}
 
     V --&gt;|네이버 SEO 강화| N[스마트스토어<br/>제목: 모델명 추가<br/>태그: 자동 생성<br/>카테고리: 패션 &gt; 상의 &gt; 후드]
-    V --&gt;|CP 옵션 매칭| C[쿠팡<br/>itemName 변환<br/>옵션 30자 제한 적용<br/>카테고리: 5단계]
-    V --&gt;|LOTTE POLICY| L[롯데온<br/>매장 ID 적용<br/>발주 정책 결합<br/>카테고리: 4단계]
-    V --&gt;|11번가 KC| E[11번가<br/>KC 인증 자동 입력<br/>brand 병기<br/>카테고리: 4단계]
+    V --&gt;|쿠팡 옵션 매칭| C[쿠팡<br/>itemName 변환<br/>옵션 30자 제한 적용<br/>카테고리: 5단계]
+    V --&gt;|롯데온 정책| L[롯데온<br/>매장 ID 적용<br/>발주 정책 결합<br/>카테고리: 4단계]
+    V --&gt;|11번가 KC| E[11번가<br/>KC 정보 자동 입력<br/>brand 병기<br/>카테고리: 4단계]
 
     style STD fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
     style V fill:#fce7f3,stroke:#ec4899,stroke-width:2px

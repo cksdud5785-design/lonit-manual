@@ -233,6 +233,17 @@
 
       </a>
 </li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../09-glossary/">
+        
+  
+  
+    
+  
+  용어 사전
+
+      </a>
+</li>
 </ul>
 </div>
 </nav>
@@ -430,11 +441,11 @@
 <a class="md-nav__link" href="#2-kc">
 <span class="md-ellipsis">
       
-        2. KC 인증 — 등록 거부의 가장 큰 원인
+        2. KC 인증 — 카테고리에 따라 필수
       
     </span>
 </a>
-<nav aria-label="2. KC 인증 — 등록 거부의 가장 큰 원인" class="md-nav">
+<nav aria-label="2. KC 인증 — 카테고리에 따라 필수" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#2-1-kc">
@@ -449,7 +460,7 @@
 <a class="md-nav__link" href="#2-2-lonit">
 <span class="md-ellipsis">
       
-        2-2. Lonit이 자동 처리
+        2-2. Lonit의 현재 처리 방식
       
     </span>
 </a>
@@ -689,6 +700,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-glossary/">
+<span class="md-ellipsis">
+    
+  
+    용어 사전
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -719,8 +742,8 @@
 </div>
 <p>11번가는 <strong>형식 검증</strong>이 가장 까다롭습니다. 형식이 맞으면 노출, 안 맞으면 거부.</p>
 <hr/>
-<h2 id="2-kc">2. KC 인증 — 등록 거부의 가장 큰 원인<a class="headerlink" href="#2-kc" title="Permanent link">🔗</a></h2>
-<p>KC 인증(국내 안전 인증)은 카테고리에 따라 필수입니다.</p>
+<h2 id="2-kc">2. KC 인증 — 카테고리에 따라 필수<a class="headerlink" href="#2-kc" title="Permanent link">🔗</a></h2>
+<p>KC 인증(국내 안전 인증)은 일부 카테고리에서 의무 사항입니다.</p>
 <h3 id="2-1-kc">2-1. KC 인증 필요한 카테고리 (예시)<a class="headerlink" href="#2-1-kc" title="Permanent link">🔗</a></h3>
 <table>
 <thead>
@@ -756,19 +779,25 @@
 </tr>
 </tbody>
 </table>
-<h3 id="2-2-lonit">2-2. Lonit이 자동 처리<a class="headerlink" href="#2-2-lonit" title="Permanent link">🔗</a></h3>
+<h3 id="2-2-lonit">2-2. Lonit의 현재 처리 방식<a class="headerlink" href="#2-2-lonit" title="Permanent link">🔗</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">현재 Lonit이 지원하는 범위</p>
+<p>Lonit은 <strong>일반 패션 카테고리(의류·잡화 등) 기준으로 'KC 인증 없음' 정보를 자동 전송</strong>합니다. KC 인증이 필수인 카테고리(영유아·전자제품·일부 화장품 등)는 현재 셀러가 11번가 셀러오피스에서 <strong>상품 등록 후 인증 정보를 직접 입력</strong>해야 합니다.</p>
+</div>
 <div class="mermaid">flowchart LR
-    카테고리[카테고리 매핑됨] --&gt; Need{KC 필요?}
-    Need --&gt;|예| Auto[Lonit 자동 입력<br/>정책에서 받은 값]
-    Need --&gt;|아니오| Skip[자동 생략]
+    Cat[카테고리 매핑됨] --&gt; Type{KC 필요 카테고리?}
+    Type --&gt;|패션/잡화 등| Auto[KC 없음 자동 입력]
+    Type --&gt;|영유아·전자 등| Manual[셀러 직접 추가 필요]
 
-    Auto --&gt; Upload[11번가 등록]
-    Skip --&gt; Upload
+    Auto --&gt; Upload[11번가 등록 정상]
+    Manual --&gt; SellerOffice[셀러오피스에서 KC 정보 입력]
+    SellerOffice --&gt; Upload
 
-    style Auto fill:#fce7f3,stroke:#ec4899
+    style Auto fill:#dcfce7,stroke:#22c55e
+    style Manual fill:#fef3c7,stroke:#f59e0b
 </div>
 <h3 id="2-3">2-3. 셀러가 해야 할 일<a class="headerlink" href="#2-3" title="Permanent link">🔗</a></h3>
-<p>KC 인증 정보(인증번호, 인증기관)는 <strong>정책 → 11번가 인증 정보</strong> 에서 1번 입력해두면 됩니다.</p>
+<p>KC 인증이 필수인 카테고리 상품은 11번가 셀러오피스에서 인증번호 + 인증기관을 등록하세요. (이 부분은 추후 Lonit에서 자동화 예정)</p>
 <table>
 <thead>
 <tr>

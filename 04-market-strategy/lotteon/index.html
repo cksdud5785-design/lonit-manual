@@ -233,6 +233,17 @@
 
       </a>
 </li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../09-glossary/">
+        
+  
+  
+    
+  
+  용어 사전
+
+      </a>
+</li>
 </ul>
 </div>
 </nav>
@@ -424,38 +435,20 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3">
+<a class="md-nav__link" href="#3-slprc">
 <span class="md-ellipsis">
       
-        3. 가격 — 정가 + 할인가 분리
+        3. 가격 — 판매가 (slPrc) 기준 등록
       
     </span>
 </a>
-<nav aria-label="3. 가격 — 정가 + 할인가 분리" class="md-nav">
+<nav aria-label="3. 가격 — 판매가 (slPrc) 기준 등록" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-1">
+<a class="md-nav__link" href="#3-1-lonit">
 <span class="md-ellipsis">
       
-        3-1. 잘못된 이해 (과거 버그)
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-2">
-<span class="md-ellipsis">
-      
-        3-2. 올바른 처리 (현재)
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-3">
-<span class="md-ellipsis">
-      
-        3-3. 가격 효과 비교
+        3-1. Lonit 정책의 할인 변수 활용
       
     </span>
 </a>
@@ -667,6 +660,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-glossary/">
+<span class="md-ellipsis">
+    
+  
+    용어 사전
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -712,51 +717,20 @@
 </div>
 <p>매장 ID는 <strong>롯데온 셀러센터 → 매장 관리</strong> 에서 확인 가능합니다.</p>
 <hr/>
-<h2 id="3">3. 가격 — 정가 + 할인가 분리<a class="headerlink" href="#3" title="Permanent link">🔗</a></h2>
-<p>롯데온은 <strong>정가(slPrc)</strong> 와 <strong>할인가(promotion)</strong> 가 분리되어 있습니다. 다른 마켓과 가장 큰 차이.</p>
-<h3 id="3-1">3-1. 잘못된 이해 (과거 버그)<a class="headerlink" href="#3-1" title="Permanent link">🔗</a></h3>
+<h2 id="3-slprc">3. 가격 — 판매가 (slPrc) 기준 등록<a class="headerlink" href="#3-slprc" title="Permanent link">🔗</a></h2>
+<p>롯데온은 등록·갱신 시 <strong>판매가(slPrc)</strong> 를 기준으로 가격을 보냅니다. 다른 마켓처럼 "정가 + 할인" 분리 자동화는 현재 Lonit에서 별도로 지원하지 않습니다 (롯데온 정책 변경에 따라 향후 확장 예정).</p>
 <div class="mermaid">flowchart LR
-    Lonit_old[Lonit 과거] --&gt;|slPrc=실제 판매가| Display[화면에<br/>실제 판매가만 표시]
-    Display --&gt; Bad[❌ 할인 표시 못 받음<br/>정가 + 할인 효과 ↓]
+    Calc[정책 적용 후<br/>판매가 계산] --&gt; Send[slPrc 단일 값으로<br/>롯데온 등록·갱신]
+    Send --&gt; Display[고객 화면에<br/>판매가 표시]
 
-    style Bad fill:#fee2e2
+    style Send fill:#fce7f3,stroke:#ec4899
 </div>
-<h3 id="3-2">3-2. 올바른 처리 (현재)<a class="headerlink" href="#3-2" title="Permanent link">🔗</a></h3>
-<div class="mermaid">flowchart LR
-    Lonit_new[Lonit 현재] --&gt; Sep{가격 분리}
-    Sep --&gt;|정가| List[slPrc = 정가]
-    Sep --&gt;|할인| Promo[promotion API<br/>= 할인가]
-
-    List --&gt; Display[정가 표시 + 할인 배지]
-    Promo --&gt; Display
-
-    Display --&gt; Good[✅ 정상 할인 효과<br/>'30% OFF' 노출]
-
-    style Good fill:#dcfce7,stroke:#22c55e
+<div class="admonition info">
+<p class="admonition-title">할인 표시를 원한다면</p>
+<p>롯데온 셀러센터에서 직접 <strong>프로모션 / 즉시할인 / 카드사 행사</strong>를 별도 등록할 수 있습니다. Lonit이 등록한 판매가 위에 추가 할인이 적용됩니다.</p>
 </div>
-<p>이 로직은 자동입니다. 셀러는 정책에 마진과 할인을 설정만 하면 Lonit이 알아서 두 가지로 분리해 등록합니다.</p>
-<h3 id="3-3">3-3. 가격 효과 비교<a class="headerlink" href="#3-3" title="Permanent link">🔗</a></h3>
-<table>
-<thead>
-<tr>
-<th>등록 방식</th>
-<th>표시 결과</th>
-<th>클릭률</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>정가만 표시</td>
-<td>25,000원</td>
-<td>보통</td>
-</tr>
-<tr>
-<td><strong>정가 + 할인 분리</strong></td>
-<td>~~30,000원~~ → <strong>25,000원</strong> (16% 할인 배지)</td>
-<td>⭐ 높음</td>
-</tr>
-</tbody>
-</table>
+<h3 id="3-1-lonit">3-1. Lonit 정책의 할인 변수 활용<a class="headerlink" href="#3-1-lonit" title="Permanent link">🔗</a></h3>
+<p>가격 정책의 <code>discountRate</code>·<code>discountAmount</code>는 <strong>판매가 자체를 낮추는</strong> 방식으로 동작합니다 — 즉, 정가/할인가 분리가 아니라 <strong>최종 slPrc</strong>가 작아집니다. 정가 표시 + 할인율 배지를 원한다면 셀러센터에서 별도 설정.</p>
 <hr/>
 <h2 id="4-4">4. 카테고리 — 4단계<a class="headerlink" href="#4-4" title="Permanent link">🔗</a></h2>
 <p>롯데온은 <strong>4단계 카테고리</strong> 입니다.</p>
