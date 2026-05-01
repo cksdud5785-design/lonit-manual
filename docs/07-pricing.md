@@ -238,7 +238,7 @@ sequenceDiagram
 ```mermaid
 flowchart LR
     Real[정상가 30,000] -->|discountRate 20%| Sale[24,000원]
-    Real -.->|LOTTE 표시| Display[~30,000~ → 24,000<br>20% OFF]
+    Real -.->|롯데온 표시| Display[~30,000~ → 24,000<br>20% OFF]
     
     style Display fill:#dcfce7,stroke:#22c55e
 ```
@@ -315,8 +315,8 @@ mindmap
       이름 의미있게
       카테고리 정책은 카테고리명 포함
     실험
-      POLICY 시뮬레이션 활용
-      조정 후 SALES 변화 관찰
+      정책 시뮬레이션 활용
+      조정 후 매출 변화 관찰
 ```
 
 ---

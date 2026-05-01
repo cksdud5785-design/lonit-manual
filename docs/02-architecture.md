@@ -35,7 +35,7 @@ flowchart TB
         O4[🎁 11번가]
     end
 
-    INPUT ==>|크롬 EXT| CORE
+    INPUT ==>|크롬 익스텐션| CORE
     CORE ==>|API| OUTPUT
     
     style CORE fill:#eef2ff,stroke:#6366f1,stroke-width:2px
@@ -52,12 +52,12 @@ flowchart TB
 ```mermaid
 mindmap
   root((Lonit))
-    COLLECT
-      크롬 EXT
+    수집
+      크롬 익스텐션
       12개 사이트
       자동 파싱
     등록
-      FOUR_MKT 동시
+      4마켓 동시
       카테고리 자동 매핑
       옵션 변환
     동기화
@@ -65,9 +65,9 @@ mindmap
       재고 자동
       품절 자동
     주문·CS
-      HUB 주문 화면
+      통합 주문 화면
       송장 자동 등록
-      CLAIM 처리
+      클레임 처리
 ```
 
 각 기능을 하나씩 봅시다.
@@ -76,7 +76,7 @@ mindmap
 
 ```mermaid
 flowchart LR
-    A[👤 셀러] -->|PRODUCT 페이지에서<br>EXT 클릭| B[🌐 크롬 익스텐션]
+    A[👤 셀러] -->|상품 페이지에서<br>익스텐션 클릭| B[🌐 크롬 익스텐션]
     B -->|자동 추출| C[📝 상품 데이터]
     C --> D{무엇을 추출?}
     D --> D1[상품명]
@@ -99,8 +99,8 @@ flowchart TB
     P[📦 상품 1개] --> M{4마켓 변환}
     
     M -->|네이버 형식| MN[스마트스토어 페이로드]
-    M -->|CP 형식| MC[쿠팡 페이로드]
-    M -->|LOTTE 형식| ML[롯데온 페이로드]
+    M -->|쿠팡 형식| MC[쿠팡 페이로드]
+    M -->|롯데온 형식| ML[롯데온 페이로드]
     M -->|11번가 형식| ME[11번가 페이로드]
     
     MN -->|API 호출| AN[📤 스마트스토어]
@@ -128,9 +128,9 @@ flowchart TB
 
 ```mermaid
 sequenceDiagram
-    participant MUSINSA as MUSINSA
+    participant MUSINSA as 무신사
     participant L as Lonit
-    participant MK as FOUR_MKT
+    participant MK as 4마켓
     
     loop 매 5분마다
         L->>MUSINSA: 가격·재고 확인
@@ -197,9 +197,9 @@ sequenceDiagram
     autonumber
     participant USER as USER
     participant MUSINSA as MUSINSA
-    participant EXT as 크롬 EXT
+    participant EXT as 크롬 익스텐션
     participant Lonit
-    participant POLICY as 가격 POLICY
+    participant POLICY as 가격 정책
     participant FOUR_MKT
     participant CUSTOMER as CUSTOMER
     USER->>MUSINSA: 상품 페이지 열기
@@ -214,7 +214,7 @@ sequenceDiagram
     Lonit->>Lonit: 카테고리 자동 매핑<br>SEO 제목 최적화<br>옵션 변환
     
     USER->>Lonit: 업로드 버튼 클릭
-    par FOUR_MKT 동시 업로드
+    par 4마켓 동시 업로드
         Lonit->>FOUR_MKT: 스마트스토어 등록
         Lonit->>FOUR_MKT: 쿠팡 등록
         Lonit->>FOUR_MKT: 롯데온 등록

@@ -37,13 +37,13 @@ flowchart LR
 flowchart TB
     COLLECT[수집된 상품] --> Pre{Lonit 사전 검색}
     
-    Pre -->|CP 카탈로그<br>SKU SEARCH| Found{기존 카탈로그<br>존재?}
+    Pre -->|쿠팡 카탈로그<br>SKU 검색| Found{기존 카탈로그<br>존재?}
     
     Found -->|있음| Match[기존 카탈로그에<br>판매자 추가로 등록]
     Found -->|없음| Create[새 카탈로그 생성]
     
-    Match -->|즉시 VISIBILITY 풀 진입| List[검색 결과에<br>가격순 정렬됨]
-    Create -->|CP 검수 후| List
+    Match -->|즉시 노출 풀 진입| List[검색 결과에<br>가격순 정렬됨]
+    Create -->|쿠팡 검수 후| List
     
     style Pre fill:#dcfce7,stroke:#22c55e
     style Match fill:#fce7f3,stroke:#ec4899
