@@ -134,9 +134,9 @@ plugins:
   - mermaid2:
       version: 11.4.1
       arguments:
-        # 다크모드 자동 감지 — JSON.parse로 palette 객체 얻은 뒤 .index 비교
+        # 다크모드 자동 감지 — __md_get은 객체를 직접 반환 (JSON.parse 불필요)
         theme: |
-          ^(JSON.parse(__md_get("__palette")).index == 1) ? 'dark' : 'default'
+          ^(document.body.getAttribute('data-md-color-scheme') === 'slate') ? 'dark' : 'default'
         # 사이트 인디고 톤과 어울리는 테마 변수
         themeVariables:
           primaryColor: '#eef2ff'
