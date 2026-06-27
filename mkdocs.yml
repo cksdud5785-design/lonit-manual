@@ -167,5 +167,9 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/chat-widget.css
+
+extra_javascript:
+  - javascripts/chat-widget.js
 
 copyright: Copyright &copy; 2026 Lonit · 셀러를 위한 자동화
