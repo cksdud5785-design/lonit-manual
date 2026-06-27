@@ -67,3 +67,5 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+# Touch to trigger the first Pages deployment after enabling this workflow.
