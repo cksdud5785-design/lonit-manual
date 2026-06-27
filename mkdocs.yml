@@ -168,8 +168,10 @@ extra:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/chat-widget.css
+  - stylesheets/chat-widget-visibility.css
 
 extra_javascript:
   - javascripts/chat-widget.js
+  - javascripts/chat-widget-visibility.js
 
 copyright: Copyright &copy; 2026 Lonit · 셀러를 위한 자동화
