@@ -26,7 +26,7 @@ hide:
 
 <div class="lonit-cards">
 
-<a class="lonit-card" href="01-getting-started/">
+<a class="lonit-card" href="https://github.com/cksdud5785-design/lonit-manual/blob/main/docs/01-getting-started.md">
 <span class="lonit-card-icon">🚀</span>
 <h3>처음 쓰는 분</h3>
 <p>5분 만에 첫 상품 등록까지. 가입부터 동기화까지 한 번에.</p>
@@ -128,35 +128,43 @@ hide:
 
 ## 빠른 시작 4단계 { .center }
 
-<div class="step">
+<div class="step" markdown="1">
 <div class="step-number">1</div>
-<div class="step-body">
+<div class="step-body" markdown="1">
 <h4>회원가입 + 마켓 계정 등록</h4>
-<p>Lonit에 가입한 뒤 운영하는 4마켓 계정의 API 키를 등록합니다. <a href="01-getting-started/#1-회원가입">자세히 보기 →</a></p>
+
+[로닛에 가입](01-getting-started.md#signup)한 뒤 판매할 [마켓 계정을 연결](01-getting-started.md#market-account)합니다.
+
 </div>
 </div>
 
-<div class="step">
+<div class="step" markdown="1">
 <div class="step-number">2</div>
-<div class="step-body">
+<div class="step-body" markdown="1">
 <h4>크롬 익스텐션 설치</h4>
-<p>무신사·SSG 등에서 상품을 수집하는 도구. Chrome에 설치만 하면 끝. <a href="01-getting-started/#3-크롬-익스텐션-설치">자세히 보기 →</a></p>
+
+[확장 프로그램 설치 안내](01-getting-started.md#extension)에 따라 크롬 웹스토어에서 설치합니다.
+
 </div>
 </div>
 
-<div class="step">
+<div class="step" markdown="1">
 <div class="step-number">3</div>
-<div class="step-body">
+<div class="step-body" markdown="1">
 <h4>가격 정책 1개 만들기</h4>
-<p>마진과 할인 규칙을 한 번 정해두면 모든 상품에 자동 적용. <a href="07-pricing/">정책 자세히 →</a></p>
+
+[가격 정책](01-getting-started.md#policy)에서 첫 상품에 적용할 마진과 판매가 규칙을 정합니다.
+
 </div>
 </div>
 
-<div class="step">
+<div class="step" markdown="1">
 <div class="step-number">4</div>
-<div class="step-body">
-<h4>첫 상품 등록 + 4마켓 업로드</h4>
-<p>익스텐션으로 무신사 상품 1개 수집 → "4마켓 업로드" 클릭. 끝. <a href="05-workflow/">전체 워크플로우 →</a></p>
+<div class="step-body" markdown="1">
+<h4>첫 상품 등록</h4>
+
+[상품 하나를 수집](01-getting-started.md#collect)한 뒤 상품관리에서 [판매할 마켓과 계정을 선택해 업로드](01-getting-started.md#first-upload)합니다.
+
 </div>
 </div>
 
